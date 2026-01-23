@@ -1,0 +1,112 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 5px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button.active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.threatLimited { border-color: var(--color-threat-limited); }
+.threatRising { border-color: var(--color-threat-rising); }
+.threatSerious { border-color: var(--color-threat-serious); }
+
+.icon {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.warningIcon {
+  font-size: 14px;
+}
+
+.dots {
+  display: flex;
+  gap: 2px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.threatLimited .dot { background-color: var(--color-threat-limited); }
+.threatRising .dot { background-color: var(--color-threat-rising); }
+.threatSerious .dot { background-color: var(--color-threat-serious); }
+
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.description {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .name {
+    font-size: 11px;
+  }
+  .description {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    gap: 8px;
+    padding: 10px;
+  }
+  .button {
+    padding: 4px 8px;
+  }
+  .description {
+    display: none;
+  }
+}

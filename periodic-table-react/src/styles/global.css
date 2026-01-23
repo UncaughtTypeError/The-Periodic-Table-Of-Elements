@@ -1,0 +1,42 @@
+@import './variables.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  background: var(--color-background);
+  font-family: var(--font-family);
+  color: var(--color-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  transition: var(--transition-slow);
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--color-text-muted);
+}
+
+ul {
+  list-style: none;
+}
+
+#root {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,309 @@
+.cell {
+  width: var(--cell-width, 80px);
+  height: var(--cell-height, 95px);
+  background: var(--color-surface);
+  border: 2px solid;
+  border-radius: 3px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  transition:
+    transform 0.7s ease,
+    box-shadow 0.7s ease,
+    background-color 0.7s ease,
+    border-color 0.7s ease;
+  transform-origin: center;
+  z-index: 1;
+}
+
+.cell:hover {
+  transform: scale(1.5);
+  z-index: 10;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 30px 5px;
+}
+
+/* Category colors */
+.otherNonmetals {
+  border-color: var(--color-other-nonmetals);
+}
+.nobleGases {
+  border-color: var(--color-noble-gases);
+}
+.halogens {
+  border-color: var(--color-halogens);
+}
+.metalloids {
+  border-color: var(--color-metalloids);
+}
+.alkalineEarthMetals {
+  border-color: var(--color-alkaline-earth-metals);
+}
+.alkaliMetals {
+  border-color: var(--color-alkali-metals);
+}
+.transitionMetals {
+  border-color: var(--color-transition-metals);
+}
+.postTransitionMetals {
+  border-color: var(--color-post-transition-metals);
+}
+.lanthanoids {
+  border-color: var(--color-lanthanoids);
+}
+.actinoids {
+  border-color: var(--color-actinoids);
+}
+
+/* States */
+.noFocus {
+  border-color: var(--color-no-focus) !important;
+}
+
+.noFocus .atomicNumber,
+.noFocus .symbol,
+.noFocus .name,
+.noFocus .mass,
+.noFocus .shells span {
+  color: darkgray !important;
+}
+
+.focus {
+  transform: scale(1.2);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px 5px inset;
+  z-index: 5;
+}
+
+.activeGroup {
+  transform: scale(1.1);
+  z-index: 5;
+}
+
+.focusGroup {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+.focusGroup::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid;
+}
+
+.focusGroup.otherNonmetals::after {
+  border-top-color: var(--color-other-nonmetals);
+}
+.focusGroup.nobleGases::after {
+  border-top-color: var(--color-noble-gases);
+}
+.focusGroup.halogens::after {
+  border-top-color: var(--color-halogens);
+}
+.focusGroup.metalloids::after {
+  border-top-color: var(--color-metalloids);
+}
+.focusGroup.alkalineEarthMetals::after {
+  border-top-color: var(--color-alkaline-earth-metals);
+}
+.focusGroup.alkaliMetals::after {
+  border-top-color: var(--color-alkali-metals);
+}
+.focusGroup.transitionMetals::after {
+  border-top-color: var(--color-transition-metals);
+}
+.focusGroup.postTransitionMetals::after {
+  border-top-color: var(--color-post-transition-metals);
+}
+.focusGroup.lanthanoids::after {
+  border-top-color: var(--color-lanthanoids);
+}
+.focusGroup.actinoids::after {
+  border-top-color: var(--color-actinoids);
+}
+
+/* Inner elements */
+.shells {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1px;
+  font-size: 8px;
+  color: var(--color-text);
+  margin-bottom: 2px;
+}
+
+.shells span {
+  min-width: 8px;
+  text-align: center;
+  transition: color 0.7s ease;
+}
+
+.atomicNumber {
+  font-size: 10px;
+  color: var(--color-text);
+  transition: color 0.7s ease;
+}
+
+.symbol {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--color-text);
+  line-height: 1;
+  transition: color 0.7s ease;
+}
+
+.name {
+  font-size: 9px;
+  color: var(--color-text);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.7s ease;
+}
+
+.mass {
+  font-size: 9px;
+  color: var(--color-text);
+  margin-top: auto;
+  transition: color 0.7s ease;
+}
+
+/* Threat indicator */
+.threatIndicator {
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  display: flex;
+  gap: 1px;
+}
+
+.threatDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+}
+
+.threatLimited .threatDot {
+  background-color: var(--color-threat-limited);
+}
+.threatRising .threatDot {
+  background-color: var(--color-threat-rising);
+}
+.threatSerious .threatDot {
+  background-color: var(--color-threat-serious);
+}
+
+/* Empty cell */
+.empty {
+  visibility: hidden;
+}
+
+/* Responsive */
+@media (max-width: 1500px) {
+  .cell {
+    --cell-width: 70px;
+    --cell-height: 85px;
+  }
+  .symbol {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1300px) {
+  .cell {
+    --cell-width: 60px;
+    --cell-height: 75px;
+  }
+  .symbol {
+    font-size: 20px;
+  }
+  .shells {
+    font-size: 7px;
+  }
+  .atomicNumber {
+    font-size: 9px;
+  }
+  .name {
+    font-size: 8px;
+  }
+  .mass {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .cell {
+    --cell-width: 50px;
+    --cell-height: 65px;
+  }
+  .symbol {
+    font-size: 18px;
+  }
+  .shells {
+    display: none;
+  }
+}
+
+@media (max-width: 980px) {
+  .cell {
+    --cell-width: 45px;
+    --cell-height: 55px;
+    padding: 3px;
+  }
+  .symbol {
+    font-size: 16px;
+  }
+  .name {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .cell {
+    --cell-width: 38px;
+    --cell-height: 48px;
+  }
+  .symbol {
+    font-size: 14px;
+  }
+  .atomicNumber {
+    font-size: 8px;
+  }
+  .mass {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cell {
+    --cell-width: 32px;
+    --cell-height: 40px;
+    padding: 2px;
+  }
+  .symbol {
+    font-size: 12px;
+  }
+  .mass {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .cell {
+    --cell-width: 28px;
+    --cell-height: 35px;
+  }
+  .symbol {
+    font-size: 10px;
+  }
+  .atomicNumber {
+    font-size: 7px;
+  }
+}

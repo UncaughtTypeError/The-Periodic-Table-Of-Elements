@@ -1,0 +1,96 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--color-surface);
+  border: 2px solid;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button.active {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.colorDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Category colors */
+.otherNonmetals { border-color: var(--color-other-nonmetals); }
+.otherNonmetals .colorDot { background-color: var(--color-other-nonmetals); }
+
+.nobleGases { border-color: var(--color-noble-gases); }
+.nobleGases .colorDot { background-color: var(--color-noble-gases); }
+
+.halogens { border-color: var(--color-halogens); }
+.halogens .colorDot { background-color: var(--color-halogens); }
+
+.metalloids { border-color: var(--color-metalloids); }
+.metalloids .colorDot { background-color: var(--color-metalloids); }
+
+.alkalineEarthMetals { border-color: var(--color-alkaline-earth-metals); }
+.alkalineEarthMetals .colorDot { background-color: var(--color-alkaline-earth-metals); }
+
+.alkaliMetals { border-color: var(--color-alkali-metals); }
+.alkaliMetals .colorDot { background-color: var(--color-alkali-metals); }
+
+.transitionMetals { border-color: var(--color-transition-metals); }
+.transitionMetals .colorDot { background-color: var(--color-transition-metals); }
+
+.postTransitionMetals { border-color: var(--color-post-transition-metals); }
+.postTransitionMetals .colorDot { background-color: var(--color-post-transition-metals); }
+
+.lanthanoids { border-color: var(--color-lanthanoids); }
+.lanthanoids .colorDot { background-color: var(--color-lanthanoids); }
+
+.actinoids { border-color: var(--color-actinoids); }
+.actinoids .colorDot { background-color: var(--color-actinoids); }
+
+@media (max-width: 768px) {
+  .button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .colorDot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    gap: 5px;
+    padding: 10px;
+  }
+  .button {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+  .colorDot {
+    width: 8px;
+    height: 8px;
+  }
+}

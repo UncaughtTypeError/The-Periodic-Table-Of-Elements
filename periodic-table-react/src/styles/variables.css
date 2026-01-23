@@ -1,0 +1,40 @@
+:root {
+  /* Category Colors */
+  --color-other-nonmetals: #76FF03;
+  --color-noble-gases: #df5ff5;
+  --color-halogens: #18FFFF;
+  --color-metalloids: #00E676;
+  --color-alkaline-earth-metals: #eaea18;
+  --color-alkali-metals: #f7a91d;
+  --color-transition-metals: #ff3e7f;
+  --color-post-transition-metals: #40C4FF;
+  --color-lanthanoids: #fd6d3f;
+  --color-actinoids: #ff1744;
+
+  /* Threat Colors */
+  --color-threat-limited: #ded014;
+  --color-threat-rising: #e27807;
+  --color-threat-serious: #d00000;
+
+  /* UI Colors */
+  --color-background: #1a1a1a;
+  --color-surface: #242424;
+  --color-border: #e2e2e2;
+  --color-text: #ffffff;
+  --color-text-muted: #949494;
+  --color-no-focus: #a9a9a9;
+  --color-link: #03a3ea;
+
+  /* Timing */
+  --transition-fast: 0.3s;
+  --transition-medium: 0.5s;
+  --transition-slow: 0.7s;
+
+  /* Element Cell Sizes */
+  --cell-width: 80px;
+  --cell-height: 95px;
+  --cell-gap: 2px;
+
+  /* Fonts */
+  --font-family: Arial, sans-serif;
+}
