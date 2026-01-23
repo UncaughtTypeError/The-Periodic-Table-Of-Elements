@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# The Periodic Table of Elements
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive periodic table application built with React and TypeScript. Browse all 118 elements, filter by category or threat level, and view detailed information for each element.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive Element Grid**: Click any element to view detailed information
+- **Category Filtering**: Filter elements by 10 categories (alkali metals, noble gases, transition metals, etc.)
+- **Threat Level Indicators**: Visual indicators for elements with limited availability, rising threats, or serious supply concerns
+- **Synthetic Element Display**: Synthetic elements display atomic mass in [brackets] to indicate no stable isotopes
+- **Responsive Design**: Works on desktop, tablet, and mobile devices
+- **Accessible**: Keyboard navigation and ARIA attributes for screen readers
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **React 19** - UI framework
+- **TypeScript 5** - Type-safe JavaScript
+- **Vite 7** - Build tool and dev server
+- **CSS Modules** - Scoped component styling
+- **Vitest** - Unit testing framework
+- **React Testing Library** - Component testing
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Node.js 18+
+- npm or yarn
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cd periodic-table-react
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+Opens the app at http://localhost:5173
+
+### Build
+
+```bash
+npm run build
+```
+
+Outputs production build to `dist/`
+
+### Testing
+
+```bash
+npm test
+```
+
+Run tests with coverage:
+
+```bash
+npm run coverage
+```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── Element/           # ElementCell component
+│   ├── ElementDetail/     # Detail panel for selected element
+│   ├── PeriodicTable/     # Main table grid
+│   ├── CategoryFilter/    # Category filter buttons
+│   ├── ThreatFilter/      # Threat level filter
+│   └── Footer/            # Page footer
+├── data/
+│   ├── elements.ts        # All 118 elements data
+│   ├── categories.ts      # Category definitions
+│   └── tableLayout.ts     # Grid positioning
+├── hooks/
+│   └── usePeriodicTableState.ts  # State management
+├── types/
+│   └── element.types.ts   # TypeScript interfaces
+└── styles/
+    ├── variables.css      # CSS custom properties
+    └── global.css         # Global styles
+```
+
+## Element Categories
+
+| Category               | Count | Examples                   |
+| ---------------------- | ----- | -------------------------- |
+| Transition Metals      | 38    | Fe, Cu, Au, Ag             |
+| Lanthanoids            | 15    | La, Ce, Nd, Eu             |
+| Actinoids              | 15    | Ac, U, Pu, Am              |
+| Post-Transition Metals | 11    | Al, Sn, Pb, Bi             |
+| Metalloids             | 8     | B, Si, Ge, As, Po, Ts      |
+| Noble Gases            | 7     | He, Ne, Ar, Kr, Xe, Rn, Og |
+| Other Nonmetals        | 7     | H, C, N, O, P, S, Se       |
+| Alkali Metals          | 6     | Li, Na, K, Rb, Cs, Fr      |
+| Alkaline Earth Metals  | 6     | Be, Mg, Ca, Sr, Ba, Ra     |
+| Halogens               | 5     | F, Cl, Br, I, At           |
+
+## License
+
+MIT
