@@ -1,11 +1,60 @@
+.wrapper {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.groupLabels {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.nonmetalsLabel,
+.metalsLabel {
+  text-align: center;
+  padding: 5px 0;
+  box-sizing: border-box;
+  position: relative;
+  border: 2px solid var(--color-text-muted);
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom: 0;
+}
+
+.nonmetalsLabel {
+  flex: 0 0 28%;
+  max-width: 435px;
+}
+
+.metalsLabel {
+  flex: 0 0 65%;
+  max-width: 972px;
+}
+
+.nonmetalsLabel span,
+.metalsLabel span {
+  background: var(--color-background);
+  padding: 0 10px;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  letter-spacing: 1px;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
-  padding: 20px;
-  max-width: 1600px;
-  margin: 0 auto;
+}
+
+.group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
 .button {
@@ -39,41 +88,92 @@
 }
 
 /* Category colors */
-.otherNonmetals { border-color: var(--color-other-nonmetals); }
-.otherNonmetals .colorDot { background-color: var(--color-other-nonmetals); }
+.otherNonmetals {
+  border-color: var(--color-other-nonmetals);
+}
+.otherNonmetals .colorDot {
+  background-color: var(--color-other-nonmetals);
+}
 
-.nobleGases { border-color: var(--color-noble-gases); }
-.nobleGases .colorDot { background-color: var(--color-noble-gases); }
+.nobleGases {
+  border-color: var(--color-noble-gases);
+}
+.nobleGases .colorDot {
+  background-color: var(--color-noble-gases);
+}
 
-.halogens { border-color: var(--color-halogens); }
-.halogens .colorDot { background-color: var(--color-halogens); }
+.halogens {
+  border-color: var(--color-halogens);
+}
+.halogens .colorDot {
+  background-color: var(--color-halogens);
+}
 
-.metalloids { border-color: var(--color-metalloids); }
-.metalloids .colorDot { background-color: var(--color-metalloids); }
+.metalloids {
+  border-color: var(--color-metalloids);
+}
+.metalloids .colorDot {
+  background-color: var(--color-metalloids);
+}
 
-.alkalineEarthMetals { border-color: var(--color-alkaline-earth-metals); }
-.alkalineEarthMetals .colorDot { background-color: var(--color-alkaline-earth-metals); }
+.alkalineEarthMetals {
+  border-color: var(--color-alkaline-earth-metals);
+}
+.alkalineEarthMetals .colorDot {
+  background-color: var(--color-alkaline-earth-metals);
+}
 
-.alkaliMetals { border-color: var(--color-alkali-metals); }
-.alkaliMetals .colorDot { background-color: var(--color-alkali-metals); }
+.alkaliMetals {
+  border-color: var(--color-alkali-metals);
+}
+.alkaliMetals .colorDot {
+  background-color: var(--color-alkali-metals);
+}
 
-.transitionMetals { border-color: var(--color-transition-metals); }
-.transitionMetals .colorDot { background-color: var(--color-transition-metals); }
+.transitionMetals {
+  border-color: var(--color-transition-metals);
+}
+.transitionMetals .colorDot {
+  background-color: var(--color-transition-metals);
+}
 
-.postTransitionMetals { border-color: var(--color-post-transition-metals); }
-.postTransitionMetals .colorDot { background-color: var(--color-post-transition-metals); }
+.postTransitionMetals {
+  border-color: var(--color-post-transition-metals);
+}
+.postTransitionMetals .colorDot {
+  background-color: var(--color-post-transition-metals);
+}
 
-.lanthanoids { border-color: var(--color-lanthanoids); }
-.lanthanoids .colorDot { background-color: var(--color-lanthanoids); }
+.lanthanoids {
+  border-color: var(--color-lanthanoids);
+}
+.lanthanoids .colorDot {
+  background-color: var(--color-lanthanoids);
+}
 
-.actinoids { border-color: var(--color-actinoids); }
-.actinoids .colorDot { background-color: var(--color-actinoids); }
+.actinoids {
+  border-color: var(--color-actinoids);
+}
+.actinoids .colorDot {
+  background-color: var(--color-actinoids);
+}
+
+@media (max-width: 1600px) {
+  .groupLabels {
+    display: none;
+  }
+}
 
 @media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+  }
+
   .button {
     padding: 6px 12px;
     font-size: 12px;
   }
+
   .colorDot {
     width: 10px;
     height: 10px;
@@ -81,14 +181,23 @@
 }
 
 @media (max-width: 500px) {
-  .container {
-    gap: 5px;
+  .wrapper {
     padding: 10px;
   }
+
+  .container {
+    gap: 5px;
+  }
+
+  .group {
+    gap: 5px;
+  }
+
   .button {
     padding: 4px 8px;
     font-size: 10px;
   }
+
   .colorDot {
     width: 8px;
     height: 8px;

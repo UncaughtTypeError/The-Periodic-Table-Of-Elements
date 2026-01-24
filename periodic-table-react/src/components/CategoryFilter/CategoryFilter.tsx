@@ -1,5 +1,5 @@
-import type { ElementCategory } from '../../types';
-import { CATEGORIES } from '../../data/categories';
+import type { ElementCategory, CategoryDefinition } from '../../types';
+import { NONMETAL_CATEGORIES, METALLOID_CATEGORIES, METAL_CATEGORIES } from '../../data/categories';
 import styles from './CategoryFilter.module.css';
 
 interface CategoryFilterProps {
@@ -21,27 +21,87 @@ const categoryClassMap: Record<ElementCategory, string> = {
   'actinoids': styles.actinoids,
 };
 
+function CategoryButton({
+  category,
+  isActive,
+  onClick,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  category: CategoryDefinition;
+  isActive: boolean;
+  onClick: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
+}) {
+  return (
+    <button
+      className={`${styles.button} ${categoryClassMap[category.id]} ${
+        isActive ? styles.active : ''
+      }`}
+      onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      <span className={styles.colorDot} />
+      <span>{category.name}</span>
+    </button>
+  );
+}
+
 export function CategoryFilter({
   activeCategory,
   onCategoryClick,
   onCategoryHover,
 }: CategoryFilterProps) {
   return (
-    <div className={styles.container}>
-      {CATEGORIES.map(category => (
-        <button
-          key={category.id}
-          className={`${styles.button} ${categoryClassMap[category.id]} ${
-            activeCategory === category.id ? styles.active : ''
-          }`}
-          onClick={() => onCategoryClick(category.id)}
-          onMouseEnter={() => onCategoryHover(category.id)}
-          onMouseLeave={() => onCategoryHover(null)}
-        >
-          <span className={styles.colorDot} />
-          <span>{category.name}</span>
-        </button>
-      ))}
+    <div className={styles.wrapper}>
+      <div className={styles.groupLabels}>
+        <div className={styles.nonmetalsLabel}>
+          <span>Nonmetals</span>
+        </div>
+        <div className={styles.metalsLabel}>
+          <span>Metals</span>
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.group}>
+          {NONMETAL_CATEGORIES.map(category => (
+            <CategoryButton
+              key={category.id}
+              category={category}
+              isActive={activeCategory === category.id}
+              onClick={() => onCategoryClick(category.id)}
+              onMouseEnter={() => onCategoryHover(category.id)}
+              onMouseLeave={() => onCategoryHover(null)}
+            />
+          ))}
+        </div>
+        <div className={styles.group}>
+          {METALLOID_CATEGORIES.map(category => (
+            <CategoryButton
+              key={category.id}
+              category={category}
+              isActive={activeCategory === category.id}
+              onClick={() => onCategoryClick(category.id)}
+              onMouseEnter={() => onCategoryHover(category.id)}
+              onMouseLeave={() => onCategoryHover(null)}
+            />
+          ))}
+        </div>
+        <div className={styles.group}>
+          {METAL_CATEGORIES.map(category => (
+            <CategoryButton
+              key={category.id}
+              category={category}
+              isActive={activeCategory === category.id}
+              onClick={() => onCategoryClick(category.id)}
+              onMouseEnter={() => onCategoryHover(category.id)}
+              onMouseLeave={() => onCategoryHover(null)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

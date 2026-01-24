@@ -1,16 +1,32 @@
 import type { CategoryDefinition, ThreatDefinition, ElementCategory, ThreatLevel } from '../types';
 
-export const CATEGORIES: CategoryDefinition[] = [
+// Nonmetals group (displayed first)
+export const NONMETAL_CATEGORIES: CategoryDefinition[] = [
   { id: 'other-nonmetals', name: 'Other Nonmetals', color: '#76FF03' },
   { id: 'noble-gases', name: 'Noble Gases', color: '#df5ff5' },
   { id: 'halogens', name: 'Halogens', color: '#18FFFF' },
+];
+
+// Metalloids (neither metal nor nonmetal)
+export const METALLOID_CATEGORIES: CategoryDefinition[] = [
   { id: 'metalloids', name: 'Metalloids', color: '#00E676' },
+];
+
+// Metals group (displayed last)
+export const METAL_CATEGORIES: CategoryDefinition[] = [
   { id: 'alkaline-earth-metals', name: 'Alkaline Earth Metals', color: '#eaea18' },
   { id: 'alkali-metals', name: 'Alkali Metals', color: '#f7a91d' },
   { id: 'transition-metals', name: 'Transition Metals', color: '#ff3e7f' },
   { id: 'post-transition-metals', name: 'Post Transition Metals', color: '#40C4FF' },
   { id: 'lanthanoids', name: 'Lanthanoids', color: '#fd6d3f' },
   { id: 'actinoids', name: 'Actinoids', color: '#ff1744' },
+];
+
+// All categories in display order
+export const CATEGORIES: CategoryDefinition[] = [
+  ...NONMETAL_CATEGORIES,
+  ...METALLOID_CATEGORIES,
+  ...METAL_CATEGORIES,
 ];
 
 export const CATEGORY_COLORS: Record<ElementCategory, string> = {

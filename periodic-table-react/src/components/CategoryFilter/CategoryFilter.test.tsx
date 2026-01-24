@@ -13,6 +13,13 @@ describe('CategoryFilter', () => {
     vi.clearAllMocks();
   });
 
+  it('renders group labels', () => {
+    render(<CategoryFilter {...defaultProps} />);
+
+    expect(screen.getByText('Nonmetals')).toBeInTheDocument();
+    expect(screen.getByText('Metals')).toBeInTheDocument();
+  });
+
   it('renders all 10 category buttons', () => {
     render(<CategoryFilter {...defaultProps} />);
 
