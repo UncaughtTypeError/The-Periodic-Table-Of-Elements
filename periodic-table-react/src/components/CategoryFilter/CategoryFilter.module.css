@@ -94,12 +94,18 @@
 .otherNonmetals .colorDot {
   background-color: var(--color-other-nonmetals);
 }
+.button.active.otherNonmetals {
+  background: color-mix(in srgb, var(--color-other-nonmetals) 50%, transparent);
+}
 
 .nobleGases {
   border-color: var(--color-noble-gases);
 }
 .nobleGases .colorDot {
   background-color: var(--color-noble-gases);
+}
+.button.active.nobleGases {
+  background: color-mix(in srgb, var(--color-noble-gases) 50%, transparent);
 }
 
 .halogens {
@@ -108,12 +114,18 @@
 .halogens .colorDot {
   background-color: var(--color-halogens);
 }
+.button.active.halogens {
+  background: color-mix(in srgb, var(--color-halogens) 50%, transparent);
+}
 
 .metalloids {
   border-color: var(--color-metalloids);
 }
 .metalloids .colorDot {
   background-color: var(--color-metalloids);
+}
+.button.active.metalloids {
+  background: color-mix(in srgb, var(--color-metalloids) 50%, transparent);
 }
 
 .alkalineEarthMetals {
@@ -122,12 +134,22 @@
 .alkalineEarthMetals .colorDot {
   background-color: var(--color-alkaline-earth-metals);
 }
+.button.active.alkalineEarthMetals {
+  background: color-mix(
+    in srgb,
+    var(--color-alkaline-earth-metals) 50%,
+    transparent
+  );
+}
 
 .alkaliMetals {
   border-color: var(--color-alkali-metals);
 }
 .alkaliMetals .colorDot {
   background-color: var(--color-alkali-metals);
+}
+.button.active.alkaliMetals {
+  background: color-mix(in srgb, var(--color-alkali-metals) 50%, transparent);
 }
 
 .transitionMetals {
@@ -136,12 +158,26 @@
 .transitionMetals .colorDot {
   background-color: var(--color-transition-metals);
 }
+.button.active.transitionMetals {
+  background: color-mix(
+    in srgb,
+    var(--color-transition-metals) 50%,
+    transparent
+  );
+}
 
 .postTransitionMetals {
   border-color: var(--color-post-transition-metals);
 }
 .postTransitionMetals .colorDot {
   background-color: var(--color-post-transition-metals);
+}
+.button.active.postTransitionMetals {
+  background: color-mix(
+    in srgb,
+    var(--color-post-transition-metals) 50%,
+    transparent
+  );
 }
 
 .lanthanoids {
@@ -150,12 +186,18 @@
 .lanthanoids .colorDot {
   background-color: var(--color-lanthanoids);
 }
+.button.active.lanthanoids {
+  background: color-mix(in srgb, var(--color-lanthanoids) 50%, transparent);
+}
 
 .actinoids {
   border-color: var(--color-actinoids);
 }
 .actinoids .colorDot {
   background-color: var(--color-actinoids);
+}
+.button.active.actinoids {
+  background: color-mix(in srgb, var(--color-actinoids) 50%, transparent);
 }
 
 @media (max-width: 1600px) {

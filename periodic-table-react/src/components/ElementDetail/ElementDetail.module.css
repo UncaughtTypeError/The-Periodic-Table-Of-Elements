@@ -1,15 +1,45 @@
-.container {
-  overflow: hidden;
-  transition: height 500ms ease-out;
+/* Modal overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.wrapper {
+.overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Modal container */
+.modal {
   background: whitesmoke;
   border: 2px solid #e2e2e2;
+  border-radius: 8px;
   padding: 20px;
+  max-width: 1200px;
+  max-height: 90vh;
+  width: 95%;
+  overflow-y: auto;
+  position: relative;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
 }
 
-.wrapperInner {
+.overlay.open .modal {
+  transform: scale(1);
+}
+
+.modalContent {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
@@ -225,7 +255,7 @@
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .wrapperInner {
+  .modalContent {
     flex-wrap: wrap;
   }
 
@@ -242,6 +272,11 @@
 }
 
 @media (max-width: 768px) {
+  .modal {
+    padding: 15px;
+    padding-top: 40px;
+  }
+
   .element {
     position: relative;
     margin: auto;
@@ -253,14 +288,13 @@
 }
 
 @media (max-width: 600px) {
+  .modalContent {
+    flex-direction: column;
+  }
+
   .card {
     min-width: 100%;
     max-width: 100%;
-    margin-top: 10px;
-  }
-
-  .card:first-child {
-    margin-top: 0;
   }
 
   .element {

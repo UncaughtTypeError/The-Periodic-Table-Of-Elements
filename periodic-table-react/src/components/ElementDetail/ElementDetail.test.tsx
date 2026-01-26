@@ -156,4 +156,38 @@ describe('ElementDetail', () => {
     render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
     expect(screen.getByTestId('detail-panel')).toBeInTheDocument();
   });
+
+  it('has dialog role for accessibility', () => {
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByRole('dialog')).toBeInTheDocument();
+  });
+
+  it('calls onClose when backdrop is clicked', () => {
+    const onClose = vi.fn();
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />);
+
+    // Click on the overlay (backdrop)
+    fireEvent.click(screen.getByTestId('detail-panel'));
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('calls onClose when Escape key is pressed', () => {
+    const onClose = vi.fn();
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />);
+
+    fireEvent.keyDown(document, { key: 'Escape' });
+    expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('applies open class when isOpen is true', () => {
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    const overlay = screen.getByTestId('detail-panel');
+    expect(overlay.className).toContain('open');
+  });
+
+  it('does not apply open class when isOpen is false', () => {
+    render(<ElementDetail element={mockHydrogen} isOpen={false} onClose={vi.fn()} />);
+    const overlay = screen.getByTestId('detail-panel');
+    expect(overlay.className).not.toContain('open');
+  });
 });

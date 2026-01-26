@@ -29,6 +29,7 @@ function App() {
         activeThreatLevel={state.activeThreatLevel}
         hoveredThreatLevel={state.hoveredThreatLevel}
         selectedElement={state.selectedElement}
+        isDetailOpen={state.isDetailOpen}
         onElementClick={actions.selectElement}
       />
 

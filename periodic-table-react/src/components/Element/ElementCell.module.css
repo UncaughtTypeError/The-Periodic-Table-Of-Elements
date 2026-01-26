@@ -75,58 +75,112 @@
   z-index: 5;
 }
 
-.activeGroup {
-  transform: scale(1.1);
-  z-index: 5;
-}
-
 .focusGroup {
   transform: scale(1.2);
   z-index: 10;
 }
 
-.focusGroup::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid;
+/* Active element background colors */
+.focusGroup.otherNonmetals {
+  background-color: var(--color-other-nonmetals);
+}
+.activeGroup.otherNonmetals {
+  background-color: color-mix(
+    in srgb,
+    var(--color-other-nonmetals) 50%,
+    transparent
+  );
 }
 
-.focusGroup.otherNonmetals::after {
-  border-top-color: var(--color-other-nonmetals);
+.focusGroup.nobleGases {
+  background-color: var(--color-noble-gases);
 }
-.focusGroup.nobleGases::after {
-  border-top-color: var(--color-noble-gases);
+.activeGroup.nobleGases {
+  background-color: color-mix(
+    in srgb,
+    var(--color-noble-gases) 50%,
+    transparent
+  );
 }
-.focusGroup.halogens::after {
-  border-top-color: var(--color-halogens);
+
+.focusGroup.halogens {
+  background-color: var(--color-halogens);
 }
-.focusGroup.metalloids::after {
-  border-top-color: var(--color-metalloids);
+.activeGroup.halogens {
+  background-color: color-mix(in srgb, var(--color-halogens) 50%, transparent);
 }
-.focusGroup.alkalineEarthMetals::after {
-  border-top-color: var(--color-alkaline-earth-metals);
+
+.focusGroup.metalloids {
+  background-color: var(--color-metalloids);
 }
-.focusGroup.alkaliMetals::after {
-  border-top-color: var(--color-alkali-metals);
+.activeGroup.metalloids {
+  background-color: color-mix(
+    in srgb,
+    var(--color-metalloids) 50%,
+    transparent
+  );
 }
-.focusGroup.transitionMetals::after {
-  border-top-color: var(--color-transition-metals);
+
+.focusGroup.alkalineEarthMetals {
+  background-color: var(--color-alkaline-earth-metals);
 }
-.focusGroup.postTransitionMetals::after {
-  border-top-color: var(--color-post-transition-metals);
+.activeGroup.alkalineEarthMetals {
+  background-color: color-mix(
+    in srgb,
+    var(--color-alkaline-earth-metals) 50%,
+    transparent
+  );
 }
-.focusGroup.lanthanoids::after {
-  border-top-color: var(--color-lanthanoids);
+
+.focusGroup.alkaliMetals {
+  background-color: var(--color-alkali-metals);
 }
-.focusGroup.actinoids::after {
-  border-top-color: var(--color-actinoids);
+.activeGroup.alkaliMetals {
+  background-color: color-mix(
+    in srgb,
+    var(--color-alkali-metals) 50%,
+    transparent
+  );
+}
+
+.focusGroup.transitionMetals {
+  background-color: var(--color-transition-metals);
+}
+.activeGroup.transitionMetals {
+  background-color: color-mix(
+    in srgb,
+    var(--color-transition-metals) 50%,
+    transparent
+  );
+}
+
+.focusGroup.postTransitionMetals {
+  background-color: var(--color-post-transition-metals);
+}
+.activeGroup.postTransitionMetals {
+  background-color: color-mix(
+    in srgb,
+    var(--color-post-transition-metals) 50%,
+    transparent
+  );
+}
+
+.focusGroup.lanthanoids {
+  background-color: var(--color-lanthanoids);
+}
+.activeGroup.lanthanoids {
+  background-color: color-mix(
+    in srgb,
+    var(--color-lanthanoids) 50%,
+    transparent
+  );
+}
+
+.focusGroup.actinoids {
+  background-color: var(--color-actinoids);
+}
+.activeGroup.actinoids {
+  background-color: color-mix(in srgb, var(--color-actinoids) 50%, transparent);
 }
 
 /* Inner elements */

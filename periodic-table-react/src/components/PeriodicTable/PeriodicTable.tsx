@@ -11,6 +11,7 @@ interface PeriodicTableProps {
   activeThreatLevel: ThreatLevel;
   hoveredThreatLevel: ThreatLevel;
   selectedElement: Element | null;
+  isDetailOpen: boolean;
   onElementClick: (element: Element) => void;
 }
 
@@ -20,6 +21,7 @@ export function PeriodicTable({
   activeThreatLevel,
   hoveredThreatLevel,
   selectedElement,
+  isDetailOpen,
   onElementClick,
 }: PeriodicTableProps) {
   // Build element lookup map
@@ -98,7 +100,7 @@ export function PeriodicTable({
         element={element}
         isNoFocus={noFocusSet.has(element.atomicNumber)}
         isActiveGroup={highlightedSet.has(element.atomicNumber) && !!activeCategory}
-        isFocusGroup={selectedElement?.atomicNumber === element.atomicNumber}
+        isFocusGroup={isDetailOpen && selectedElement?.atomicNumber === element.atomicNumber}
         onClick={() => onElementClick(element)}
       />
     );

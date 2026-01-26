@@ -45,7 +45,8 @@ describe('App Integration', () => {
     fireEvent.click(screen.getByTestId('element-1'));
 
     await waitFor(() => {
-      expect(screen.getByTestId('detail-panel')).toBeInTheDocument();
+      const panel = screen.getByTestId('detail-panel');
+      expect(panel.className).toContain('open');
     });
 
     // Find and click the close button within the detail panel
@@ -54,14 +55,12 @@ describe('App Integration', () => {
     expect(closeButton).not.toBeNull();
     fireEvent.click(closeButton!);
 
-    // Panel should still be in DOM (for animation) but with height 0
-    // Note: In jsdom, scrollHeight is 0 so the height is always '0px'
+    // Modal should close (no longer have 'open' class)
     await waitFor(() => {
       const panel = screen.getByTestId('detail-panel');
-      expect(panel).toBeInTheDocument();
-      expect(panel.style.height).toBe('0px');
+      expect(panel.className).not.toContain('open');
     });
-  }, 10000); // Increase timeout for coverage runs
+  });
 
   it('clicking same element twice closes detail panel', async () => {
     render(<App />);
@@ -70,7 +69,8 @@ describe('App Integration', () => {
     fireEvent.click(screen.getByTestId('element-1'));
 
     await waitFor(() => {
-      expect(screen.getByTestId('detail-panel')).toBeInTheDocument();
+      const panel = screen.getByTestId('detail-panel');
+      expect(panel.className).toContain('open');
     });
 
     // Click on Hydrogen again to close
@@ -78,7 +78,7 @@ describe('App Integration', () => {
 
     await waitFor(() => {
       const panel = screen.getByTestId('detail-panel');
-      expect(panel.style.height).toBe('0px');
+      expect(panel.className).not.toContain('open');
     });
   });
 

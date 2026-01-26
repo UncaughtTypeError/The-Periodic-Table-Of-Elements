@@ -40,9 +40,27 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.threatLimited { border-color: var(--color-threat-limited); }
-.threatRising { border-color: var(--color-threat-rising); }
-.threatSerious { border-color: var(--color-threat-serious); }
+.threatLimited {
+  border-color: var(--color-threat-limited);
+}
+.threatRising {
+  border-color: var(--color-threat-rising);
+}
+.threatSerious {
+  border-color: var(--color-threat-serious);
+}
+
+.button.active.threatLimited {
+  background: color-mix(in srgb, var(--color-threat-limited) 50%, transparent);
+}
+
+.button.active.threatRising {
+  background: color-mix(in srgb, var(--color-threat-rising) 50%, transparent);
+}
+
+.button.active.threatSerious {
+  background: color-mix(in srgb, var(--color-threat-serious) 50%, transparent);
+}
 
 .icon {
   display: flex;
@@ -65,9 +83,15 @@
   border-radius: 50%;
 }
 
-.threatLimited .dot { background-color: var(--color-threat-limited); }
-.threatRising .dot { background-color: var(--color-threat-rising); }
-.threatSerious .dot { background-color: var(--color-threat-serious); }
+.threatLimited .dot {
+  background-color: var(--color-threat-limited);
+}
+.threatRising .dot {
+  background-color: var(--color-threat-rising);
+}
+.threatSerious .dot {
+  background-color: var(--color-threat-serious);
+}
 
 .label {
   display: flex;
@@ -83,6 +107,10 @@
 .description {
   font-size: 10px;
   color: var(--color-text-muted);
+}
+
+.button.active .description {
+  color: var(--color-text);
 }
 
 @media (max-width: 768px) {
