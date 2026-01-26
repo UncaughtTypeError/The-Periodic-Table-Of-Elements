@@ -1,4 +1,5 @@
 .footer {
+  position: relative;
   text-align: center;
   padding: 30px 20px;
   color: var(--color-text-muted);
@@ -7,18 +8,24 @@
 }
 
 .footer a {
-  color: var(--color-link);
+  color: var(--color-text-muted);
 }
 
 .footer a:hover {
-  color: var(--color-text-muted);
+  color: var(--color-link);
 }
 
 .copyright {
   margin-bottom: 5px;
 }
 
-.contact {
+.github {
+  position: absolute;
+  left: 20px;
+  bottom: 30px;
+}
+
+.github a {
   display: flex;
   align-items: center;
   justify-content: center;

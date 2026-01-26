@@ -5,7 +5,9 @@ import { Footer } from './Footer';
 describe('Footer', () => {
   it('renders copyright text', () => {
     render(<Footer />);
-    expect(screen.getByText(/Periodic Table of Chemical Elements/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Periodic Table of Chemical Elements/),
+    ).toBeInTheDocument();
   });
 
   it('renders current year in copyright', () => {
@@ -14,14 +16,12 @@ describe('Footer', () => {
     expect(screen.getByText(new RegExp(currentYear))).toBeInTheDocument();
   });
 
-  it('renders contact email link', () => {
+  it('renders GitHub repo link', () => {
     render(<Footer />);
-    const link = screen.getByRole('link');
-    expect(link).toHaveAttribute('href', 'mailto:contact@periodictableofchemicalelements.com');
-  });
-
-  it('renders contact email text', () => {
-    render(<Footer />);
-    expect(screen.getByText('contact@periodictableofchemicalelements.com')).toBeInTheDocument();
+    const link = screen.getByRole('link', { name: /View on GitHub/i });
+    expect(link).toHaveAttribute(
+      'href',
+      'https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements',
+    );
   });
 });
