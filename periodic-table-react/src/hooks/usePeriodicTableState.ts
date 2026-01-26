@@ -2,38 +2,48 @@ import { useReducer, useCallback } from 'react';
 import type { Element, ElementCategory, ThreatLevel } from '../types';
 
 interface State {
-  activeCategory: ElementCategory | null;
+  activeCategories: Set<ElementCategory>;
   hoveredCategory: ElementCategory | null;
-  activeThreatLevel: ThreatLevel;
+  activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   hoveredThreatLevel: ThreatLevel;
+  hoveredElementNumber: number | null;
   selectedElement: Element | null;
   isDetailOpen: boolean;
 }
 
 type Action =
-  | { type: 'SET_ACTIVE_CATEGORY'; payload: ElementCategory | null }
+  | { type: 'TOGGLE_ACTIVE_CATEGORY'; payload: ElementCategory }
   | { type: 'SET_HOVERED_CATEGORY'; payload: ElementCategory | null }
-  | { type: 'SET_ACTIVE_THREAT'; payload: ThreatLevel }
+  | { type: 'TOGGLE_ACTIVE_THREAT'; payload: NonNullable<ThreatLevel> }
   | { type: 'SET_HOVERED_THREAT'; payload: ThreatLevel }
+  | { type: 'SET_HOVERED_ELEMENT'; payload: number | null }
   | { type: 'SELECT_ELEMENT'; payload: Element }
   | { type: 'CLOSE_DETAIL' };
 
 const initialState: State = {
-  activeCategory: null,
+  activeCategories: new Set(),
   hoveredCategory: null,
-  activeThreatLevel: null,
+  activeThreatLevels: new Set(),
   hoveredThreatLevel: null,
+  hoveredElementNumber: null,
   selectedElement: null,
   isDetailOpen: false,
 };
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
-    case 'SET_ACTIVE_CATEGORY':
+    case 'TOGGLE_ACTIVE_CATEGORY': {
+      const newCategories = new Set(state.activeCategories);
+      if (newCategories.has(action.payload)) {
+        newCategories.delete(action.payload);
+      } else {
+        newCategories.add(action.payload);
+      }
       return {
         ...state,
-        activeCategory: state.activeCategory === action.payload ? null : action.payload,
+        activeCategories: newCategories,
       };
+    }
 
     case 'SET_HOVERED_CATEGORY':
       return {
@@ -41,16 +51,29 @@ function reducer(state: State, action: Action): State {
         hoveredCategory: action.payload,
       };
 
-    case 'SET_ACTIVE_THREAT':
+    case 'TOGGLE_ACTIVE_THREAT': {
+      const newThreats = new Set(state.activeThreatLevels);
+      if (newThreats.has(action.payload)) {
+        newThreats.delete(action.payload);
+      } else {
+        newThreats.add(action.payload);
+      }
       return {
         ...state,
-        activeThreatLevel: state.activeThreatLevel === action.payload ? null : action.payload,
+        activeThreatLevels: newThreats,
       };
+    }
 
     case 'SET_HOVERED_THREAT':
       return {
         ...state,
         hoveredThreatLevel: action.payload,
+      };
+
+    case 'SET_HOVERED_ELEMENT':
+      return {
+        ...state,
+        hoveredElementNumber: action.payload,
       };
 
     case 'SELECT_ELEMENT':
@@ -82,20 +105,24 @@ function reducer(state: State, action: Action): State {
 export function usePeriodicTableState() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const setActiveCategory = useCallback((category: ElementCategory | null) => {
-    dispatch({ type: 'SET_ACTIVE_CATEGORY', payload: category });
+  const toggleActiveCategory = useCallback((category: ElementCategory) => {
+    dispatch({ type: 'TOGGLE_ACTIVE_CATEGORY', payload: category });
   }, []);
 
   const setHoveredCategory = useCallback((category: ElementCategory | null) => {
     dispatch({ type: 'SET_HOVERED_CATEGORY', payload: category });
   }, []);
 
-  const setActiveThreatLevel = useCallback((threat: ThreatLevel) => {
-    dispatch({ type: 'SET_ACTIVE_THREAT', payload: threat });
+  const toggleActiveThreatLevel = useCallback((threat: NonNullable<ThreatLevel>) => {
+    dispatch({ type: 'TOGGLE_ACTIVE_THREAT', payload: threat });
   }, []);
 
   const setHoveredThreatLevel = useCallback((threat: ThreatLevel) => {
     dispatch({ type: 'SET_HOVERED_THREAT', payload: threat });
+  }, []);
+
+  const setHoveredElement = useCallback((atomicNumber: number | null) => {
+    dispatch({ type: 'SET_HOVERED_ELEMENT', payload: atomicNumber });
   }, []);
 
   const selectElement = useCallback((element: Element) => {
@@ -109,10 +136,11 @@ export function usePeriodicTableState() {
   return {
     state,
     actions: {
-      setActiveCategory,
+      toggleActiveCategory,
       setHoveredCategory,
-      setActiveThreatLevel,
+      toggleActiveThreatLevel,
       setHoveredThreatLevel,
+      setHoveredElement,
       selectElement,
       closeDetail,
     },

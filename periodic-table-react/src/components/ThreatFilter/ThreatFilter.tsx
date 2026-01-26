@@ -3,7 +3,7 @@ import { THREATS } from '../../data/categories';
 import styles from './ThreatFilter.module.css';
 
 interface ThreatFilterProps {
-  activeThreatLevel: ThreatLevel;
+  activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   onThreatClick: (threat: NonNullable<ThreatLevel>) => void;
   onThreatHover: (threat: ThreatLevel) => void;
 }
@@ -15,7 +15,7 @@ const threatClassMap: Record<NonNullable<ThreatLevel>, string> = {
 };
 
 export function ThreatFilter({
-  activeThreatLevel,
+  activeThreatLevels,
   onThreatClick,
   onThreatHover,
 }: ThreatFilterProps) {
@@ -26,7 +26,7 @@ export function ThreatFilter({
         <button
           key={threat.id}
           className={`${styles.button} ${threatClassMap[threat.id]} ${
-            activeThreatLevel === threat.id ? styles.active : ''
+            activeThreatLevels.has(threat.id) ? styles.active : ''
           }`}
           onClick={() => onThreatClick(threat.id)}
           onMouseEnter={() => onThreatHover(threat.id)}

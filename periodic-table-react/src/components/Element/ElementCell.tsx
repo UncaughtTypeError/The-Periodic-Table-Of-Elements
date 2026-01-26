@@ -8,6 +8,8 @@ interface ElementCellProps {
   isActiveGroup?: boolean;
   isFocusGroup?: boolean;
   onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 const categoryClassMap: Record<ElementCategory, string> = {
@@ -44,6 +46,8 @@ export function ElementCell({
   isActiveGroup = false,
   isFocusGroup = false,
   onClick,
+  onMouseEnter,
+  onMouseLeave,
 }: ElementCellProps) {
   const { symbol, name, atomicNumber, atomicMass, isSynthetic, category, threatLevel, electronShells } = element;
 
@@ -61,6 +65,8 @@ export function ElementCell({
     <div
       className={classNames}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
       data-testid={`element-${atomicNumber}`}
       role="button"
       tabIndex={0}

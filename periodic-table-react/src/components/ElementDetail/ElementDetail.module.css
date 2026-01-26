@@ -12,7 +12,9 @@
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .overlay.open {
@@ -138,16 +140,36 @@
 }
 
 /* Category border colors for element */
-.otherNonmetals { border-color: var(--color-other-nonmetals); }
-.nobleGases { border-color: var(--color-noble-gases); }
-.halogens { border-color: var(--color-halogens); }
-.metalloids { border-color: var(--color-metalloids); }
-.alkalineEarthMetals { border-color: var(--color-alkaline-earth-metals); }
-.alkaliMetals { border-color: var(--color-alkali-metals); }
-.transitionMetals { border-color: var(--color-transition-metals); }
-.postTransitionMetals { border-color: var(--color-post-transition-metals); }
-.lanthanoids { border-color: var(--color-lanthanoids); }
-.actinoids { border-color: var(--color-actinoids); }
+.otherNonmetals {
+  border-color: var(--color-other-nonmetals);
+}
+.nobleGases {
+  border-color: var(--color-noble-gases);
+}
+.halogens {
+  border-color: var(--color-halogens);
+}
+.metalloids {
+  border-color: var(--color-metalloids);
+}
+.alkalineEarthMetals {
+  border-color: var(--color-alkaline-earth-metals);
+}
+.alkaliMetals {
+  border-color: var(--color-alkali-metals);
+}
+.transitionMetals {
+  border-color: var(--color-transition-metals);
+}
+.postTransitionMetals {
+  border-color: var(--color-post-transition-metals);
+}
+.lanthanoids {
+  border-color: var(--color-lanthanoids);
+}
+.actinoids {
+  border-color: var(--color-actinoids);
+}
 
 /* Property list */
 .propertyList {
@@ -195,6 +217,12 @@
   gap: 3px;
 }
 
+.threatIcon span {
+  color: var(--color-threat-serious);
+  font-size: 20px;
+  line-height: 0.5;
+}
+
 .threatDots {
   display: flex;
   gap: 2px;
@@ -206,9 +234,15 @@
   border-radius: 50%;
 }
 
-.threatLimited .threatDot { background-color: var(--color-threat-limited); }
-.threatRising .threatDot { background-color: var(--color-threat-rising); }
-.threatSerious .threatDot { background-color: var(--color-threat-serious); }
+.threatLimited .threatDot {
+  background-color: var(--color-threat-limited);
+}
+.threatRising .threatDot {
+  background-color: var(--color-threat-rising);
+}
+.threatSerious .threatDot {
+  background-color: var(--color-threat-serious);
+}
 
 /* Description card */
 .description p:first-of-type {

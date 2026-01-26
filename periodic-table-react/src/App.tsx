@@ -12,25 +12,27 @@ function App() {
   return (
     <>
       <CategoryFilter
-        activeCategory={state.activeCategory}
-        onCategoryClick={actions.setActiveCategory}
+        activeCategories={state.activeCategories}
+        onCategoryClick={actions.toggleActiveCategory}
         onCategoryHover={actions.setHoveredCategory}
       />
 
       <ThreatFilter
-        activeThreatLevel={state.activeThreatLevel}
-        onThreatClick={actions.setActiveThreatLevel}
+        activeThreatLevels={state.activeThreatLevels}
+        onThreatClick={actions.toggleActiveThreatLevel}
         onThreatHover={actions.setHoveredThreatLevel}
       />
 
       <PeriodicTable
-        activeCategory={state.activeCategory}
+        activeCategories={state.activeCategories}
         hoveredCategory={state.hoveredCategory}
-        activeThreatLevel={state.activeThreatLevel}
+        activeThreatLevels={state.activeThreatLevels}
         hoveredThreatLevel={state.hoveredThreatLevel}
+        hoveredElementNumber={state.hoveredElementNumber}
         selectedElement={state.selectedElement}
         isDetailOpen={state.isDetailOpen}
         onElementClick={actions.selectElement}
+        onElementHover={actions.setHoveredElement}
       />
 
       <ElementDetail

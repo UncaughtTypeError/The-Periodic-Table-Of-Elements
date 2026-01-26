@@ -3,7 +3,7 @@ import { NONMETAL_CATEGORIES, METALLOID_CATEGORIES, METAL_CATEGORIES } from '../
 import styles from './CategoryFilter.module.css';
 
 interface CategoryFilterProps {
-  activeCategory: ElementCategory | null;
+  activeCategories: Set<ElementCategory>;
   onCategoryClick: (category: ElementCategory) => void;
   onCategoryHover: (category: ElementCategory | null) => void;
 }
@@ -50,7 +50,7 @@ function CategoryButton({
 }
 
 export function CategoryFilter({
-  activeCategory,
+  activeCategories,
   onCategoryClick,
   onCategoryHover,
 }: CategoryFilterProps) {
@@ -70,7 +70,7 @@ export function CategoryFilter({
             <CategoryButton
               key={category.id}
               category={category}
-              isActive={activeCategory === category.id}
+              isActive={activeCategories.has(category.id)}
               onClick={() => onCategoryClick(category.id)}
               onMouseEnter={() => onCategoryHover(category.id)}
               onMouseLeave={() => onCategoryHover(null)}
@@ -82,7 +82,7 @@ export function CategoryFilter({
             <CategoryButton
               key={category.id}
               category={category}
-              isActive={activeCategory === category.id}
+              isActive={activeCategories.has(category.id)}
               onClick={() => onCategoryClick(category.id)}
               onMouseEnter={() => onCategoryHover(category.id)}
               onMouseLeave={() => onCategoryHover(null)}
@@ -94,7 +94,7 @@ export function CategoryFilter({
             <CategoryButton
               key={category.id}
               category={category}
-              isActive={activeCategory === category.id}
+              isActive={activeCategories.has(category.id)}
               onClick={() => onCategoryClick(category.id)}
               onMouseEnter={() => onCategoryHover(category.id)}
               onMouseLeave={() => onCategoryHover(null)}

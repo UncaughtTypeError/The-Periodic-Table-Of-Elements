@@ -70,9 +70,9 @@ const mockElement2: Element = {
 
 describe('usePeriodicTableState', () => {
   describe('initial state', () => {
-    it('should have null activeCategory initially', () => {
+    it('should have empty activeCategories Set initially', () => {
       const { result } = renderHook(() => usePeriodicTableState());
-      expect(result.current.state.activeCategory).toBeNull();
+      expect(result.current.state.activeCategories.size).toBe(0);
     });
 
     it('should have null hoveredCategory initially', () => {
@@ -80,9 +80,9 @@ describe('usePeriodicTableState', () => {
       expect(result.current.state.hoveredCategory).toBeNull();
     });
 
-    it('should have null activeThreatLevel initially', () => {
+    it('should have empty activeThreatLevels Set initially', () => {
       const { result } = renderHook(() => usePeriodicTableState());
-      expect(result.current.state.activeThreatLevel).toBeNull();
+      expect(result.current.state.activeThreatLevels.size).toBe(0);
     });
 
     it('should have null selectedElement initially', () => {
@@ -96,43 +96,65 @@ describe('usePeriodicTableState', () => {
     });
   });
 
-  describe('setActiveCategory', () => {
-    it('should set active category', () => {
+  describe('toggleActiveCategory', () => {
+    it('should add category to activeCategories', () => {
       const { result } = renderHook(() => usePeriodicTableState());
 
       act(() => {
-        result.current.actions.setActiveCategory('noble-gases');
+        result.current.actions.toggleActiveCategory('noble-gases');
       });
 
-      expect(result.current.state.activeCategory).toBe('noble-gases');
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(true);
     });
 
     it('should toggle off when same category is clicked', () => {
       const { result } = renderHook(() => usePeriodicTableState());
 
       act(() => {
-        result.current.actions.setActiveCategory('noble-gases');
+        result.current.actions.toggleActiveCategory('noble-gases');
       });
 
       act(() => {
-        result.current.actions.setActiveCategory('noble-gases');
+        result.current.actions.toggleActiveCategory('noble-gases');
       });
 
-      expect(result.current.state.activeCategory).toBeNull();
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(false);
     });
 
-    it('should switch to different category', () => {
+    it('should support multiple active categories', () => {
       const { result } = renderHook(() => usePeriodicTableState());
 
       act(() => {
-        result.current.actions.setActiveCategory('noble-gases');
+        result.current.actions.toggleActiveCategory('noble-gases');
       });
 
       act(() => {
-        result.current.actions.setActiveCategory('halogens');
+        result.current.actions.toggleActiveCategory('halogens');
       });
 
-      expect(result.current.state.activeCategory).toBe('halogens');
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(true);
+      expect(result.current.state.activeCategories.has('halogens')).toBe(true);
+      expect(result.current.state.activeCategories.size).toBe(2);
+    });
+
+    it('should remove one category while keeping others', () => {
+      const { result } = renderHook(() => usePeriodicTableState());
+
+      act(() => {
+        result.current.actions.toggleActiveCategory('noble-gases');
+      });
+
+      act(() => {
+        result.current.actions.toggleActiveCategory('halogens');
+      });
+
+      act(() => {
+        result.current.actions.toggleActiveCategory('noble-gases');
+      });
+
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(false);
+      expect(result.current.state.activeCategories.has('halogens')).toBe(true);
+      expect(result.current.state.activeCategories.size).toBe(1);
     });
   });
 
@@ -162,29 +184,45 @@ describe('usePeriodicTableState', () => {
     });
   });
 
-  describe('setActiveThreatLevel', () => {
-    it('should set active threat level', () => {
+  describe('toggleActiveThreatLevel', () => {
+    it('should add threat level to activeThreatLevels', () => {
       const { result } = renderHook(() => usePeriodicTableState());
 
       act(() => {
-        result.current.actions.setActiveThreatLevel('serious');
+        result.current.actions.toggleActiveThreatLevel('serious');
       });
 
-      expect(result.current.state.activeThreatLevel).toBe('serious');
+      expect(result.current.state.activeThreatLevels.has('serious')).toBe(true);
     });
 
     it('should toggle off when same threat level is clicked', () => {
       const { result } = renderHook(() => usePeriodicTableState());
 
       act(() => {
-        result.current.actions.setActiveThreatLevel('serious');
+        result.current.actions.toggleActiveThreatLevel('serious');
       });
 
       act(() => {
-        result.current.actions.setActiveThreatLevel('serious');
+        result.current.actions.toggleActiveThreatLevel('serious');
       });
 
-      expect(result.current.state.activeThreatLevel).toBeNull();
+      expect(result.current.state.activeThreatLevels.has('serious')).toBe(false);
+    });
+
+    it('should support multiple active threat levels', () => {
+      const { result } = renderHook(() => usePeriodicTableState());
+
+      act(() => {
+        result.current.actions.toggleActiveThreatLevel('serious');
+      });
+
+      act(() => {
+        result.current.actions.toggleActiveThreatLevel('rising');
+      });
+
+      expect(result.current.state.activeThreatLevels.has('serious')).toBe(true);
+      expect(result.current.state.activeThreatLevels.has('rising')).toBe(true);
+      expect(result.current.state.activeThreatLevels.size).toBe(2);
     });
   });
 

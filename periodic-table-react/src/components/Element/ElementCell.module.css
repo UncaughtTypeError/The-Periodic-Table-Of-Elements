@@ -81,9 +81,6 @@
 }
 
 /* Active element background colors */
-.focusGroup.otherNonmetals {
-  background-color: var(--color-other-nonmetals);
-}
 .activeGroup.otherNonmetals {
   background-color: color-mix(
     in srgb,
@@ -91,10 +88,11 @@
     transparent
   );
 }
-
-.focusGroup.nobleGases {
-  background-color: var(--color-noble-gases);
+.focusGroup.otherNonmetals,
+.activeGroup.otherNonmetals:hover {
+  background-color: var(--color-other-nonmetals);
 }
+
 .activeGroup.nobleGases {
   background-color: color-mix(
     in srgb,
@@ -102,17 +100,19 @@
     transparent
   );
 }
-
-.focusGroup.halogens {
-  background-color: var(--color-halogens);
+.focusGroup.nobleGases,
+.activeGroup.nobleGases:hover {
+  background-color: var(--color-noble-gases);
 }
+
 .activeGroup.halogens {
   background-color: color-mix(in srgb, var(--color-halogens) 50%, transparent);
 }
-
-.focusGroup.metalloids {
-  background-color: var(--color-metalloids);
+.focusGroup.halogens,
+.activeGroup.halogens:hover {
+  background-color: var(--color-halogens);
 }
+
 .activeGroup.metalloids {
   background-color: color-mix(
     in srgb,
@@ -120,10 +120,11 @@
     transparent
   );
 }
-
-.focusGroup.alkalineEarthMetals {
-  background-color: var(--color-alkaline-earth-metals);
+.focusGroup.metalloids,
+.activeGroup.metalloids:hover {
+  background-color: var(--color-metalloids);
 }
+
 .activeGroup.alkalineEarthMetals {
   background-color: color-mix(
     in srgb,
@@ -131,10 +132,11 @@
     transparent
   );
 }
-
-.focusGroup.alkaliMetals {
-  background-color: var(--color-alkali-metals);
+.focusGroup.alkalineEarthMetals,
+.activeGroup.alkalineEarthMetals:hover {
+  background-color: var(--color-alkaline-earth-metals);
 }
+
 .activeGroup.alkaliMetals {
   background-color: color-mix(
     in srgb,
@@ -142,10 +144,11 @@
     transparent
   );
 }
-
-.focusGroup.transitionMetals {
-  background-color: var(--color-transition-metals);
+.focusGroup.alkaliMetals,
+.activeGroup.alkaliMetals:hover {
+  background-color: var(--color-alkali-metals);
 }
+
 .activeGroup.transitionMetals {
   background-color: color-mix(
     in srgb,
@@ -153,10 +156,11 @@
     transparent
   );
 }
-
-.focusGroup.postTransitionMetals {
-  background-color: var(--color-post-transition-metals);
+.focusGroup.transitionMetals,
+.activeGroup.transitionMetals:hover {
+  background-color: var(--color-transition-metals);
 }
+
 .activeGroup.postTransitionMetals {
   background-color: color-mix(
     in srgb,
@@ -164,10 +168,11 @@
     transparent
   );
 }
-
-.focusGroup.lanthanoids {
-  background-color: var(--color-lanthanoids);
+.focusGroup.postTransitionMetals,
+.activeGroup.postTransitionMetals:hover {
+  background-color: var(--color-post-transition-metals);
 }
+
 .activeGroup.lanthanoids {
   background-color: color-mix(
     in srgb,
@@ -175,12 +180,17 @@
     transparent
   );
 }
-
-.focusGroup.actinoids {
-  background-color: var(--color-actinoids);
+.focusGroup.lanthanoids,
+.activeGroup.lanthanoids:hover {
+  background-color: var(--color-lanthanoids);
 }
+
 .activeGroup.actinoids {
   background-color: color-mix(in srgb, var(--color-actinoids) 50%, transparent);
+}
+.focusGroup.actinoids,
+.activeGroup.actinoids:hover {
+  background-color: var(--color-actinoids);
 }
 
 /* Inner elements */

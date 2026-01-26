@@ -1,10 +1,11 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ThreatFilter } from './ThreatFilter';
+import type { ThreatLevel } from '../../types';
 
 describe('ThreatFilter', () => {
   const defaultProps = {
-    activeThreatLevel: null,
+    activeThreatLevels: new Set<NonNullable<ThreatLevel>>(),
     onThreatClick: vi.fn(),
     onThreatHover: vi.fn(),
   };
@@ -59,9 +60,21 @@ describe('ThreatFilter', () => {
   });
 
   it('applies active class to active threat level', () => {
-    render(<ThreatFilter {...defaultProps} activeThreatLevel="serious" />);
+    render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious'])} />);
 
     const button = screen.getByText('Serious Threat').closest('button');
     expect(button?.className).toContain('active');
+  });
+
+  it('supports multiple active threat levels', () => {
+    render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious', 'rising'])} />);
+
+    const seriousButton = screen.getByText('Serious Threat').closest('button');
+    const risingButton = screen.getByText('Rising Threat').closest('button');
+    const limitedButton = screen.getByText('Limited Availability').closest('button');
+
+    expect(seriousButton?.className).toContain('active');
+    expect(risingButton?.className).toContain('active');
+    expect(limitedButton?.className).not.toContain('active');
   });
 });
