@@ -148,34 +148,34 @@
 
 /* Category border colors for element */
 .otherNonmetals {
-  border-color: var(--color-other-nonmetals);
+  border: 3px solid var(--color-other-nonmetals);
 }
 .nobleGases {
-  border-color: var(--color-noble-gases);
+  border: 3px solid var(--color-noble-gases);
 }
 .halogens {
-  border-color: var(--color-halogens);
+  border: 3px solid var(--color-halogens);
 }
 .metalloids {
-  border-color: var(--color-metalloids);
+  border: 3px solid var(--color-metalloids);
 }
 .alkalineEarthMetals {
-  border-color: var(--color-alkaline-earth-metals);
+  border: 3px solid var(--color-alkaline-earth-metals);
 }
 .alkaliMetals {
-  border-color: var(--color-alkali-metals);
+  border: 3px solid var(--color-alkali-metals);
 }
 .transitionMetals {
-  border-color: var(--color-transition-metals);
+  border: 3px solid var(--color-transition-metals);
 }
 .postTransitionMetals {
-  border-color: var(--color-post-transition-metals);
+  border: 3px solid var(--color-post-transition-metals);
 }
 .lanthanoids {
-  border-color: var(--color-lanthanoids);
+  border: 3px solid var(--color-lanthanoids);
 }
 .actinoids {
-  border-color: var(--color-actinoids);
+  border: 3px solid var(--color-actinoids);
 }
 
 .miniHighlight.lanthanoids {
