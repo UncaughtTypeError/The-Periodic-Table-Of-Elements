@@ -92,8 +92,8 @@ function reducer(state: State, action: Action): State {
       };
 
     case 'SELECT_ELEMENT':
-      // If clicking the same element, close the panel (keep element for animation)
-      if (state.selectedElement?.atomicNumber === action.payload.atomicNumber) {
+      // If clicking the same element while panel is open, close it (keep element for animation)
+      if (state.selectedElement?.atomicNumber === action.payload.atomicNumber && state.isDetailOpen) {
         return {
           ...state,
           isDetailOpen: false,
@@ -113,8 +113,8 @@ function reducer(state: State, action: Action): State {
       };
 
     case 'SELECT_SERIES':
-      // If clicking the same series, close the panel
-      if (state.selectedSeries?.id === action.payload.id) {
+      // If clicking the same series while panel is open, close it
+      if (state.selectedSeries?.id === action.payload.id && state.isSeriesDetailOpen) {
         return {
           ...state,
           isSeriesDetailOpen: false,
