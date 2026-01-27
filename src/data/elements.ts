@@ -624,10 +624,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "William Ramsay & Morris Travers (1898)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "William Ramsay & Morris Travers (1898)"
       }
     }
   },
@@ -687,10 +687,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Humphry Davy (1807)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Humphry Davy (1807)"
       }
     }
   },
@@ -1065,10 +1065,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
-        namedBy: null,
+        discovery: "Carl Wilhelm Scheele (1774)",
+        namedBy: "Humphry Davy (1810)",
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Carl Wilhelm Scheele (1774)"
       }
     }
   },
@@ -1128,10 +1128,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Lord Rayleigh and William Ramsay (1894)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Lord Rayleigh and William Ramsay (1894)"
       }
     }
   },
@@ -1191,10 +1191,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Humphry Davy (1807)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Humphry Davy (1807)"
       }
     }
   },
@@ -1254,10 +1254,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Humphry Davy (1808)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Humphry Davy (1808)"
       }
     }
   },
@@ -1506,10 +1506,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Louis Nicolas Vauquelin (1797)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Louis Nicolas Vauquelin (1798)"
       }
     }
   },
@@ -1758,10 +1758,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Axel Fredrik Cronstedt (1751)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Axel Fredrik Cronstedt (1751)"
       }
     }
   },
@@ -2199,10 +2199,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Antoine Jérôme Balard and Carl Jacob Löwig (1825)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Antoine Jérôme Balard and Carl Jacob Löwig (1825)"
       }
     }
   },
@@ -2262,10 +2262,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "William Ramsay and Morris Travers (1898)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "William Ramsay and Morris Travers (1898)"
       }
     }
   },
@@ -2703,10 +2703,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Emilio Segrè and Carlo Perrier (1937)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Emilio Segrè and Carlo Perrier (1937)"
       }
     }
   },
@@ -2829,10 +2829,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "William Hyde Wollaston (1804)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "William Hyde Wollaston (1804)"
       }
     }
   },
@@ -3333,10 +3333,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Bernard Courtois (1811)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Bernard Courtois (1811)"
       }
     }
   },
@@ -3396,10 +3396,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "William Ramsay and Morris Travers (1898)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "William Ramsay and Morris Travers (1898)"
       }
     }
   },
@@ -4782,10 +4782,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Smithson Tennant (1803)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Smithson Tennant (1803)"
       }
     }
   },
@@ -4845,10 +4845,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Smithson Tennant (1803)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Smithson Tennant (1803)"
       }
     }
   },
@@ -4908,10 +4908,10 @@ export const elements: Element[] = [
         density: null
       },
       history: {
-        discovery: null,
+        discovery: "Antonio de Ulloa (1748)",
         namedBy: null,
         naming: null,
-        firstIsolation: null
+        firstIsolation: "Antonio de Ulloa (1748)"
       }
     }
   },
