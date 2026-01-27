@@ -23,7 +23,6 @@ export default defineConfig({
         'node_modules/',
         'src/test/',
         '**/*.d.ts',
-        'scripts/',
       ],
     },
   },
