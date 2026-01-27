@@ -14,6 +14,21 @@ function GitHubIcon() {
   );
 }
 
+function ExternalLinkIcon() {
+  return (
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 16 16"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M14 3.5V9h-1V4.707L6.354 11.354l-.708-.708L12.293 4H8V3h5.5a.5.5 0 0 1 .5.5z" />
+      <path d="M2 2h5v1H3v10h10v-4h1v4.5a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -22,14 +37,23 @@ export function Footer() {
       <div className={styles.copyright}>
         &copy; {currentYear} Periodic Table of Chemical Elements
       </div>
-      <div className={styles.github}>
+      <div className={styles.links}>
         <a
           href="https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements"
           target="_blank"
           rel="noopener"
         >
           <GitHubIcon />
-          View on GitHub
+          GitHub
+        </a>
+        <span className={styles.divider}>|</span>
+        <a
+          href="/legacy/index.html"
+          target="_blank"
+          rel="noopener"
+        >
+          Legacy Version
+          <ExternalLinkIcon />
         </a>
       </div>
     </footer>

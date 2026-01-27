@@ -18,10 +18,17 @@ describe('Footer', () => {
 
   it('renders GitHub repo link', () => {
     render(<Footer />);
-    const link = screen.getByRole('link', { name: /View on GitHub/i });
+    const link = screen.getByRole('link', { name: /GitHub/i });
     expect(link).toHaveAttribute(
       'href',
       'https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements',
     );
+  });
+
+  it('renders legacy version link', () => {
+    render(<Footer />);
+    const link = screen.getByRole('link', { name: /Legacy Version/i });
+    expect(link).toHaveAttribute('href', '/legacy/index.html');
+    expect(link).toHaveAttribute('target', '_blank');
   });
 });

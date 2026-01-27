@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- P element (Phosphorus) - other-nonmetals #76FF03 -->
+  <rect x="1" y="1" width="14" height="14" fill="#242424" stroke="#76FF03" stroke-width="1.5" rx="1"/>
+  <text x="8" y="11" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#76FF03" text-anchor="middle">P</text>
+
+  <!-- Ta element (Tantalum) - transition-metals #ff3e7f -->
+  <rect x="17" y="17" width="14" height="14" fill="#242424" stroke="#ff3e7f" stroke-width="1.5" rx="1"/>
+  <text x="24" y="27" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#ff3e7f" text-anchor="middle">Ta</text>
+</svg>

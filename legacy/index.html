@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         
         <!-- Favicon -->
-        <link rel="shortcut icon" href="/periodictable-favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="periodictable-favicon.png" type="image/x-icon">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
         <link rel="canonical" href="https://periodictableofchemicalelements.com">
 
@@ -340,7 +340,7 @@
             transform: scale(1.5, 1.5);
             z-index: 9;
             position: relative;
-            cursor: url(/img/cursor-help.png), auto;
+            cursor: url(img/cursor-help.png), auto;
         }
 
         .group:hover:after {
@@ -4862,7 +4862,7 @@
     </div>
     <footer>
         <div>
-        	<span>&copy; PeriodicTableOfChemicalElements.com <?php echo date("Y"); ?></span> <span class="divider">|</span> <span>Last updated: June 17<sup>th</sup> 2018</span> <span class="divider">|</span> <span><a href="mailto:info@periodictableofchemicalelements.com"><i class="fas fa-at"></i>contact</a></span>
+        	<span>&copy; PeriodicTableOfChemicalElements.com <script>document.write(new Date().getFullYear())</script></span> <span class="divider">|</span> <span>Last updated: June 17<sup>th</sup> 2018</span>
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
@@ -4996,7 +4996,7 @@
 
 	                jQuery('.info').attr('id', el);
 
-	                jQuery('.info').load(el, function(){
+	                jQuery('.info').load('elements/' + el + '.html', function(){
 	                    console.log('callback success');
 	                });
 
@@ -5025,7 +5025,7 @@
                     jQuery('.array').prepend('<div class="info-loader-overlay"><i class="fas fa-circle-notch fa-spin info-loader"></i></div>').show();
                 }
 
-	            jQuery('.info').load(el, function(){
+	            jQuery('.info').load('elements/' + el + '.html', function(){
 	                console.log('callback success');
 	                jQuery('.info').slideDown(500,function(){
                         jQuery('.info-loader-overlay').hide();

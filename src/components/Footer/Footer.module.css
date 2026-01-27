@@ -19,17 +19,21 @@
   margin-bottom: 5px;
 }
 
-.github {
-  position: absolute;
-  left: 20px;
-  bottom: 30px;
-}
-
-.github a {
+.links {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
   gap: 5px;
+}
+
+.divider {
+  color: var(--color-border);
 }
 
 @media (max-width: 500px) {
