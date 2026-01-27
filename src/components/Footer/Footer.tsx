@@ -17,8 +17,8 @@ function GitHubIcon() {
 function ExternalLinkIcon() {
   return (
     <svg
-      width="12"
-      height="12"
+      width="16"
+      height="16"
       viewBox="0 0 16 16"
       fill="currentColor"
       aria-hidden="true"
@@ -47,11 +47,7 @@ export function Footer() {
           GitHub
         </a>
         <span className={styles.divider}>|</span>
-        <a
-          href="/legacy/index.html"
-          target="_blank"
-          rel="noopener"
-        >
+        <a href="/legacy/index.html" target="_blank" rel="noopener">
           Legacy Version
           <ExternalLinkIcon />
         </a>

@@ -1,143 +1,4 @@
-/* Modal overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition:
-    opacity 0.3s ease,
-    visibility 0.3s ease;
-}
-
-.overlay.open {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* Modal container */
-.modal {
-  background: whitesmoke;
-  border: 2px solid #e2e2e2;
-  border-radius: 8px;
-  padding: 20px;
-  max-width: 1400px;
-  max-height: 90vh;
-  width: 95%;
-  overflow-y: auto;
-  position: relative;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
-}
-
-.overlay.open .modal {
-  transform: scale(1);
-}
-
-.modalContent {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.closeButton {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 30px;
-  height: 30px;
-  background: #333;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s ease;
-  z-index: 10;
-}
-
-.closeButton:hover {
-  background: #555;
-}
-
-.card {
-  flex: 1;
-  max-width: 25%;
-  min-width: 280px;
-  box-sizing: border-box;
-  padding: 20px;
-  background: white;
-  border: 2px solid #e2e2e2;
-  border-radius: 5px;
-  position: relative;
-  transition: 0.7s;
-  font-size: 15px;
-  color: black;
-}
-
-/* Element display in summary card */
-.element {
-  background: transparent;
-  box-sizing: border-box;
-  padding: 20px;
-  max-width: 250px;
-  max-height: 200px;
-  color: black;
-  border: 3px solid;
-  margin-bottom: 15px;
-}
-
-.elementSymbol {
-  font-size: 100px;
-  text-align: left;
-  color: black;
-  font-weight: bold;
-}
-
-.elementName {
-  font-size: 30px;
-  display: block;
-  color: black;
-}
-
-.atomicNumber {
-  font-size: 30px;
-  text-align: left;
-  display: block;
-  color: black;
-}
-
-/* Description card */
-.description p:first-of-type {
-  margin-top: 0;
-}
-
-.description p:first-of-type::first-letter {
-  font-size: 50px;
-  font-weight: bold;
-  float: left;
-  position: relative;
-  line-height: 28px;
-  margin-bottom: 5px;
-  margin-right: 5px;
-}
-
-.description p {
-  margin-bottom: 15px;
-  line-height: 1.6;
-}
+/* SeriesDetail-specific styles */
 
 /* Series Section */
 .seriesSection {
@@ -181,6 +42,7 @@
   font-size: 24px;
   font-weight: bold;
   color: black;
+  line-height: 1.5rem;
 }
 
 .seriesName {
@@ -227,60 +89,8 @@
   background: #e2e2e2;
 }
 
-.miniHighlight.lanthanoids {
-  background: var(--color-lanthanoids);
-}
-
-.miniHighlight.actinoids {
-  background: var(--color-actinoids);
-}
-
-/* Category border colors for element */
-.otherNonmetals {
-  border-color: var(--color-other-nonmetals);
-}
-.nobleGases {
-  border-color: var(--color-noble-gases);
-}
-.halogens {
-  border-color: var(--color-halogens);
-}
-.metalloids {
-  border-color: var(--color-metalloids);
-}
-.alkalineEarthMetals {
-  border-color: var(--color-alkaline-earth-metals);
-}
-.alkaliMetals {
-  border-color: var(--color-alkali-metals);
-}
-.transitionMetals {
-  border-color: var(--color-transition-metals);
-}
-.postTransitionMetals {
-  border-color: var(--color-post-transition-metals);
-}
-.lanthanoids {
-  border-color: var(--color-lanthanoids);
-}
-.actinoids {
-  border-color: var(--color-actinoids);
-}
-
 /* Responsive */
 @media (max-width: 1200px) {
-  .card {
-    min-width: 48%;
-    max-width: 48%;
-  }
-
-  .card:nth-child(3) {
-    flex: 100%;
-    min-width: 100%;
-    max-width: 100%;
-    margin-top: 10px;
-  }
-
   .seriesSymbol {
     font-size: 15px;
   }
@@ -304,34 +114,6 @@
   }
 }
 
-@media (max-width: 768px) {
-  .modal {
-    padding: 15px;
-    padding-top: 40px;
-  }
-
-  .card {
-    flex: 100%;
-    min-width: 100%;
-    max-width: 100%;
-  }
-
-  .card:first-child {
-    margin-bottom: 15px;
-  }
-
-  .element {
-    min-height: 180px;
-    min-width: 180px;
-    float: left;
-    margin-right: 15px;
-  }
-
-  .elementSymbol {
-    font-size: 70px;
-  }
-}
-
 @media (max-width: 600px) {
   .seriesSymbol {
     text-align: center;
@@ -340,13 +122,6 @@
 
   .seriesAtomicNumber {
     display: none;
-  }
-
-  .element {
-    float: none;
-    margin-right: auto;
-    max-width: 150px;
-    max-height: 150px;
   }
 }
 
@@ -357,27 +132,5 @@
 
   .tableOverview {
     margin-top: 0;
-  }
-}
-
-@media (max-width: 400px) {
-  .element {
-    max-height: 150px;
-    max-width: 150px;
-    min-height: initial;
-    min-width: initial;
-    padding: 10px;
-  }
-
-  .elementSymbol {
-    font-size: 40px;
-  }
-
-  .elementName {
-    font-size: 18px;
-  }
-
-  .atomicNumber {
-    font-size: 15px;
   }
 }
