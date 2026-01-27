@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { usePeriodicTableState } from './usePeriodicTableState';
-import type { Element } from '../types';
+import type { Element } from '@/types';
 
 const mockElement: Element = {
   symbol: 'H',

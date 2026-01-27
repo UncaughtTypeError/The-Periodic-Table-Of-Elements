@@ -1,4 +1,4 @@
-import type { Element, ElementCategory, ThreatLevel } from '../types';
+import type { Element, ElementCategory, ThreatLevel } from '@/types';
 
 export const elements: Element[] = [
   {

@@ -1,4 +1,4 @@
-import type { CategoryDefinition, ThreatDefinition, ElementCategory, ThreatLevel } from '../types';
+import type { CategoryDefinition, ThreatDefinition, ElementCategory, ThreatLevel } from '@/types';
 
 // Nonmetals group (displayed first)
 export const NONMETAL_CATEGORIES: CategoryDefinition[] = [

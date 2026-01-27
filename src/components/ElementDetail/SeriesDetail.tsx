@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from 'react';
-import type { SeriesPlaceholder, Element, ElementCategory } from '../../types';
-import { elements as allElements } from '../../data/elements';
+import type { SeriesPlaceholder, Element, ElementCategory } from '@/types';
+import { elements as allElements } from '@/data/elements';
 import styles from './SeriesDetail.module.css';
 
 interface SeriesDetailProps {

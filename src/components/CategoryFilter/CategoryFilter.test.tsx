@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { CategoryFilter } from './CategoryFilter';
-import type { ElementCategory } from '../../types';
+import type { ElementCategory } from '@/types';
 
 describe('CategoryFilter', () => {
   const defaultProps = {

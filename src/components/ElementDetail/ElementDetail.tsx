@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import type { Element, ElementCategory, ThreatLevel } from '../../types';
+import type { Element, ElementCategory, ThreatLevel } from '@/types';
 import styles from './ElementDetail.module.css';
 
 interface ElementDetailProps {

@@ -1,5 +1,5 @@
-import type { ThreatLevel } from '../../types';
-import { THREATS } from '../../data/categories';
+import type { ThreatLevel } from '@/types';
+import { THREATS } from '@/data/categories';
 import styles from './ThreatFilter.module.css';
 
 interface ThreatFilterProps {

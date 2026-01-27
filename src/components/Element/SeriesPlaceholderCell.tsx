@@ -1,4 +1,4 @@
-import type { SeriesPlaceholder, ElementCategory } from '../../types';
+import type { SeriesPlaceholder, ElementCategory } from '@/types';
 import styles from './ElementCell.module.css';
 
 interface SeriesPlaceholderCellProps {

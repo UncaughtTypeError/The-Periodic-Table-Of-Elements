@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '../types';
+import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '@/types';
 
 interface State {
   activeCategories: Set<ElementCategory>;

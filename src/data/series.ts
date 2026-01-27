@@ -1,4 +1,4 @@
-import type { SeriesPlaceholder } from '../types';
+import type { SeriesPlaceholder } from '@/types';
 
 export const seriesPlaceholders: SeriesPlaceholder[] = [
   {

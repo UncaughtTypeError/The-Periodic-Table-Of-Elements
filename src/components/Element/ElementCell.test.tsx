@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ElementCell } from './ElementCell';
-import type { Element } from '../../types';
+import type { Element } from '@/types';
 
 const mockHydrogen: Element = {
   symbol: 'H',

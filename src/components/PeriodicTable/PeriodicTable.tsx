@@ -1,9 +1,9 @@
 import { useMemo } from 'react';
-import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '../../types';
-import { elements as allElements } from '../../data/elements';
-import { seriesPlaceholders } from '../../data/series';
-import { TABLE_POSITIONS, getLanthanides, getActinides } from '../../data/tableLayout';
-import { ElementCell, EmptyCell, SeriesPlaceholderCell } from '../Element';
+import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '@/types';
+import { elements as allElements } from '@/data/elements';
+import { seriesPlaceholders } from '@/data/series';
+import { TABLE_POSITIONS, getLanthanides, getActinides } from '@/data/tableLayout';
+import { ElementCell, EmptyCell, SeriesPlaceholderCell } from '@/components/Element';
 import styles from './PeriodicTable.module.css';
 
 interface PeriodicTableProps {

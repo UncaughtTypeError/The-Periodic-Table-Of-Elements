@@ -1,5 +1,5 @@
-import type { ElementCategory, CategoryDefinition } from '../../types';
-import { NONMETAL_CATEGORIES, METALLOID_CATEGORIES, METAL_CATEGORIES } from '../../data/categories';
+import type { ElementCategory, CategoryDefinition } from '@/types';
+import { NONMETAL_CATEGORIES, METALLOID_CATEGORIES, METAL_CATEGORIES } from '@/data/categories';
 import styles from './CategoryFilter.module.css';
 
 interface CategoryFilterProps {
