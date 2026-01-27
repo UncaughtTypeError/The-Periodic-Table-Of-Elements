@@ -2,6 +2,7 @@
   width: var(--cell-width, 80px);
   height: var(--cell-height, 95px);
   background: var(--color-surface);
+  color: var(--color-text);
   border: 2px solid;
   border-radius: 3px;
   padding: 5px;
@@ -211,21 +212,21 @@
 
 .atomicNumber {
   font-size: 10px;
-  color: var(--color-text);
+  color: inherit;
   transition: color 0.7s ease;
 }
 
 .symbol {
   font-size: 28px;
   font-weight: bold;
-  color: var(--color-text);
+  color: inherit;
   line-height: 1;
   transition: color 0.7s ease;
 }
 
 .name {
   font-size: 9px;
-  color: var(--color-text);
+  color: inherit;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -234,7 +235,7 @@
 
 .mass {
   font-size: 9px;
-  color: var(--color-text);
+  color: inherit;
   margin-top: auto;
   transition: color 0.7s ease;
 }
@@ -267,6 +268,49 @@
 /* Empty cell */
 .empty {
   visibility: hidden;
+}
+
+/* Placeholder (series) cell - dashed border */
+.placeholder {
+  border-style: dashed;
+  color: var(--color-no-focus);
+  border-color: var(--color-no-focus);
+}
+
+.placeholder .shells {
+  display: none;
+}
+
+.placeholder .mass {
+  display: none;
+}
+
+.placeholder.lanthanoids:hover,
+.placeholder.activeGroup.lanthanoids {
+  border-color: var(--color-lanthanoids);
+  color: var(--color-text);
+}
+.placeholder.actinoids:hover,
+.placeholder.activeGroup.actinoids {
+  border-color: var(--color-actinoids);
+  color: var(--color-text);
+}
+
+/* Active placeholder backgrounds */
+.placeholder.activeGroup.lanthanoids {
+  background: var(--color-surface);
+}
+.placeholder.focusGroup.lanthanoids,
+.placeholder.activeGroup.lanthanoids:hover {
+  background-color: var(--color-lanthanoids);
+}
+
+.placeholder.activeGroup.actinoids {
+  background: var(--color-surface);
+}
+.placeholder.focusGroup.actinoids,
+.placeholder.activeGroup.actinoids:hover {
+  background-color: var(--color-actinoids);
 }
 
 /* Responsive */

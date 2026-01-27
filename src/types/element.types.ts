@@ -101,3 +101,17 @@ export interface ThreatDefinition {
   color: string;
   iconCount: number;
 }
+
+export type SeriesType = 'lanthanoids' | 'actinoids';
+
+export interface SeriesPlaceholder {
+  id: SeriesType;
+  symbol: string;
+  name: string;
+  atomicNumberRange: string;
+  category: ElementCategory;
+  period: number;
+  group: number;
+  description: string[];
+  elementNumbers: number[];
+}

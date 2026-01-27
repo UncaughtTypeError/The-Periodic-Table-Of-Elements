@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import type { Element, ElementCategory, ThreatLevel } from '../types';
+import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '../types';
 
 interface State {
   activeCategories: Set<ElementCategory>;
@@ -7,8 +7,11 @@ interface State {
   activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   hoveredThreatLevel: ThreatLevel;
   hoveredElementNumber: number | null;
+  hoveredSeriesId: SeriesType | null;
   selectedElement: Element | null;
+  selectedSeries: SeriesPlaceholder | null;
   isDetailOpen: boolean;
+  isSeriesDetailOpen: boolean;
 }
 
 type Action =
@@ -17,8 +20,11 @@ type Action =
   | { type: 'TOGGLE_ACTIVE_THREAT'; payload: NonNullable<ThreatLevel> }
   | { type: 'SET_HOVERED_THREAT'; payload: ThreatLevel }
   | { type: 'SET_HOVERED_ELEMENT'; payload: number | null }
+  | { type: 'SET_HOVERED_SERIES'; payload: SeriesType | null }
   | { type: 'SELECT_ELEMENT'; payload: Element }
-  | { type: 'CLOSE_DETAIL' };
+  | { type: 'SELECT_SERIES'; payload: SeriesPlaceholder }
+  | { type: 'CLOSE_DETAIL' }
+  | { type: 'CLOSE_SERIES_DETAIL' };
 
 const initialState: State = {
   activeCategories: new Set(),
@@ -26,8 +32,11 @@ const initialState: State = {
   activeThreatLevels: new Set(),
   hoveredThreatLevel: null,
   hoveredElementNumber: null,
+  hoveredSeriesId: null,
   selectedElement: null,
+  selectedSeries: null,
   isDetailOpen: false,
+  isSeriesDetailOpen: false,
 };
 
 function reducer(state: State, action: Action): State {
@@ -76,6 +85,12 @@ function reducer(state: State, action: Action): State {
         hoveredElementNumber: action.payload,
       };
 
+    case 'SET_HOVERED_SERIES':
+      return {
+        ...state,
+        hoveredSeriesId: action.payload,
+      };
+
     case 'SELECT_ELEMENT':
       // If clicking the same element, close the panel (keep element for animation)
       if (state.selectedElement?.atomicNumber === action.payload.atomicNumber) {
@@ -95,6 +110,28 @@ function reducer(state: State, action: Action): State {
         ...state,
         // Keep selectedElement so animation can complete
         isDetailOpen: false,
+      };
+
+    case 'SELECT_SERIES':
+      // If clicking the same series, close the panel
+      if (state.selectedSeries?.id === action.payload.id) {
+        return {
+          ...state,
+          isSeriesDetailOpen: false,
+        };
+      }
+      return {
+        ...state,
+        selectedSeries: action.payload,
+        isSeriesDetailOpen: true,
+        // Close element detail if open
+        isDetailOpen: false,
+      };
+
+    case 'CLOSE_SERIES_DETAIL':
+      return {
+        ...state,
+        isSeriesDetailOpen: false,
       };
 
     default:
@@ -125,12 +162,24 @@ export function usePeriodicTableState() {
     dispatch({ type: 'SET_HOVERED_ELEMENT', payload: atomicNumber });
   }, []);
 
+  const setHoveredSeries = useCallback((seriesId: SeriesType | null) => {
+    dispatch({ type: 'SET_HOVERED_SERIES', payload: seriesId });
+  }, []);
+
   const selectElement = useCallback((element: Element) => {
     dispatch({ type: 'SELECT_ELEMENT', payload: element });
   }, []);
 
+  const selectSeries = useCallback((series: SeriesPlaceholder) => {
+    dispatch({ type: 'SELECT_SERIES', payload: series });
+  }, []);
+
   const closeDetail = useCallback(() => {
     dispatch({ type: 'CLOSE_DETAIL' });
+  }, []);
+
+  const closeSeriesDetail = useCallback(() => {
+    dispatch({ type: 'CLOSE_SERIES_DETAIL' });
   }, []);
 
   return {
@@ -141,8 +190,11 @@ export function usePeriodicTableState() {
       toggleActiveThreatLevel,
       setHoveredThreatLevel,
       setHoveredElement,
+      setHoveredSeries,
       selectElement,
+      selectSeries,
       closeDetail,
+      closeSeriesDetail,
     },
   };
 }

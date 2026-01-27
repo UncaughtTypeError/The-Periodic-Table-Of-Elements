@@ -1,8 +1,9 @@
 import { useMemo } from 'react';
-import type { Element, ElementCategory, ThreatLevel } from '../../types';
+import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '../../types';
 import { elements as allElements } from '../../data/elements';
+import { seriesPlaceholders } from '../../data/series';
 import { TABLE_POSITIONS, getLanthanides, getActinides } from '../../data/tableLayout';
-import { ElementCell, EmptyCell } from '../Element';
+import { ElementCell, EmptyCell, SeriesPlaceholderCell } from '../Element';
 import styles from './PeriodicTable.module.css';
 
 interface PeriodicTableProps {
@@ -11,10 +12,15 @@ interface PeriodicTableProps {
   activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   hoveredThreatLevel: ThreatLevel;
   hoveredElementNumber: number | null;
+  hoveredSeriesId: SeriesType | null;
   selectedElement: Element | null;
+  selectedSeries: SeriesPlaceholder | null;
   isDetailOpen: boolean;
+  isSeriesDetailOpen: boolean;
   onElementClick: (element: Element) => void;
   onElementHover: (atomicNumber: number | null) => void;
+  onSeriesClick: (series: SeriesPlaceholder) => void;
+  onSeriesHover: (seriesId: SeriesType | null) => void;
 }
 
 export function PeriodicTable({
@@ -23,10 +29,15 @@ export function PeriodicTable({
   activeThreatLevels,
   hoveredThreatLevel,
   hoveredElementNumber,
+  hoveredSeriesId,
   selectedElement,
+  selectedSeries,
   isDetailOpen,
+  isSeriesDetailOpen,
   onElementClick,
   onElementHover,
+  onSeriesClick,
+  onSeriesHover,
 }: PeriodicTableProps) {
   // Build element lookup map
   const elementMap = useMemo(() => {
@@ -125,12 +136,21 @@ export function PeriodicTable({
     return { activeGroupSet: activeGroup, noFocusSet: noFocus };
   }, [activeCategories, hoveredCategory, activeThreatLevels, hoveredThreatLevel]);
 
-  // Build period rows
+  // Get series placeholders
+  const lanthanoidPlaceholder = useMemo(() =>
+    seriesPlaceholders.find(s => s.id === 'lanthanoids')!,
+  []);
+
+  const actinoidPlaceholder = useMemo(() =>
+    seriesPlaceholders.find(s => s.id === 'actinoids')!,
+  []);
+
+  // Build period rows with placeholders
   const periods = useMemo(() => {
-    const rows: (Element | null)[][] = [];
+    const rows: (Element | SeriesPlaceholder | null)[][] = [];
 
     for (let period = 1; period <= 7; period++) {
-      const row: (Element | null)[] = new Array(18).fill(null);
+      const row: (Element | SeriesPlaceholder | null)[] = new Array(18).fill(null);
 
       allElements.forEach(el => {
         const pos = TABLE_POSITIONS[el.atomicNumber];
@@ -139,11 +159,20 @@ export function PeriodicTable({
         }
       });
 
+      // Insert Ln placeholder in period 6, group 3 (between Ba and Hf)
+      if (period === 6) {
+        row[2] = lanthanoidPlaceholder;
+      }
+      // Insert An placeholder in period 7, group 3 (between Ra and Rf)
+      if (period === 7) {
+        row[2] = actinoidPlaceholder;
+      }
+
       rows.push(row);
     }
 
     return rows;
-  }, []);
+  }, [lanthanoidPlaceholder, actinoidPlaceholder]);
 
   // Get lanthanides and actinides
   const lanthanides = useMemo(() =>
@@ -154,24 +183,120 @@ export function PeriodicTable({
     getActinides(allElements).map(n => elementMap.get(n)!),
   [elementMap]);
 
-  const renderCell = (element: Element | null, index: number) => {
-    if (!element) {
+  // Helper to check if an item is a SeriesPlaceholder
+  const isSeriesPlaceholder = (item: Element | SeriesPlaceholder): item is SeriesPlaceholder => {
+    return 'elementNumbers' in item;
+  };
+
+  // Calculate if series placeholders should be in active group (highlighted)
+  const isSeriesActiveGroup = (series: SeriesPlaceholder): boolean => {
+    const hasActiveCategories = activeCategories.size > 0;
+    const hasActiveThreats = activeThreatLevels.size > 0;
+    const hasHoveredCategory = hoveredCategory !== null;
+
+    // Show as active if hovering a matching category (this enables the colored styling)
+    if (hasHoveredCategory && series.category === hoveredCategory) {
+      return true;
+    }
+
+    // Only show as active if category filter is active and matches (and no threat filter)
+    if (hasActiveCategories && !hasActiveThreats) {
+      return activeCategories.has(series.category);
+    }
+
+    return false;
+  };
+
+  // Calculate if series placeholders should be dimmed
+  const isSeriesNoFocus = (series: SeriesPlaceholder): boolean => {
+    const hasActiveCategories = activeCategories.size > 0;
+    const hasActiveThreats = activeThreatLevels.size > 0;
+    const hasHoveredCategory = hoveredCategory !== null;
+    const hasHoveredThreat = hoveredThreatLevel !== null;
+
+    // If no filters, not dimmed
+    if (!hasActiveCategories && !hasActiveThreats && !hasHoveredCategory && !hasHoveredThreat) {
+      return false;
+    }
+
+    // If being hovered directly, not dimmed
+    if (hoveredSeriesId === series.id) {
+      return false;
+    }
+
+    // Check if series category matches filters
+    const matchesActiveCategory = hasActiveCategories ? activeCategories.has(series.category) : true;
+    const matchesHoveredCategory = hasHoveredCategory && series.category === hoveredCategory;
+
+    // If hovering a category that matches this series, don't dim
+    if (matchesHoveredCategory) {
+      return false;
+    }
+
+    // Series don't have threat levels, so they're dimmed if threat filter is active
+    if (hasActiveThreats && !hasActiveCategories) {
+      return true; // Dim if only threat filter is active (series have no threats)
+    }
+
+    if (hasActiveCategories || hasActiveThreats) {
+      if (!matchesActiveCategory) {
+        return true;
+      }
+      // If threat is also active, series should be dimmed (no threat level)
+      if (hasActiveThreats) {
+        return true;
+      }
+    } else if (hasHoveredCategory || hasHoveredThreat) {
+      // Only hover active, no click filters
+      if (hasHoveredThreat) {
+        return true; // Series have no threats
+      }
+      // If hovering a category that doesn't match, dim
+      if (hasHoveredCategory && !matchesHoveredCategory) {
+        return true;
+      }
+    }
+
+    return false;
+  };
+
+  const renderCell = (item: Element | SeriesPlaceholder | null, index: number) => {
+    if (!item) {
       return <EmptyCell key={`empty-${index}`} />;
     }
 
-    // Element is not dimmed if it's being hovered directly
-    const isHovered = hoveredElementNumber === element.atomicNumber;
-    const shouldBeNoFocus = noFocusSet.has(element.atomicNumber) && !isHovered;
+    // Check if this is a series placeholder
+    if (isSeriesPlaceholder(item)) {
+      const isHovered = hoveredSeriesId === item.id;
+      const shouldBeNoFocus = isSeriesNoFocus(item) && !isHovered;
+
+      return (
+        <SeriesPlaceholderCell
+          key={`series-${item.id}`}
+          series={item}
+          isNoFocus={shouldBeNoFocus}
+          isActiveGroup={isSeriesActiveGroup(item)}
+          isFocusGroup={isSeriesDetailOpen && selectedSeries?.id === item.id}
+          onClick={() => onSeriesClick(item)}
+          onMouseEnter={() => onSeriesHover(item.id)}
+          onMouseLeave={() => onSeriesHover(null)}
+        />
+      );
+    }
+
+    // Regular element
+    const isHovered = hoveredElementNumber === item.atomicNumber;
+    const shouldBeNoFocus = noFocusSet.has(item.atomicNumber) && !isHovered;
 
     return (
       <ElementCell
-        key={element.atomicNumber}
-        element={element}
+        key={item.atomicNumber}
+        element={item}
         isNoFocus={shouldBeNoFocus}
-        isActiveGroup={activeGroupSet.has(element.atomicNumber)}
-        isFocusGroup={isDetailOpen && selectedElement?.atomicNumber === element.atomicNumber}
-        onClick={() => onElementClick(element)}
-        onMouseEnter={() => onElementHover(element.atomicNumber)}
+        isActiveGroup={activeGroupSet.has(item.atomicNumber)}
+        isFocusGroup={isDetailOpen && selectedElement?.atomicNumber === item.atomicNumber}
+        onClick={() => onElementClick(item)}
+        onMouseEnter={() => onElementHover(item.atomicNumber)}
         onMouseLeave={() => onElementHover(null)}
       />
     );
