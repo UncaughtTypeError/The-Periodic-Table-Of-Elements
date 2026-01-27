@@ -2,9 +2,13 @@
 
 An interactive periodic table application built with React and TypeScript. Browse all 118 elements, filter by category or threat level, and view detailed information for each element.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9c636c1d-8a67-42ae-b424-7bf16d9592e0/deploy-status)](https://app.netlify.com/projects/periodic-table-of-chemical-elements/deploys)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Features
 
-- **Interactive Element Grid**: Click any element to view detailed information
+- **Interactive Element Grid**: Click any element to view detailed information including physical properties, history, and discovery
+- **Lanthanoid & Actinoid Series**: Dedicated detail panels for the lanthanoid and actinoid series with mini periodic table visualization
 - **Category Filtering**: Filter elements by 10 categories (alkali metals, noble gases, transition metals, etc.)
 - **Threat Level Indicators**: Visual indicators for elements with limited availability, rising threats, or serious supply concerns
 - **Synthetic Element Display**: Synthetic elements display atomic mass in [brackets] to indicate no stable isotopes
@@ -30,7 +34,6 @@ An interactive periodic table application built with React and TypeScript. Brows
 ### Installation
 
 ```bash
-cd periodic-table-react
 npm install
 ```
 
@@ -40,7 +43,7 @@ npm install
 npm run dev
 ```
 
-Opens the app at http://localhost:5173
+The app will open at `http://localhost:5173` (or the next available port).
 
 ### Build
 
@@ -68,14 +71,16 @@ npm run coverage
 src/
 ├── components/
 │   ├── Element/           # ElementCell component
-│   ├── ElementDetail/     # Detail panel for selected element
+│   ├── ElementDetail/     # Detail panels (ElementDetail, SeriesDetail, Modal styles)
 │   ├── PeriodicTable/     # Main table grid
 │   ├── CategoryFilter/    # Category filter buttons
 │   ├── ThreatFilter/      # Threat level filter
-│   └── Footer/            # Page footer
+│   ├── Footer/            # Page footer
+│   └── common/            # Shared components
 ├── data/
 │   ├── elements.ts        # All 118 elements data
 │   ├── categories.ts      # Category definitions
+│   ├── series.ts          # Lanthanoid/Actinoid series data
 │   └── tableLayout.ts     # Grid positioning
 ├── hooks/
 │   └── usePeriodicTableState.ts  # State management
