@@ -1,4 +1,4 @@
-# The Periodic Table of Elements
+# <img src="public/favicon.svg" width="32" height="32" alt="Logo" /> The Periodic Table of Elements
 
 An interactive periodic table application built with React and TypeScript. Browse all 118 elements, filter by category or threat level, and view detailed information for each element.
 
