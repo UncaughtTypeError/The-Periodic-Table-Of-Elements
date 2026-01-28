@@ -3,7 +3,7 @@ import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesTy
 import { elements as allElements } from '@/data/elements';
 import { seriesPlaceholders } from '@/data/series';
 import { TABLE_POSITIONS, getLanthanides, getActinides } from '@/data/tableLayout';
-import { ElementCell, EmptyCell, SeriesPlaceholderCell } from '@/components/Element';
+import { ElementCell, EmptyCell, LabelCell, SeriesPlaceholderCell } from '@/components/Element';
 import styles from './PeriodicTable.module.css';
 
 interface PeriodicTableProps {
@@ -315,12 +315,18 @@ export function PeriodicTable({
 
         {/* Lanthanides */}
         <div className={styles.fBlockRow}>
+          <EmptyCell />
+          <LabelCell label="Ln Series" />
           {lanthanides.map(element => renderCell(element, element.atomicNumber))}
+          <EmptyCell />
         </div>
 
         {/* Actinides */}
         <div className={styles.fBlockRow}>
+          <EmptyCell />
+          <LabelCell label="An Series" />
           {actinides.map(element => renderCell(element, element.atomicNumber))}
+          <EmptyCell />
         </div>
       </div>
     </div>
