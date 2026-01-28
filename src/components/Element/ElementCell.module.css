@@ -238,6 +238,8 @@
   color: inherit;
   margin-top: auto;
   transition: color 0.7s ease;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 /* Threat indicator */
@@ -322,6 +324,9 @@
   .symbol {
     font-size: 24px;
   }
+  .name {
+    display: none;
+  }
 }
 
 @media (max-width: 1300px) {
@@ -334,6 +339,10 @@
   }
   .shells {
     font-size: 7px;
+    flex-direction: column;
+    position: absolute;
+    right: 5px;
+    line-height: 0.45rem;
   }
   .atomicNumber {
     font-size: 9px;
@@ -373,10 +382,23 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 850px) {
   .cell {
     --cell-width: 38px;
     --cell-height: 48px;
+  }
+  .mass {
+    display: none;
+  }
+  .placeholder .atomicNumber {
+    font-size: 7px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cell {
+    --cell-width: 32px;
+    --cell-height: 40px;
   }
   .symbol {
     font-size: 14px;
@@ -384,34 +406,48 @@
   .atomicNumber {
     font-size: 8px;
   }
-  .mass {
-    font-size: 7px;
+  .placeholder {
+    justify-content: flex-end;
+    padding-bottom: 7px;
+  }
+  .placeholder .atomicNumber {
+    display: none;
   }
 }
 
 @media (max-width: 600px) {
   .cell {
-    --cell-width: 32px;
-    --cell-height: 40px;
+    --cell-width: 28px;
+    --cell-height: 35px;
     padding: 2px;
   }
   .symbol {
     font-size: 12px;
   }
-  .mass {
-    display: none;
-  }
 }
 
-@media (max-width: 500px) {
-  .cell {
-    --cell-width: 28px;
-    --cell-height: 35px;
-  }
+@media (max-width: 550px) {
   .symbol {
     font-size: 10px;
   }
   .atomicNumber {
-    font-size: 7px;
+    display: none;
+  }
+  .cell {
+    --cell-width: 22px;
+    --cell-height: 28px;
+  }
+}
+
+@media (max-width: 450px) {
+  .cell {
+    --cell-width: 15px;
+    --cell-height: 20px;
+  }
+  .symbol {
+    display: none;
+  }
+  .threatIndicator {
+    display: none;
   }
 }

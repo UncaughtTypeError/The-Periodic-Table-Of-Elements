@@ -115,6 +115,9 @@
 }
 
 @media (max-width: 768px) {
+  .title {
+    font-size: 12px;
+  }
   .button {
     padding: 6px 10px;
     font-size: 11px;
@@ -127,6 +130,12 @@
   }
 }
 
+@media (max-width: 600px) {
+  .description {
+    display: none;
+  }
+}
+
 @media (max-width: 500px) {
   .container {
     gap: 8px;
@@ -134,8 +143,5 @@
   }
   .button {
     padding: 4px 8px;
-  }
-  .description {
-    display: none;
   }
 }

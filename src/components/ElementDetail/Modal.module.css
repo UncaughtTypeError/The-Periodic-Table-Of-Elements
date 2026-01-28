@@ -196,6 +196,11 @@
     min-width: 48%;
     max-width: 48%;
   }
+
+  .card:last-of-type {
+    min-width: 100%;
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -207,14 +212,9 @@
   .element {
     position: relative;
     margin: auto;
+    margin-bottom: 20px;
   }
 
-  .elementSymbol {
-    font-size: 70px;
-  }
-}
-
-@media (max-width: 600px) {
   .modalContent {
     flex-direction: column;
   }
@@ -224,6 +224,12 @@
     max-width: 100%;
   }
 
+  .elementSymbol {
+    font-size: 70px;
+  }
+}
+
+@media (max-width: 600px) {
   .element {
     min-height: 200px;
   }
@@ -235,6 +241,15 @@
     max-width: 150px;
     min-height: initial;
     padding: 10px;
+    gap: 5px;
+  }
+
+  .element > div {
+    line-height: 1rem;
+  }
+
+  .atomicOrbitalShells {
+    font-size: 12px;
   }
 
   .elementSymbol {

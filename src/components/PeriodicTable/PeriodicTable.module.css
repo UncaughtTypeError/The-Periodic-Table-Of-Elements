@@ -108,7 +108,7 @@
 
 @media (max-width: 500px) {
   .fBlockRow {
-    margin-left: 61px;
+    margin-left: 20%;
   }
   .lanthanideLabel,
   .actinideLabel {

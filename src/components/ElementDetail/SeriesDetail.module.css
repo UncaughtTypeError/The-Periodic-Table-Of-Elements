@@ -13,7 +13,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 0;
+  gap: 10px 0px;
   margin-bottom: 20px;
 }
 
@@ -26,10 +26,6 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-}
-
-.seriesElement:first-child {
-  margin-left: 0;
 }
 
 .seriesAtomicNumber {
@@ -114,18 +110,24 @@
 }
 
 @media (max-width: 600px) {
-  .seriesSymbol {
-    text-align: center;
-    font-size: 10px;
-  }
-
   .seriesAtomicNumber {
     display: none;
   }
 }
 
 @media (max-width: 500px) {
-  .seriesRow {
+  .seriesSymbol {
+    text-align: center;
+    font-size: 10px;
+  }
+
+  .seriesElement {
+    width: 35px;
+    height: 50px;
+    justify-content: center;
+  }
+
+  .seriesMass {
     display: none;
   }
 
