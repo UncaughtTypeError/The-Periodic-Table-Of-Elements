@@ -20,6 +20,33 @@
   color: black;
 }
 
+/* Modal element block indicators */
+.atomicNumberRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.modalIndicators {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: black;
+  opacity: 0.6;
+}
+
+/* Standard state inline icon */
+.standardStateItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.standardStateItem svg {
+  flex-shrink: 0;
+  opacity: 0.6;
+}
+
 /* Property list */
 .propertyList {
   border-top: 1px solid #e2e2e2;
@@ -102,6 +129,25 @@
 }
 .threatSerious .threatDot {
   background-color: var(--color-threat-serious);
+}
+
+/* Radioactive badge */
+.radioactiveBadge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 13px;
+  background-color: rgba(127, 255, 0, 0.15);
+  border: 1px solid var(--color-radioactive);
+}
+
+.radioactiveIcon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 /* Overview card */

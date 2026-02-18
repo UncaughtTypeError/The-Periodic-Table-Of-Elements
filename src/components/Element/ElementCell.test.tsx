@@ -70,6 +70,16 @@ const mockHelium: Element = {
   electronShells: { K: 2, L: null, M: null, N: null, O: null, P: null, Q: null },
 };
 
+const mockUranium: Element = {
+  ...mockHydrogen,
+  symbol: 'U',
+  name: 'Uranium',
+  atomicNumber: 92,
+  atomicMass: 238.02891,
+  category: 'actinoids',
+  period: 7,
+};
+
 describe('ElementCell', () => {
   it('renders element symbol', () => {
     render(<ElementCell element={mockHydrogen} />);
@@ -161,5 +171,25 @@ describe('ElementCell', () => {
     render(<ElementCell element={mockHydrogen} />);
     expect(screen.getByText('1.008')).toBeInTheDocument();
     expect(screen.queryByText('[1.008]')).not.toBeInTheDocument();
+  });
+
+  it('renders gas state indicator for gas elements', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.getByRole('img', { name: 'Gas' })).toBeInTheDocument();
+  });
+
+  it('renders solid state indicator for solid elements', () => {
+    render(<ElementCell element={mockUranium} />);
+    expect(screen.getByRole('img', { name: 'Solid' })).toBeInTheDocument();
+  });
+
+  it('renders radioactive indicator for radioactive elements', () => {
+    render(<ElementCell element={mockUranium} />);
+    expect(screen.getByRole('img', { name: 'Radioactive' })).toBeInTheDocument();
+  });
+
+  it('does not render radioactive indicator for non-radioactive elements', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.queryByRole('img', { name: 'Radioactive' })).not.toBeInTheDocument();
   });
 });

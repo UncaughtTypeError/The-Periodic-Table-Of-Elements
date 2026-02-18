@@ -11,6 +11,9 @@
   --color-lanthanoids: #fd6d3f;
   --color-actinoids: #ff1744;
 
+  /* Radioactive */
+  --color-radioactive: #7FFF00;
+
   /* Threat Colors */
   --color-threat-limited: #ded014;
   --color-threat-rising: #e27807;

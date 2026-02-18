@@ -74,6 +74,20 @@ const mockHelium: Element = {
   },
 };
 
+const mockUranium: Element = {
+  ...mockHydrogen,
+  symbol: 'U',
+  name: 'Uranium',
+  atomicNumber: 92,
+  atomicMass: 238.02891,
+  category: 'actinoids',
+  period: 7,
+  detail: {
+    ...mockHydrogen.detail,
+    description: ['Uranium is a chemical element with symbol U and atomic number 92.'],
+  },
+};
+
 describe('ElementDetail', () => {
   it('renders null when element is null', () => {
     const { container } = render(
@@ -189,5 +203,20 @@ describe('ElementDetail', () => {
     render(<ElementDetail element={mockHydrogen} isOpen={false} onClose={vi.fn()} />);
     const overlay = screen.getByTestId('detail-panel');
     expect(overlay.className).not.toContain('open');
+  });
+
+  it('renders radioactive badge for radioactive elements', () => {
+    render(<ElementDetail element={mockUranium} isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByText(/Radioactive - All isotopes unstable/)).toBeInTheDocument();
+  });
+
+  it('does not render radioactive badge for non-radioactive elements', () => {
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    expect(screen.queryByText(/Radioactive - All isotopes unstable/)).not.toBeInTheDocument();
+  });
+
+  it('renders state of matter indicators', () => {
+    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    expect(screen.getByText(/Standard state:/)).toBeInTheDocument();
   });
 });

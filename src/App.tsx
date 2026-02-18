@@ -4,6 +4,7 @@ import { ThreatFilter } from './components/ThreatFilter';
 import { PeriodicTable } from './components/PeriodicTable';
 import { ElementDetail, SeriesDetail } from './components/ElementDetail';
 import { Footer } from './components/Footer';
+import { Legend } from './components/Legend';
 import './styles/global.css';
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         onThreatClick={actions.toggleActiveThreatLevel}
         onThreatHover={actions.setHoveredThreatLevel}
       />
+
+      <Legend />
 
       <PeriodicTable
         activeCategories={state.activeCategories}

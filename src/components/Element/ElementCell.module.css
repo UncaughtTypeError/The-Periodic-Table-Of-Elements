@@ -70,6 +70,10 @@
   color: darkgray !important;
 }
 
+.noFocus .indicators {
+  opacity: 0.3;
+}
+
 .focus {
   transform: scale(1.2);
   box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 30px 5px inset;
@@ -210,10 +214,28 @@
   transition: color 0.7s ease;
 }
 
+.atomicNumberRow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
 .atomicNumber {
   font-size: 10px;
   color: inherit;
   transition: color 0.7s ease;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0.7;
+}
+
+.indicators svg {
+  width: 8px;
+  height: 8px;
 }
 
 .symbol {
@@ -385,6 +407,9 @@
     font-size: 18px;
   }
   .shells {
+    display: none;
+  }
+  .indicators {
     display: none;
   }
 }
