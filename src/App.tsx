@@ -1,14 +1,21 @@
-import { usePeriodicTableState } from './hooks';
+import { usePeriodicTableState, useFilterCounts } from './hooks';
 import { CategoryFilter } from './components/CategoryFilter';
 import { ThreatFilter } from './components/ThreatFilter';
 import { PeriodicTable } from './components/PeriodicTable';
 import { ElementDetail, SeriesDetail } from './components/ElementDetail';
 import { Footer } from './components/Footer';
 import { Legend } from './components/Legend';
+import { ActiveFilterCount } from './components/ActiveFilterCount';
 import './styles/global.css';
 
 function App() {
   const { state, actions } = usePeriodicTableState();
+
+  const filterCounts = useFilterCounts({
+    activeCategories: state.activeCategories,
+    activeThreatLevels: state.activeThreatLevels,
+    activeLegendFilters: state.activeLegendFilters,
+  });
 
   return (
     <>
@@ -20,15 +27,21 @@ function App() {
 
       <ThreatFilter
         activeThreatLevels={state.activeThreatLevels}
+        threatCounts={filterCounts.threatCounts}
         onThreatClick={actions.toggleActiveThreatLevel}
         onThreatHover={actions.setHoveredThreatLevel}
       />
 
       <Legend
         activeLegendFilters={state.activeLegendFilters}
+        legendCounts={filterCounts.legendCounts}
         onLegendClick={actions.toggleLegendFilter}
         onLegendHover={actions.setHoveredLegendFilter}
       />
+
+      {filterCounts.activeCount !== null && (
+        <ActiveFilterCount count={filterCounts.activeCount} />
+      )}
 
       <PeriodicTable
         activeCategories={state.activeCategories}

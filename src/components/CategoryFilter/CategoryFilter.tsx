@@ -1,5 +1,9 @@
 import type { ElementCategory, CategoryDefinition } from '@/types';
-import { NONMETAL_CATEGORIES, METALLOID_CATEGORIES, METAL_CATEGORIES } from '@/data/categories';
+import {
+  NONMETAL_CATEGORIES,
+  METALLOID_CATEGORIES,
+  METAL_CATEGORIES,
+} from '@/data/categories';
 import styles from './CategoryFilter.module.css';
 
 interface CategoryFilterProps {
@@ -11,14 +15,14 @@ interface CategoryFilterProps {
 const categoryClassMap: Record<ElementCategory, string> = {
   'other-nonmetals': styles.otherNonmetals,
   'noble-gases': styles.nobleGases,
-  'halogens': styles.halogens,
-  'metalloids': styles.metalloids,
+  halogens: styles.halogens,
+  metalloids: styles.metalloids,
   'alkaline-earth-metals': styles.alkalineEarthMetals,
   'alkali-metals': styles.alkaliMetals,
   'transition-metals': styles.transitionMetals,
   'post-transition-metals': styles.postTransitionMetals,
-  'lanthanoids': styles.lanthanoids,
-  'actinoids': styles.actinoids,
+  lanthanoids: styles.lanthanoids,
+  actinoids: styles.actinoids,
 };
 
 function CategoryButton({
@@ -66,7 +70,7 @@ export function CategoryFilter({
       </div>
       <div className={styles.container}>
         <div className={styles.group}>
-          {NONMETAL_CATEGORIES.map(category => (
+          {NONMETAL_CATEGORIES.map((category) => (
             <CategoryButton
               key={category.id}
               category={category}
@@ -78,7 +82,7 @@ export function CategoryFilter({
           ))}
         </div>
         <div className={styles.group}>
-          {METALLOID_CATEGORIES.map(category => (
+          {METALLOID_CATEGORIES.map((category) => (
             <CategoryButton
               key={category.id}
               category={category}
@@ -90,7 +94,7 @@ export function CategoryFilter({
           ))}
         </div>
         <div className={styles.group}>
-          {METAL_CATEGORIES.map(category => (
+          {METAL_CATEGORIES.map((category) => (
             <CategoryButton
               key={category.id}
               category={category}

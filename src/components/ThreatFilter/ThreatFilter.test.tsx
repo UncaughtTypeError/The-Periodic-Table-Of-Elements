@@ -6,6 +6,7 @@ import type { ThreatLevel } from '@/types';
 describe('ThreatFilter', () => {
   const defaultProps = {
     activeThreatLevels: new Set<NonNullable<ThreatLevel>>(),
+    threatCounts: new Map<NonNullable<ThreatLevel>, number>(),
     onThreatClick: vi.fn(),
     onThreatHover: vi.fn(),
   };
@@ -22,9 +23,9 @@ describe('ThreatFilter', () => {
   it('renders all 3 threat level buttons', () => {
     render(<ThreatFilter {...defaultProps} />);
 
-    expect(screen.getByText('Limited Availability')).toBeInTheDocument();
-    expect(screen.getByText('Rising Threat')).toBeInTheDocument();
-    expect(screen.getByText('Serious Threat')).toBeInTheDocument();
+    expect(screen.getByText(/Limited Availability/)).toBeInTheDocument();
+    expect(screen.getByText(/Rising Threat/)).toBeInTheDocument();
+    expect(screen.getByText(/Serious Threat/)).toBeInTheDocument();
   });
 
   it('renders threat descriptions', () => {
@@ -39,7 +40,7 @@ describe('ThreatFilter', () => {
     const onThreatClick = vi.fn();
     render(<ThreatFilter {...defaultProps} onThreatClick={onThreatClick} />);
 
-    fireEvent.click(screen.getByText('Serious Threat').closest('button')!);
+    fireEvent.click(screen.getByText(/Serious Threat/).closest('button')!);
     expect(onThreatClick).toHaveBeenCalledWith('serious');
   });
 
@@ -47,7 +48,7 @@ describe('ThreatFilter', () => {
     const onThreatHover = vi.fn();
     render(<ThreatFilter {...defaultProps} onThreatHover={onThreatHover} />);
 
-    fireEvent.mouseEnter(screen.getByText('Rising Threat').closest('button')!);
+    fireEvent.mouseEnter(screen.getByText(/Rising Threat/).closest('button')!);
     expect(onThreatHover).toHaveBeenCalledWith('rising');
   });
 
@@ -55,23 +56,23 @@ describe('ThreatFilter', () => {
     const onThreatHover = vi.fn();
     render(<ThreatFilter {...defaultProps} onThreatHover={onThreatHover} />);
 
-    fireEvent.mouseLeave(screen.getByText('Rising Threat').closest('button')!);
+    fireEvent.mouseLeave(screen.getByText(/Rising Threat/).closest('button')!);
     expect(onThreatHover).toHaveBeenCalledWith(null);
   });
 
   it('applies active class to active threat level', () => {
     render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious'])} />);
 
-    const button = screen.getByText('Serious Threat').closest('button');
+    const button = screen.getByText(/Serious Threat/).closest('button');
     expect(button?.className).toContain('active');
   });
 
   it('supports multiple active threat levels', () => {
     render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious', 'rising'])} />);
 
-    const seriousButton = screen.getByText('Serious Threat').closest('button');
-    const risingButton = screen.getByText('Rising Threat').closest('button');
-    const limitedButton = screen.getByText('Limited Availability').closest('button');
+    const seriousButton = screen.getByText(/Serious Threat/).closest('button');
+    const risingButton = screen.getByText(/Rising Threat/).closest('button');
+    const limitedButton = screen.getByText(/Limited Availability/).closest('button');
 
     expect(seriousButton?.className).toContain('active');
     expect(risingButton?.className).toContain('active');

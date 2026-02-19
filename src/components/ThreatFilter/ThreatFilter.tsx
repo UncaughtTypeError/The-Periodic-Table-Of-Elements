@@ -4,6 +4,7 @@ import styles from './ThreatFilter.module.css';
 
 interface ThreatFilterProps {
   activeThreatLevels: Set<NonNullable<ThreatLevel>>;
+  threatCounts: Map<NonNullable<ThreatLevel>, number>;
   onThreatClick: (threat: NonNullable<ThreatLevel>) => void;
   onThreatHover: (threat: ThreatLevel) => void;
 }
@@ -16,6 +17,7 @@ const threatClassMap: Record<NonNullable<ThreatLevel>, string> = {
 
 export function ThreatFilter({
   activeThreatLevels,
+  threatCounts,
   onThreatClick,
   onThreatHover,
 }: ThreatFilterProps) {
@@ -41,7 +43,10 @@ export function ThreatFilter({
             </div>
           </div>
           <div className={styles.label}>
-            <span className={styles.name}>{threat.name}</span>
+            <span className={styles.name}>
+              {threat.name}
+              <span className={styles.count}> ({threatCounts.get(threat.id) ?? 0})</span>
+            </span>
             <span className={styles.description}>{threat.description}</span>
           </div>
         </button>

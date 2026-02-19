@@ -105,6 +105,16 @@
   font-size: 12px;
 }
 
+.count {
+  font-weight: normal;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.button.active .count {
+  color: var(--color-text);
+}
+
 .description {
   font-size: 10px;
   color: var(--color-text-muted);

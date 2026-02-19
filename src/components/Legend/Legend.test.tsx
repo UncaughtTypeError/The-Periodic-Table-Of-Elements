@@ -6,6 +6,7 @@ import type { LegendFilter } from '@/types';
 describe('Legend', () => {
   const defaultProps = {
     activeLegendFilters: new Set<LegendFilter>(),
+    legendCounts: new Map<LegendFilter, number>(),
     onLegendClick: vi.fn(),
     onLegendHover: vi.fn(),
   };
@@ -17,10 +18,10 @@ describe('Legend', () => {
   it('renders all 4 legend items', () => {
     render(<Legend {...defaultProps} />);
 
-    expect(screen.getByText('Solid')).toBeInTheDocument();
-    expect(screen.getByText('Liquid')).toBeInTheDocument();
-    expect(screen.getByText('Gas')).toBeInTheDocument();
-    expect(screen.getByText('Radioactive')).toBeInTheDocument();
+    expect(screen.getByText(/^Solid/)).toBeInTheDocument();
+    expect(screen.getByText(/^Liquid/)).toBeInTheDocument();
+    expect(screen.getByText(/^Gas/)).toBeInTheDocument();
+    expect(screen.getByText(/^Radioactive/)).toBeInTheDocument();
   });
 
   it('renders divider between state icons and radioactive', () => {
@@ -36,7 +37,7 @@ describe('Legend', () => {
     const onLegendClick = vi.fn();
     render(<Legend {...defaultProps} onLegendClick={onLegendClick} />);
 
-    fireEvent.click(screen.getByText('Solid').closest('button')!);
+    fireEvent.click(screen.getByText(/^Solid/).closest('button')!);
     expect(onLegendClick).toHaveBeenCalledWith('solid');
   });
 
@@ -44,7 +45,7 @@ describe('Legend', () => {
     const onLegendClick = vi.fn();
     render(<Legend {...defaultProps} onLegendClick={onLegendClick} />);
 
-    fireEvent.click(screen.getByText('Radioactive').closest('button')!);
+    fireEvent.click(screen.getByText(/^Radioactive/).closest('button')!);
     expect(onLegendClick).toHaveBeenCalledWith('radioactive');
   });
 
@@ -52,7 +53,7 @@ describe('Legend', () => {
     const onLegendHover = vi.fn();
     render(<Legend {...defaultProps} onLegendHover={onLegendHover} />);
 
-    fireEvent.mouseEnter(screen.getByText('Gas').closest('button')!);
+    fireEvent.mouseEnter(screen.getByText(/^Gas/).closest('button')!);
     expect(onLegendHover).toHaveBeenCalledWith('gas');
   });
 
@@ -60,23 +61,23 @@ describe('Legend', () => {
     const onLegendHover = vi.fn();
     render(<Legend {...defaultProps} onLegendHover={onLegendHover} />);
 
-    fireEvent.mouseLeave(screen.getByText('Gas').closest('button')!);
+    fireEvent.mouseLeave(screen.getByText(/^Gas/).closest('button')!);
     expect(onLegendHover).toHaveBeenCalledWith(null);
   });
 
   it('applies active class to active legend filter', () => {
     render(<Legend {...defaultProps} activeLegendFilters={new Set<LegendFilter>(['solid'])} />);
 
-    const button = screen.getByText('Solid').closest('button');
+    const button = screen.getByText(/^Solid/).closest('button');
     expect(button?.className).toContain('active');
   });
 
   it('supports multiple active legend filters', () => {
     render(<Legend {...defaultProps} activeLegendFilters={new Set<LegendFilter>(['solid', 'radioactive'])} />);
 
-    const solidButton = screen.getByText('Solid').closest('button');
-    const liquidButton = screen.getByText('Liquid').closest('button');
-    const radioactiveButton = screen.getByText('Radioactive').closest('button');
+    const solidButton = screen.getByText(/^Solid/).closest('button');
+    const liquidButton = screen.getByText(/^Liquid/).closest('button');
+    const radioactiveButton = screen.getByText(/^Radioactive/).closest('button');
 
     expect(solidButton?.className).toContain('active');
     expect(radioactiveButton?.className).toContain('active');

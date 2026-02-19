@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import type { Element, ElementCategory, ThreatLevel, LegendFilter, SeriesPlaceholder, SeriesType } from '@/types';
 import { elements as allElements } from '@/data/elements';
-import { getStandardState, isRadioactive } from '@/data';
+import { matchesLegendValue, matchesAnyLegendFilter } from '@/utils/filterMatching';
 import { seriesPlaceholders } from '@/data/series';
 import { TABLE_POSITIONS, getLanthanides, getActinides } from '@/data/tableLayout';
 import { ElementCell, EmptyCell, LabelCell, SeriesPlaceholderCell } from '@/components/Element';
@@ -50,20 +50,6 @@ export function PeriodicTable({
     allElements.forEach(el => map.set(el.atomicNumber, el));
     return map;
   }, []);
-
-  // Helper to check if an element matches a single legend filter value
-  const matchesLegendValue = (el: Element, filter: LegendFilter): boolean => {
-    if (filter === 'radioactive') return isRadioactive(el.symbol);
-    return getStandardState(el.symbol) === filter;
-  };
-
-  // Check if element matches any active legend filter (OR within)
-  const matchesAnyLegendFilter = (el: Element, filters: Set<LegendFilter>): boolean => {
-    for (const f of filters) {
-      if (matchesLegendValue(el, f)) return true;
-    }
-    return false;
-  };
 
   // Calculate which elements should be highlighted/dimmed/activeGroup
   const { activeGroupSet, noFocusSet } = useMemo(() => {

@@ -4,6 +4,7 @@ import styles from './Legend.module.css';
 
 interface LegendProps {
   activeLegendFilters: Set<LegendFilter>;
+  legendCounts: Map<LegendFilter, number>;
   onLegendClick: (filter: LegendFilter) => void;
   onLegendHover: (filter: LegendFilter | null) => void;
 }
@@ -16,6 +17,7 @@ const items: { id: LegendFilter; label: string; Icon: React.FC<{ size?: number }
 
 export function Legend({
   activeLegendFilters,
+  legendCounts,
   onLegendClick,
   onLegendHover,
 }: LegendProps) {
@@ -30,7 +32,7 @@ export function Legend({
           onMouseLeave={() => onLegendHover(null)}
         >
           <Icon size={14} />
-          <span>{label}</span>
+          <span>{label} <span className={styles.count}>({legendCounts.get(id) ?? 0})</span></span>
         </button>
       ))}
       <div className={styles.divider} />
@@ -41,7 +43,7 @@ export function Legend({
         onMouseLeave={() => onLegendHover(null)}
       >
         <RadioactiveIcon size={14} />
-        <span>Radioactive</span>
+        <span>Radioactive <span className={styles.count}>({legendCounts.get('radioactive') ?? 0})</span></span>
       </button>
     </div>
   );
