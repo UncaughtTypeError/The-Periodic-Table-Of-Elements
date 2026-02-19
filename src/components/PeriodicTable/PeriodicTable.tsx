@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
-import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '@/types';
+import type { Element, ElementCategory, ThreatLevel, LegendFilter, SeriesPlaceholder, SeriesType } from '@/types';
 import { elements as allElements } from '@/data/elements';
+import { getStandardState, isRadioactive } from '@/data';
 import { seriesPlaceholders } from '@/data/series';
 import { TABLE_POSITIONS, getLanthanides, getActinides } from '@/data/tableLayout';
 import { ElementCell, EmptyCell, LabelCell, SeriesPlaceholderCell } from '@/components/Element';
@@ -11,6 +12,8 @@ interface PeriodicTableProps {
   hoveredCategory: ElementCategory | null;
   activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   hoveredThreatLevel: ThreatLevel;
+  activeLegendFilters: Set<LegendFilter>;
+  hoveredLegendFilter: LegendFilter | null;
   hoveredElementNumber: number | null;
   hoveredSeriesId: SeriesType | null;
   selectedElement: Element | null;
@@ -28,6 +31,8 @@ export function PeriodicTable({
   hoveredCategory,
   activeThreatLevels,
   hoveredThreatLevel,
+  activeLegendFilters,
+  hoveredLegendFilter,
   hoveredElementNumber,
   hoveredSeriesId,
   selectedElement,
@@ -46,15 +51,31 @@ export function PeriodicTable({
     return map;
   }, []);
 
+  // Helper to check if an element matches a single legend filter value
+  const matchesLegendValue = (el: Element, filter: LegendFilter): boolean => {
+    if (filter === 'radioactive') return isRadioactive(el.symbol);
+    return getStandardState(el.symbol) === filter;
+  };
+
+  // Check if element matches any active legend filter (OR within)
+  const matchesAnyLegendFilter = (el: Element, filters: Set<LegendFilter>): boolean => {
+    for (const f of filters) {
+      if (matchesLegendValue(el, f)) return true;
+    }
+    return false;
+  };
+
   // Calculate which elements should be highlighted/dimmed/activeGroup
   const { activeGroupSet, noFocusSet } = useMemo(() => {
     const hasActiveCategories = activeCategories.size > 0;
     const hasActiveThreats = activeThreatLevels.size > 0;
+    const hasActiveLegend = activeLegendFilters.size > 0;
     const hasHoveredCategory = hoveredCategory !== null;
     const hasHoveredThreat = hoveredThreatLevel !== null;
+    const hasHoveredLegend = hoveredLegendFilter !== null;
 
     // No filters active - everything normal
-    if (!hasActiveCategories && !hasActiveThreats && !hasHoveredCategory && !hasHoveredThreat) {
+    if (!hasActiveCategories && !hasActiveThreats && !hasActiveLegend && !hasHoveredCategory && !hasHoveredThreat && !hasHoveredLegend) {
       return { activeGroupSet: new Set<number>(), noFocusSet: new Set<number>() };
     }
 
@@ -70,6 +91,11 @@ export function PeriodicTable({
         ? (el.threatLevel !== null && activeThreatLevels.has(el.threatLevel))
         : true;
 
+      // Check if element matches active legend filters (OR within)
+      const matchesActiveLegend = hasActiveLegend
+        ? matchesAnyLegendFilter(el, activeLegendFilters)
+        : true;
+
       // Check if element matches hovered category (when other categories are active)
       const matchesHoveredCategory = hasHoveredCategory && el.category === hoveredCategory;
 
@@ -78,37 +104,43 @@ export function PeriodicTable({
         ? (el.threatLevel !== null && el.threatLevel === hoveredThreatLevel)
         : false;
 
+      // Check if element matches hovered legend filter
+      const matchesHoveredLegend = hasHoveredLegend
+        ? matchesLegendValue(el, hoveredLegendFilter)
+        : false;
+
       // Determine if element should be in activeGroup (highlighted with background)
-      // This happens when element matches ALL active filters (both category AND threat if both are set)
-      if (hasActiveCategories || hasActiveThreats) {
-        const matchesBothActiveFilters = matchesActiveCategory && matchesActiveThreat;
-        if (matchesBothActiveFilters) {
+      // This happens when element matches ALL active filters (category AND threat AND legend)
+      if (hasActiveCategories || hasActiveThreats || hasActiveLegend) {
+        const matchesAllActiveFilters = matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
+        if (matchesAllActiveFilters) {
           activeGroup.add(el.atomicNumber);
         }
       }
 
       // Determine if element should be noFocus (dimmed)
-      // Priority rules:
-      // 1. If hovering a category while others are active, don't dim the hovered category's elements
-      // 2. If hovering a threat while others are active, don't dim the hovered threat's elements
-      // 3. Threat filters take priority - they can dim elements even if they match a category filter
-
       let shouldBeDimmed = false;
 
-      if (hasActiveCategories || hasActiveThreats) {
+      if (hasActiveCategories || hasActiveThreats || hasActiveLegend) {
         // Start by checking if element matches all active filters
-        const matchesBothActiveFilters = matchesActiveCategory && matchesActiveThreat;
+        const matchesAllActiveFilters = matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
 
-        if (!matchesBothActiveFilters) {
+        if (!matchesAllActiveFilters) {
           // Element doesn't match all active filters, so it should be dimmed...
           // UNLESS it matches the currently hovered filter
           if (hasHoveredCategory && matchesHoveredCategory) {
-            // Don't dim - hovering shows this category even when other filters are active
             shouldBeDimmed = false;
           } else if (hasHoveredThreat && matchesHoveredThreat) {
-            // Don't dim - hovering shows this threat even when other filters are active
-            // But only if it also matches active category filters (threat can't activate non-matching categories)
             if (!hasActiveCategories || matchesActiveCategory) {
+              shouldBeDimmed = false;
+            } else {
+              shouldBeDimmed = true;
+            }
+          } else if (hasHoveredLegend && matchesHoveredLegend) {
+            // Don't dim - hovering shows this legend filter even when other filters are active
+            // But only if it also matches other active filters
+            const matchesOtherActive = matchesActiveCategory && matchesActiveThreat;
+            if (!hasActiveCategories && !hasActiveThreats || matchesOtherActive) {
               shouldBeDimmed = false;
             } else {
               shouldBeDimmed = true;
@@ -117,11 +149,12 @@ export function PeriodicTable({
             shouldBeDimmed = true;
           }
         }
-      } else if (hasHoveredCategory || hasHoveredThreat) {
+      } else if (hasHoveredCategory || hasHoveredThreat || hasHoveredLegend) {
         // Only hover active, no click filters
-        const matchesHover = hasHoveredCategory
-          ? matchesHoveredCategory
-          : matchesHoveredThreat;
+        let matchesHover = false;
+        if (hasHoveredCategory) matchesHover = matchesHoveredCategory;
+        else if (hasHoveredThreat) matchesHover = matchesHoveredThreat;
+        else if (hasHoveredLegend) matchesHover = matchesHoveredLegend;
 
         if (!matchesHover) {
           shouldBeDimmed = true;
@@ -134,7 +167,7 @@ export function PeriodicTable({
     });
 
     return { activeGroupSet: activeGroup, noFocusSet: noFocus };
-  }, [activeCategories, hoveredCategory, activeThreatLevels, hoveredThreatLevel]);
+  }, [activeCategories, hoveredCategory, activeThreatLevels, hoveredThreatLevel, activeLegendFilters, hoveredLegendFilter]);
 
   // Get series placeholders
   const lanthanoidPlaceholder = useMemo(() =>
@@ -192,6 +225,7 @@ export function PeriodicTable({
   const isSeriesActiveGroup = (series: SeriesPlaceholder): boolean => {
     const hasActiveCategories = activeCategories.size > 0;
     const hasActiveThreats = activeThreatLevels.size > 0;
+    const hasActiveLegend = activeLegendFilters.size > 0;
     const hasHoveredCategory = hoveredCategory !== null;
 
     // Show as active if hovering a matching category (this enables the colored styling)
@@ -199,8 +233,8 @@ export function PeriodicTable({
       return true;
     }
 
-    // Only show as active if category filter is active and matches (and no threat filter)
-    if (hasActiveCategories && !hasActiveThreats) {
+    // Only show as active if category filter is active and matches (and no threat or legend filter)
+    if (hasActiveCategories && !hasActiveThreats && !hasActiveLegend) {
       return activeCategories.has(series.category);
     }
 
@@ -211,11 +245,13 @@ export function PeriodicTable({
   const isSeriesNoFocus = (series: SeriesPlaceholder): boolean => {
     const hasActiveCategories = activeCategories.size > 0;
     const hasActiveThreats = activeThreatLevels.size > 0;
+    const hasActiveLegend = activeLegendFilters.size > 0;
     const hasHoveredCategory = hoveredCategory !== null;
     const hasHoveredThreat = hoveredThreatLevel !== null;
+    const hasHoveredLegend = hoveredLegendFilter !== null;
 
     // If no filters, not dimmed
-    if (!hasActiveCategories && !hasActiveThreats && !hasHoveredCategory && !hasHoveredThreat) {
+    if (!hasActiveCategories && !hasActiveThreats && !hasActiveLegend && !hasHoveredCategory && !hasHoveredThreat && !hasHoveredLegend) {
       return false;
     }
 
@@ -233,23 +269,23 @@ export function PeriodicTable({
       return false;
     }
 
-    // Series don't have threat levels, so they're dimmed if threat filter is active
-    if (hasActiveThreats && !hasActiveCategories) {
-      return true; // Dim if only threat filter is active (series have no threats)
+    // Series don't have threat levels or legend properties, so they're dimmed if those filters are active
+    if ((hasActiveThreats || hasActiveLegend) && !hasActiveCategories) {
+      return true;
     }
 
-    if (hasActiveCategories || hasActiveThreats) {
+    if (hasActiveCategories || hasActiveThreats || hasActiveLegend) {
       if (!matchesActiveCategory) {
         return true;
       }
-      // If threat is also active, series should be dimmed (no threat level)
-      if (hasActiveThreats) {
+      // If threat or legend is also active, series should be dimmed (no threat level / no state)
+      if (hasActiveThreats || hasActiveLegend) {
         return true;
       }
-    } else if (hasHoveredCategory || hasHoveredThreat) {
+    } else if (hasHoveredCategory || hasHoveredThreat || hasHoveredLegend) {
       // Only hover active, no click filters
-      if (hasHoveredThreat) {
-        return true; // Series have no threats
+      if (hasHoveredThreat || hasHoveredLegend) {
+        return true; // Series have no threats or legend properties
       }
       // If hovering a category that doesn't match, dim
       if (hasHoveredCategory && !matchesHoveredCategory) {

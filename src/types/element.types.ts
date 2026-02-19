@@ -14,6 +14,8 @@ export type ThreatLevel = 'limited' | 'rising' | 'serious' | null;
 
 export type StandardState = 'solid' | 'liquid' | 'gas';
 
+export type LegendFilter = StandardState | 'radioactive';
+
 export interface ElectronShells {
   K: number | null;
   L: number | null;

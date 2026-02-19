@@ -24,13 +24,19 @@ function App() {
         onThreatHover={actions.setHoveredThreatLevel}
       />
 
-      <Legend />
+      <Legend
+        activeLegendFilters={state.activeLegendFilters}
+        onLegendClick={actions.toggleLegendFilter}
+        onLegendHover={actions.setHoveredLegendFilter}
+      />
 
       <PeriodicTable
         activeCategories={state.activeCategories}
         hoveredCategory={state.hoveredCategory}
         activeThreatLevels={state.activeThreatLevels}
         hoveredThreatLevel={state.hoveredThreatLevel}
+        activeLegendFilters={state.activeLegendFilters}
+        hoveredLegendFilter={state.hoveredLegendFilter}
         hoveredElementNumber={state.hoveredElementNumber}
         hoveredSeriesId={state.hoveredSeriesId}
         selectedElement={state.selectedElement}

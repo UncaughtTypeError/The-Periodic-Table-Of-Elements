@@ -12,10 +12,30 @@
   display: flex;
   align-items: center;
   gap: 5px;
+  padding: 4px 8px;
+  background: none;
+  border: 1.5px solid transparent;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  transition: all 0.3s ease;
 }
 
 .item svg {
   flex-shrink: 0;
+}
+
+.item:hover {
+  transform: scale(1.05);
+}
+
+.item.active {
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+  background: color-mix(in srgb, var(--color-text-muted) 20%, transparent);
+  transform: scale(1.05);
 }
 
 .divider {

@@ -1,5 +1,5 @@
 import { useReducer, useCallback } from 'react';
-import type { Element, ElementCategory, ThreatLevel, SeriesPlaceholder, SeriesType } from '@/types';
+import type { Element, ElementCategory, ThreatLevel, LegendFilter, SeriesPlaceholder, SeriesType } from '@/types';
 
 interface State {
   activeCategories: Set<ElementCategory>;
@@ -8,6 +8,8 @@ interface State {
   hoveredThreatLevel: ThreatLevel;
   hoveredElementNumber: number | null;
   hoveredSeriesId: SeriesType | null;
+  activeLegendFilters: Set<LegendFilter>;
+  hoveredLegendFilter: LegendFilter | null;
   selectedElement: Element | null;
   selectedSeries: SeriesPlaceholder | null;
   isDetailOpen: boolean;
@@ -19,6 +21,8 @@ type Action =
   | { type: 'SET_HOVERED_CATEGORY'; payload: ElementCategory | null }
   | { type: 'TOGGLE_ACTIVE_THREAT'; payload: NonNullable<ThreatLevel> }
   | { type: 'SET_HOVERED_THREAT'; payload: ThreatLevel }
+  | { type: 'TOGGLE_LEGEND_FILTER'; payload: LegendFilter }
+  | { type: 'SET_HOVERED_LEGEND_FILTER'; payload: LegendFilter | null }
   | { type: 'SET_HOVERED_ELEMENT'; payload: number | null }
   | { type: 'SET_HOVERED_SERIES'; payload: SeriesType | null }
   | { type: 'SELECT_ELEMENT'; payload: Element }
@@ -31,6 +35,8 @@ const initialState: State = {
   hoveredCategory: null,
   activeThreatLevels: new Set(),
   hoveredThreatLevel: null,
+  activeLegendFilters: new Set(),
+  hoveredLegendFilter: null,
   hoveredElementNumber: null,
   hoveredSeriesId: null,
   selectedElement: null,
@@ -77,6 +83,25 @@ function reducer(state: State, action: Action): State {
       return {
         ...state,
         hoveredThreatLevel: action.payload,
+      };
+
+    case 'TOGGLE_LEGEND_FILTER': {
+      const newFilters = new Set(state.activeLegendFilters);
+      if (newFilters.has(action.payload)) {
+        newFilters.delete(action.payload);
+      } else {
+        newFilters.add(action.payload);
+      }
+      return {
+        ...state,
+        activeLegendFilters: newFilters,
+      };
+    }
+
+    case 'SET_HOVERED_LEGEND_FILTER':
+      return {
+        ...state,
+        hoveredLegendFilter: action.payload,
       };
 
     case 'SET_HOVERED_ELEMENT':
@@ -158,6 +183,14 @@ export function usePeriodicTableState() {
     dispatch({ type: 'SET_HOVERED_THREAT', payload: threat });
   }, []);
 
+  const toggleLegendFilter = useCallback((filter: LegendFilter) => {
+    dispatch({ type: 'TOGGLE_LEGEND_FILTER', payload: filter });
+  }, []);
+
+  const setHoveredLegendFilter = useCallback((filter: LegendFilter | null) => {
+    dispatch({ type: 'SET_HOVERED_LEGEND_FILTER', payload: filter });
+  }, []);
+
   const setHoveredElement = useCallback((atomicNumber: number | null) => {
     dispatch({ type: 'SET_HOVERED_ELEMENT', payload: atomicNumber });
   }, []);
@@ -189,6 +222,8 @@ export function usePeriodicTableState() {
       setHoveredCategory,
       toggleActiveThreatLevel,
       setHoveredThreatLevel,
+      toggleLegendFilter,
+      setHoveredLegendFilter,
       setHoveredElement,
       setHoveredSeries,
       selectElement,
