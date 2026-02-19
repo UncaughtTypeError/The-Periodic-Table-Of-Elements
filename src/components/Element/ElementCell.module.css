@@ -215,13 +215,13 @@
 }
 
 .atomicNumberRow {
+  font-size: 10px;
   display: flex;
   align-items: center;
   gap: 3px;
 }
 
 .atomicNumber {
-  font-size: 10px;
   color: inherit;
   transition: color 0.7s ease;
 }

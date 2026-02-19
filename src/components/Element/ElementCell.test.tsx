@@ -13,7 +13,15 @@ const mockHydrogen: Element = {
   threatLevel: null,
   period: 1,
   group: 1,
-  electronShells: { K: 1, L: null, M: null, N: null, O: null, P: null, Q: null },
+  electronShells: {
+    K: 1,
+    L: null,
+    M: null,
+    N: null,
+    O: null,
+    P: null,
+    Q: null,
+  },
   summary: {
     atomicMass: '1.00794 u',
     boilingPoint: '-252.9 °C',
@@ -67,7 +75,15 @@ const mockHelium: Element = {
   atomicMass: 4.002602,
   category: 'noble-gases',
   threatLevel: 'serious',
-  electronShells: { K: 2, L: null, M: null, N: null, O: null, P: null, Q: null },
+  electronShells: {
+    K: 2,
+    L: null,
+    M: null,
+    N: null,
+    O: null,
+    P: null,
+    Q: null,
+  },
 };
 
 const mockUranium: Element = {
@@ -185,11 +201,61 @@ describe('ElementCell', () => {
 
   it('renders radioactive indicator for radioactive elements', () => {
     render(<ElementCell element={mockUranium} />);
-    expect(screen.getByRole('img', { name: 'Radioactive' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('img', { name: 'Radioactive' }),
+    ).toBeInTheDocument();
   });
 
   it('does not render radioactive indicator for non-radioactive elements', () => {
     render(<ElementCell element={mockHydrogen} />);
-    expect(screen.queryByRole('img', { name: 'Radioactive' })).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('img', { name: 'Radioactive' }),
+    ).not.toBeInTheDocument();
+  });
+
+  it('has aria label on electron shells', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.getByLabelText('Electron shells')).toBeInTheDocument();
+  });
+
+  it('has aria label on atomic number', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.getByLabelText('Atomic number')).toBeInTheDocument();
+  });
+
+  it('has aria label on atomic mass', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.getByLabelText('Atomic mass')).toBeInTheDocument();
+  });
+
+  it('has aria label on state icon', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    expect(screen.getByRole('img', { name: 'Gas' })).toBeInTheDocument();
+  });
+
+  it('has aria label on radioactive icon', () => {
+    render(<ElementCell element={mockUranium} />);
+    expect(
+      screen.getByRole('img', { name: 'Radioactive' }),
+    ).toBeInTheDocument();
+  });
+
+  it('shows tooltip on state icon hover', () => {
+    render(<ElementCell element={mockHydrogen} />);
+    const stateIcon = screen.getByRole('img', { name: 'Gas' });
+    fireEvent.mouseEnter(stateIcon.closest('span')!);
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Gas');
+  });
+
+  it('shows tooltip on radioactive icon hover', () => {
+    render(<ElementCell element={mockUranium} />);
+    const radioactiveIcon = screen.getByRole('img', { name: 'Radioactive' });
+    fireEvent.mouseEnter(radioactiveIcon.closest('span')!);
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Radioactive');
+  });
+
+  it('has aria label on threat indicator', () => {
+    render(<ElementCell element={mockHelium} />);
+    expect(screen.getByLabelText('Serious Threat')).toBeInTheDocument();
   });
 });

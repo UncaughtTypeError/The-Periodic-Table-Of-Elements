@@ -1,0 +1,82 @@
+.tooltip {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: normal;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+/* Top: tooltip above trigger, arrow points down */
+.top {
+  transform: translateX(-50%) translateY(-100%);
+  padding-bottom: 5px;
+}
+
+.top .arrow {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.85);
+}
+
+/* Bottom: tooltip below trigger, arrow points up */
+.bottom {
+  transform: translateX(-50%);
+  padding-top: 5px;
+}
+
+.bottom .arrow {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid rgba(0, 0, 0, 0.85);
+}
+
+/* Left: tooltip left of trigger, arrow points right */
+.left {
+  transform: translateX(-100%) translateY(-50%);
+  padding-right: 5px;
+}
+
+.left .arrow {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid rgba(0, 0, 0, 0.85);
+}
+
+/* Right: tooltip right of trigger, arrow points left */
+.right {
+  transform: translateY(-50%);
+  padding-left: 5px;
+}
+
+.right .arrow {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-right: 5px solid rgba(0, 0, 0, 0.85);
+}

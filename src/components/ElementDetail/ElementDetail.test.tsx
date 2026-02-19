@@ -13,7 +13,15 @@ const mockHydrogen: Element = {
   threatLevel: null,
   period: 1,
   group: 1,
-  electronShells: { K: 1, L: null, M: null, N: null, O: null, P: null, Q: null },
+  electronShells: {
+    K: 1,
+    L: null,
+    M: null,
+    N: null,
+    O: null,
+    P: null,
+    Q: null,
+  },
   summary: {
     atomicMass: '1.00794 u',
     boilingPoint: '-252.9 °C',
@@ -33,7 +41,9 @@ const mockHydrogen: Element = {
     discoverer: 'Henry Cavendish',
   },
   detail: {
-    description: ['Hydrogen is a chemical element with chemical symbol H and atomic number 1.'],
+    description: [
+      'Hydrogen is a chemical element with chemical symbol H and atomic number 1.',
+    ],
     general: {
       appearance: 'colorless gas',
       group: 'group 1',
@@ -67,10 +77,20 @@ const mockHelium: Element = {
   atomicMass: 4.002602,
   category: 'noble-gases',
   threatLevel: 'serious',
-  electronShells: { K: 2, L: null, M: null, N: null, O: null, P: null, Q: null },
+  electronShells: {
+    K: 2,
+    L: null,
+    M: null,
+    N: null,
+    O: null,
+    P: null,
+    Q: null,
+  },
   detail: {
     ...mockHydrogen.detail,
-    description: ['Helium is a chemical element with symbol He and atomic number 2.'],
+    description: [
+      'Helium is a chemical element with symbol He and atomic number 2.',
+    ],
   },
 };
 
@@ -84,53 +104,69 @@ const mockUranium: Element = {
   period: 7,
   detail: {
     ...mockHydrogen.detail,
-    description: ['Uranium is a chemical element with symbol U and atomic number 92.'],
+    description: [
+      'Uranium is a chemical element with symbol U and atomic number 92.',
+    ],
   },
 };
 
 describe('ElementDetail', () => {
   it('renders null when element is null', () => {
     const { container } = render(
-      <ElementDetail element={null} isOpen={false} onClose={vi.fn()} />
+      <ElementDetail element={null} isOpen={false} onClose={vi.fn()} />,
     );
     expect(container.firstChild).toBeNull();
   });
 
   it('renders element symbol when open', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     // Multiple H's appear (in symbol display, summary list, etc.)
     const symbols = screen.getAllByText('H');
     expect(symbols.length).toBeGreaterThan(0);
   });
 
   it('renders element name when open', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     // Element name appears multiple times
     const names = screen.getAllByText(/Hydrogen/);
     expect(names.length).toBeGreaterThan(0);
   });
 
   it('renders atomic number when open', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     const panel = screen.getByTestId('detail-panel');
     expect(panel).toHaveTextContent('1');
   });
 
   it('renders description text', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(
-      screen.getByText('Hydrogen is a chemical element with chemical symbol H and atomic number 1.')
+      screen.getByText(
+        'Hydrogen is a chemical element with chemical symbol H and atomic number 1.',
+      ),
     ).toBeInTheDocument();
   });
 
   it('renders general properties section', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByText('General properties')).toBeInTheDocument();
     expect(screen.getByText(/colorless gas/)).toBeInTheDocument();
   });
 
   it('renders physical properties section', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByText('Physical properties')).toBeInTheDocument();
     // Check for phase value
     const panel = screen.getByTestId('detail-panel');
@@ -139,7 +175,9 @@ describe('ElementDetail', () => {
   });
 
   it('renders history section', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByText('History')).toBeInTheDocument();
     // Check history content exists
     const panel = screen.getByTestId('detail-panel');
@@ -147,12 +185,16 @@ describe('ElementDetail', () => {
   });
 
   it('renders endangered badge for threatened elements', () => {
-    render(<ElementDetail element={mockHelium} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHelium} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByText(/Serious Threat/)).toBeInTheDocument();
   });
 
   it('does not render endangered badge for non-threatened elements', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.queryByText(/Serious Threat/)).not.toBeInTheDocument();
     expect(screen.queryByText(/Rising Threat/)).not.toBeInTheDocument();
     expect(screen.queryByText(/Limited Availability/)).not.toBeInTheDocument();
@@ -160,25 +202,33 @@ describe('ElementDetail', () => {
 
   it('calls onClose when close button is clicked', () => {
     const onClose = vi.fn();
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />,
+    );
 
     fireEvent.click(screen.getByRole('button', { name: /close/i }));
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('has correct data-testid attribute', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByTestId('detail-panel')).toBeInTheDocument();
   });
 
   it('has dialog role for accessibility', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
   it('calls onClose when backdrop is clicked', () => {
     const onClose = vi.fn();
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />,
+    );
 
     // Click on the overlay (backdrop)
     fireEvent.click(screen.getByTestId('detail-panel'));
@@ -187,36 +237,107 @@ describe('ElementDetail', () => {
 
   it('calls onClose when Escape key is pressed', () => {
     const onClose = vi.fn();
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={onClose} />,
+    );
 
     fireEvent.keyDown(document, { key: 'Escape' });
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('applies open class when isOpen is true', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     const overlay = screen.getByTestId('detail-panel');
     expect(overlay.className).toContain('open');
   });
 
   it('does not apply open class when isOpen is false', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={false} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={false} onClose={vi.fn()} />,
+    );
     const overlay = screen.getByTestId('detail-panel');
     expect(overlay.className).not.toContain('open');
   });
 
   it('renders radioactive badge for radioactive elements', () => {
-    render(<ElementDetail element={mockUranium} isOpen={true} onClose={vi.fn()} />);
-    expect(screen.getByText(/Radioactive - All isotopes unstable/)).toBeInTheDocument();
+    render(
+      <ElementDetail element={mockUranium} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(
+      screen.getByText(/Radioactive - All isotopes unstable/),
+    ).toBeInTheDocument();
   });
 
   it('does not render radioactive badge for non-radioactive elements', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
-    expect(screen.queryByText(/Radioactive - All isotopes unstable/)).not.toBeInTheDocument();
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(
+      screen.queryByText(/Radioactive - All isotopes unstable/),
+    ).not.toBeInTheDocument();
   });
 
   it('renders state of matter indicators', () => {
-    render(<ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />);
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
     expect(screen.getByText(/Standard state:/)).toBeInTheDocument();
+  });
+
+  it('has aria label on electron shells in modal', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(screen.getByLabelText('Electron shells')).toBeInTheDocument();
+  });
+
+  it('has aria label on atomic number in modal', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(screen.getByLabelText('Atomic number')).toBeInTheDocument();
+  });
+
+  it('has aria label on atomic mass in modal', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(screen.getByLabelText('Atomic mass')).toBeInTheDocument();
+  });
+
+  it('has aria label on state icon in modal', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    const icons = screen.getAllByRole('img', { name: 'Gas' });
+    expect(icons.length).toBeGreaterThan(0);
+  });
+
+  it('has aria label on radioactive icon in modal', () => {
+    render(
+      <ElementDetail element={mockUranium} isOpen={true} onClose={vi.fn()} />,
+    );
+    const icons = screen.getAllByRole('img', { name: 'Radioactive' });
+    expect(icons.length).toBeGreaterThan(0);
+  });
+
+  it('shows tooltip on state icon hover in modal', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    const icons = screen.getAllByRole('img', { name: 'Gas' });
+    fireEvent.mouseEnter(icons[0].closest('span')!);
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Gas');
+  });
+
+  it('shows tooltip on radioactive icon hover in modal', () => {
+    render(
+      <ElementDetail element={mockUranium} isOpen={true} onClose={vi.fn()} />,
+    );
+    const icons = screen.getAllByRole('img', { name: 'Radioactive' });
+    fireEvent.mouseEnter(icons[0].closest('span')!);
+    expect(screen.getByRole('tooltip')).toHaveTextContent('Radioactive');
   });
 });

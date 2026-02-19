@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
 import { getStandardState, isRadioactive } from '@/data';
 import { RadioactiveIcon, stateIconMap } from '@/components/common/icons';
+import { Tooltip } from '@/components/common/Tooltip';
 import modalStyles from './Modal.module.css';
 import styles from './ElementDetail.module.css';
 
@@ -178,20 +179,50 @@ export function ElementDetail({
             <div
               className={`${modalStyles.element} ${categoryClassMap[category]}`}
             >
-              <div className={styles.atomicOrbitalShells}>
-                {electronShells.K !== null && <span>{electronShells.K}</span>}
-                {electronShells.L !== null && <span>{electronShells.L}</span>}
-                {electronShells.M !== null && <span>{electronShells.M}</span>}
-                {electronShells.N !== null && <span>{electronShells.N}</span>}
-                {electronShells.O !== null && <span>{electronShells.O}</span>}
-                {electronShells.P !== null && <span>{electronShells.P}</span>}
-                {electronShells.Q !== null && <span>{electronShells.Q}</span>}
-              </div>
+              <Tooltip content="Electron shells" position="right">
+                <div
+                  className={styles.atomicOrbitalShells}
+                  aria-label="Electron shells"
+                >
+                  {electronShells.K !== null && <span>{electronShells.K}</span>}
+                  {electronShells.L !== null && <span>{electronShells.L}</span>}
+                  {electronShells.M !== null && <span>{electronShells.M}</span>}
+                  {electronShells.N !== null && <span>{electronShells.N}</span>}
+                  {electronShells.O !== null && <span>{electronShells.O}</span>}
+                  {electronShells.P !== null && <span>{electronShells.P}</span>}
+                  {electronShells.Q !== null && <span>{electronShells.Q}</span>}
+                </div>
+              </Tooltip>
               <div className={styles.atomicNumberRow}>
-                <span className={modalStyles.atomicNumber}>{atomicNumber}</span>
+                <Tooltip content="Atomic number" position="top">
+                  <span
+                    className={modalStyles.atomicNumber}
+                    aria-label="Atomic number"
+                  >
+                    {atomicNumber}
+                  </span>
+                </Tooltip>
                 <div className={styles.modalIndicators}>
-                  {(() => { const Icon = stateIconMap[getStandardState(symbol)]; return <Icon size={20} />; })()}
-                  {isRadioactive(symbol) && <RadioactiveIcon size={20} />}
+                  {(() => {
+                    const state = getStandardState(symbol);
+                    const Icon = stateIconMap[state];
+                    const label =
+                      state.charAt(0).toUpperCase() + state.slice(1);
+                    return (
+                      <Tooltip content={label} position="top">
+                        <span>
+                          <Icon size={20} />
+                        </span>
+                      </Tooltip>
+                    );
+                  })()}
+                  {isRadioactive(symbol) && (
+                    <Tooltip content="Radioactive" position="top">
+                      <span>
+                        <RadioactiveIcon size={20} />
+                      </span>
+                    </Tooltip>
+                  )}
                 </div>
               </div>
               <div
@@ -201,9 +232,11 @@ export function ElementDetail({
                 {symbol}
               </div>
               <div className={modalStyles.elementName}>{name}</div>
-              <div className={styles.atomicMass}>
-                {isSynthetic ? `[${atomicMass}]` : atomicMass}
-              </div>
+              <Tooltip content="Atomic mass" position="left">
+                <div className={styles.atomicMass} aria-label="Atomic mass">
+                  {isSynthetic ? `[${atomicMass}]` : atomicMass}
+                </div>
+              </Tooltip>
             </div>
 
             <ul className={styles.propertyList}>
@@ -243,7 +276,10 @@ export function ElementDetail({
                 <strong>Standard state:</strong>{' '}
                 {getStandardState(symbol).charAt(0).toUpperCase() +
                   getStandardState(symbol).slice(1)}
-                {(() => { const Icon = stateIconMap[getStandardState(symbol)]; return <Icon size={14} />; })()}
+                {(() => {
+                  const Icon = stateIconMap[getStandardState(symbol)];
+                  return <Icon size={14} />;
+                })()}
               </li>
             </ul>
 
