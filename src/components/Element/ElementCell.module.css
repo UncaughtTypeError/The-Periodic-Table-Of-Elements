@@ -222,6 +222,7 @@
 }
 
 .atomicNumber {
+  font-size: 10px;
   color: inherit;
   transition: color 0.7s ease;
 }

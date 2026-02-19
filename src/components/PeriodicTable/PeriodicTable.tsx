@@ -282,6 +282,17 @@ export function PeriodicTable({
     return false;
   };
 
+  // Group label positions: maps "periodIndex-groupIndex" to group number
+  // Each group label sits in the empty cell directly above the first element in that column
+  const groupLabelPositions = useMemo(() => {
+    const positions = new Map<string, number>();
+    // Period 1 (index 0): groups 2, 13-17 have first element in period 2
+    [1, 12, 13, 14, 15, 16].forEach(col => positions.set(`0-${col}`, col + 1));
+    // Period 3 (index 2): groups 3-12 have first element in period 4
+    for (let col = 2; col <= 11; col++) positions.set(`2-${col}`, col + 1);
+    return positions;
+  }, []);
+
   const renderCell = (item: Element | SeriesPlaceholder | null, index: number) => {
     if (!item) {
       return <EmptyCell key={`empty-${index}`} />;
@@ -326,29 +337,73 @@ export function PeriodicTable({
 
   return (
     <div className={styles.container}>
-      <div className={styles.table}>
-        {periods.map((row, periodIndex) => (
-          <div key={`period-${periodIndex + 1}`} className={styles.period}>
-            {row.map((element, groupIndex) => renderCell(element, groupIndex))}
-          </div>
-        ))}
-
-        <div className={styles.separator} />
-
-        {/* Lanthanides */}
-        <div className={styles.fBlockRow}>
-          <EmptyCell />
-          <LabelCell label="Ln Series" />
-          {lanthanides.map(element => renderCell(element, element.atomicNumber))}
-          <EmptyCell />
+      <div className={styles.tableWithAxes}>
+        {/* Periods axis label (vertical) */}
+        <div className={styles.periodsAxis}>
+          <svg width="8" height="30" viewBox="0 0 8 30" aria-hidden="true">
+            <path d="M4 0 L4 26 M1 23 L4 28 L7 23" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          </svg>
+          <span>Periods</span>
         </div>
 
-        {/* Actinides */}
-        <div className={styles.fBlockRow}>
-          <EmptyCell />
-          <LabelCell label="An Series" />
-          {actinides.map(element => renderCell(element, element.atomicNumber))}
-          <EmptyCell />
+        <div className={styles.tableColumn}>
+          {/* Groups axis label (horizontal) */}
+          <div className={styles.groupsAxis}>
+            <span>Groups</span>
+            <svg width="30" height="8" viewBox="0 0 30 8" aria-hidden="true">
+              <path d="M0 4 L26 4 M23 1 L28 4 L23 7" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+          </div>
+
+          <div className={styles.table}>
+            {/* Group header row (for groups 1 and 18 which have no empty cell above) */}
+            <div className={styles.headerRow}>
+              <div className={styles.periodLabelSpacer} />
+              {Array.from({ length: 18 }, (_, i) => {
+                const group = i + 1;
+                if (group === 1 || group === 18) {
+                  return <div key={`gh-${group}`} className={styles.groupLabel}>{group}</div>;
+                }
+                return <div key={`gh-${group}`} className={styles.groupLabelEmpty} />;
+              })}
+            </div>
+
+            {/* Period rows */}
+            {periods.map((row, periodIndex) => (
+              <div key={`period-${periodIndex + 1}`} className={styles.period}>
+                <div className={styles.periodLabel}>{periodIndex + 1}</div>
+                {row.map((element, groupIndex) => {
+                  if (!element) {
+                    const groupLabel = groupLabelPositions.get(`${periodIndex}-${groupIndex}`);
+                    if (groupLabel !== undefined) {
+                      return <div key={`gl-${groupLabel}`} className={styles.groupLabel}>{groupLabel}</div>;
+                    }
+                  }
+                  return renderCell(element, groupIndex);
+                })}
+              </div>
+            ))}
+
+            <div className={styles.separator} />
+
+            {/* Lanthanides */}
+            <div className={styles.fBlockRow}>
+              <div className={styles.periodLabelSpacer} />
+              <EmptyCell />
+              <LabelCell label="Ln Series" />
+              {lanthanides.map(element => renderCell(element, element.atomicNumber))}
+              <EmptyCell />
+            </div>
+
+            {/* Actinides */}
+            <div className={styles.fBlockRow}>
+              <div className={styles.periodLabelSpacer} />
+              <EmptyCell />
+              <LabelCell label="An Series" />
+              {actinides.map(element => renderCell(element, element.atomicNumber))}
+              <EmptyCell />
+            </div>
+          </div>
         </div>
       </div>
     </div>
