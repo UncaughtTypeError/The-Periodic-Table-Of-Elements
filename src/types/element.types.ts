@@ -16,6 +16,14 @@ export type StandardState = 'solid' | 'liquid' | 'gas';
 
 export type LegendFilter = StandardState | 'radioactive';
 
+export type ElectronBlock = 's-block' | 'p-block' | 'd-block' | 'f-block';
+
+export interface BlockDefinition {
+  id: ElectronBlock;
+  name: string;
+  color: string;
+}
+
 export interface ElectronShells {
   K: number | null;
   L: number | null;

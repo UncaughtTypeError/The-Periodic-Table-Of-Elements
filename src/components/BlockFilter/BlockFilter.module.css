@@ -1,0 +1,125 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 5px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-text);
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button.active {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.blockS {
+  border-color: var(--color-block-s);
+}
+.blockP {
+  border-color: var(--color-block-p);
+}
+.blockD {
+  border-color: var(--color-block-d);
+}
+.blockF {
+  border-color: var(--color-block-f);
+}
+
+.button.active.blockS {
+  background: color-mix(in srgb, var(--color-block-s) 50%, transparent);
+}
+.button.active.blockP {
+  background: color-mix(in srgb, var(--color-block-p) 50%, transparent);
+}
+.button.active.blockD {
+  background: color-mix(in srgb, var(--color-block-d) 50%, transparent);
+}
+.button.active.blockF {
+  background: color-mix(in srgb, var(--color-block-f) 50%, transparent);
+}
+
+.colorDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.blockS .colorDot {
+  background-color: var(--color-block-s);
+}
+.blockP .colorDot {
+  background-color: var(--color-block-p);
+}
+.blockD .colorDot {
+  background-color: var(--color-block-d);
+}
+.blockF .colorDot {
+  background-color: var(--color-block-f);
+}
+
+.name {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.count {
+  font-weight: normal;
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.button.active .count {
+  color: var(--color-text);
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 12px;
+  }
+  .button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+  .name {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    gap: 8px;
+    padding: 10px;
+  }
+  .button {
+    padding: 4px 8px;
+  }
+}

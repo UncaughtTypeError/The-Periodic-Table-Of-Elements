@@ -1,4 +1,4 @@
-import type { Element, LegendFilter } from '@/types';
+import type { Element, LegendFilter, ElectronBlock } from '@/types';
 import { getStandardState, isRadioactive } from '@/data';
 
 /** Check if an element matches a single legend filter value */
@@ -14,6 +14,27 @@ export function matchesAnyLegendFilter(
 ): boolean {
   for (const f of filters) {
     if (matchesLegendValue(el, f)) return true;
+  }
+  return false;
+}
+
+/** Get the electron block for an element */
+export function getElementBlock(el: Element): ElectronBlock | null {
+  return (el.detail.general.block as ElectronBlock) ?? null;
+}
+
+/** Check if an element matches a single block filter */
+export function matchesBlockFilter(el: Element, block: ElectronBlock): boolean {
+  return el.detail.general.block === block;
+}
+
+/** Check if element matches any active block filter (OR within) */
+export function matchesAnyBlockFilter(
+  el: Element,
+  blocks: Set<ElectronBlock>,
+): boolean {
+  for (const b of blocks) {
+    if (matchesBlockFilter(el, b)) return true;
   }
   return false;
 }

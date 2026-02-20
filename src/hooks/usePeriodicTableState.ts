@@ -4,6 +4,7 @@ import type {
   ElementCategory,
   ThreatLevel,
   LegendFilter,
+  ElectronBlock,
   SeriesPlaceholder,
   SeriesType,
 } from '@/types';
@@ -17,6 +18,8 @@ interface State {
   hoveredSeriesId: SeriesType | null;
   activeLegendFilters: Set<LegendFilter>;
   hoveredLegendFilter: LegendFilter | null;
+  activeBlockFilters: Set<ElectronBlock>;
+  hoveredBlockFilter: ElectronBlock | null;
   selectedElement: Element | null;
   selectedSeries: SeriesPlaceholder | null;
   isDetailOpen: boolean;
@@ -30,6 +33,8 @@ type Action =
   | { type: 'SET_HOVERED_THREAT'; payload: ThreatLevel }
   | { type: 'TOGGLE_LEGEND_FILTER'; payload: LegendFilter }
   | { type: 'SET_HOVERED_LEGEND_FILTER'; payload: LegendFilter | null }
+  | { type: 'TOGGLE_BLOCK_FILTER'; payload: ElectronBlock }
+  | { type: 'SET_HOVERED_BLOCK_FILTER'; payload: ElectronBlock | null }
   | { type: 'SET_HOVERED_ELEMENT'; payload: number | null }
   | { type: 'SET_HOVERED_SERIES'; payload: SeriesType | null }
   | { type: 'SELECT_ELEMENT'; payload: Element }
@@ -44,6 +49,8 @@ const initialState: State = {
   hoveredThreatLevel: null,
   activeLegendFilters: new Set(),
   hoveredLegendFilter: null,
+  activeBlockFilters: new Set(),
+  hoveredBlockFilter: null,
   hoveredElementNumber: null,
   hoveredSeriesId: null,
   selectedElement: null,
@@ -109,6 +116,25 @@ function reducer(state: State, action: Action): State {
       return {
         ...state,
         hoveredLegendFilter: action.payload,
+      };
+
+    case 'TOGGLE_BLOCK_FILTER': {
+      const newBlocks = new Set(state.activeBlockFilters);
+      if (newBlocks.has(action.payload)) {
+        newBlocks.delete(action.payload);
+      } else {
+        newBlocks.add(action.payload);
+      }
+      return {
+        ...state,
+        activeBlockFilters: newBlocks,
+      };
+    }
+
+    case 'SET_HOVERED_BLOCK_FILTER':
+      return {
+        ...state,
+        hoveredBlockFilter: action.payload,
       };
 
     case 'SET_HOVERED_ELEMENT':
@@ -207,6 +233,14 @@ export function usePeriodicTableState() {
     dispatch({ type: 'SET_HOVERED_LEGEND_FILTER', payload: filter });
   }, []);
 
+  const toggleBlockFilter = useCallback((block: ElectronBlock) => {
+    dispatch({ type: 'TOGGLE_BLOCK_FILTER', payload: block });
+  }, []);
+
+  const setHoveredBlockFilter = useCallback((block: ElectronBlock | null) => {
+    dispatch({ type: 'SET_HOVERED_BLOCK_FILTER', payload: block });
+  }, []);
+
   const setHoveredElement = useCallback((atomicNumber: number | null) => {
     dispatch({ type: 'SET_HOVERED_ELEMENT', payload: atomicNumber });
   }, []);
@@ -240,6 +274,8 @@ export function usePeriodicTableState() {
       setHoveredThreatLevel,
       toggleLegendFilter,
       setHoveredLegendFilter,
+      toggleBlockFilter,
+      setHoveredBlockFilter,
       setHoveredElement,
       setHoveredSeries,
       selectElement,

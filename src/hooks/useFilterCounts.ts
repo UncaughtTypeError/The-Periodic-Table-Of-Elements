@@ -1,15 +1,23 @@
 import { useMemo } from 'react';
-import type { ElementCategory, ThreatLevel, LegendFilter } from '@/types';
+import type {
+  ElementCategory,
+  ThreatLevel,
+  LegendFilter,
+  ElectronBlock,
+} from '@/types';
 import { elements } from '@/data/elements';
 import {
   matchesLegendValue,
   matchesAnyLegendFilter,
+  matchesBlockFilter,
+  matchesAnyBlockFilter,
 } from '@/utils/filterMatching';
 
 interface FilterCountsInput {
   activeCategories: Set<ElementCategory>;
   activeThreatLevels: Set<NonNullable<ThreatLevel>>;
   activeLegendFilters: Set<LegendFilter>;
+  activeBlockFilters: Set<ElectronBlock>;
 }
 
 export interface FilterCounts {
@@ -17,24 +25,31 @@ export interface FilterCounts {
   categoryCounts: Map<ElementCategory, number>;
   threatCounts: Map<NonNullable<ThreatLevel>, number>;
   legendCounts: Map<LegendFilter, number>;
+  blockCounts: Map<ElectronBlock, number>;
 }
 
 export function useFilterCounts({
   activeCategories,
   activeThreatLevels,
   activeLegendFilters,
+  activeBlockFilters,
 }: FilterCountsInput): FilterCounts {
   return useMemo(() => {
     const hasActiveCategories = activeCategories.size > 0;
     const hasActiveThreats = activeThreatLevels.size > 0;
     const hasActiveLegend = activeLegendFilters.size > 0;
+    const hasActiveBlocks = activeBlockFilters.size > 0;
     const hasAnyFilter =
-      hasActiveCategories || hasActiveThreats || hasActiveLegend;
+      hasActiveCategories ||
+      hasActiveThreats ||
+      hasActiveLegend ||
+      hasActiveBlocks;
 
     let activeCount = 0;
     const categoryCounts = new Map<ElementCategory, number>();
     const threatCounts = new Map<NonNullable<ThreatLevel>, number>();
     const legendCounts = new Map<LegendFilter, number>();
+    const blockCounts = new Map<ElectronBlock, number>();
 
     for (const el of elements) {
       const matchesCategory =
@@ -44,30 +59,43 @@ export function useFilterCounts({
         (el.threatLevel !== null && activeThreatLevels.has(el.threatLevel));
       const matchesLegend =
         !hasActiveLegend || matchesAnyLegendFilter(el, activeLegendFilters);
+      const matchesBlock =
+        !hasActiveBlocks || matchesAnyBlockFilter(el, activeBlockFilters);
 
       // Active count: matches ALL active filters
-      if (hasAnyFilter && matchesCategory && matchesThreat && matchesLegend) {
+      if (
+        hasAnyFilter &&
+        matchesCategory &&
+        matchesThreat &&
+        matchesLegend &&
+        matchesBlock
+      ) {
         activeCount++;
       }
 
-      // Category counts: elements matching this category AND active threat + legend filters
-      if (matchesThreat && matchesLegend) {
+      // Category counts: elements matching this category AND all other active filters
+      if (matchesThreat && matchesLegend && matchesBlock) {
         categoryCounts.set(
           el.category,
           (categoryCounts.get(el.category) ?? 0) + 1,
         );
       }
 
-      // Threat counts: elements matching this threat AND active category + legend filters
-      if (el.threatLevel !== null && matchesCategory && matchesLegend) {
+      // Threat counts: elements matching this threat AND all other active filters
+      if (
+        el.threatLevel !== null &&
+        matchesCategory &&
+        matchesLegend &&
+        matchesBlock
+      ) {
         threatCounts.set(
           el.threatLevel,
           (threatCounts.get(el.threatLevel) ?? 0) + 1,
         );
       }
 
-      // Legend counts: elements matching each legend value AND active category + threat filters
-      if (matchesCategory && matchesThreat) {
+      // Legend counts: elements matching each legend value AND all other active filters
+      if (matchesCategory && matchesThreat && matchesBlock) {
         const legendValues: LegendFilter[] = [
           'solid',
           'liquid',
@@ -80,6 +108,21 @@ export function useFilterCounts({
           }
         }
       }
+
+      // Block counts: elements matching each block AND all other active filters
+      if (matchesCategory && matchesThreat && matchesLegend) {
+        const blockValues: ElectronBlock[] = [
+          's-block',
+          'p-block',
+          'd-block',
+          'f-block',
+        ];
+        for (const bv of blockValues) {
+          if (matchesBlockFilter(el, bv)) {
+            blockCounts.set(bv, (blockCounts.get(bv) ?? 0) + 1);
+          }
+        }
+      }
     }
 
     return {
@@ -87,6 +130,12 @@ export function useFilterCounts({
       categoryCounts,
       threatCounts,
       legendCounts,
+      blockCounts,
     };
-  }, [activeCategories, activeThreatLevels, activeLegendFilters]);
+  }, [
+    activeCategories,
+    activeThreatLevels,
+    activeLegendFilters,
+    activeBlockFilters,
+  ]);
 }

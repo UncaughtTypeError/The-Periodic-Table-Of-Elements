@@ -1,8 +1,10 @@
 import type {
   CategoryDefinition,
   ThreatDefinition,
+  BlockDefinition,
   ElementCategory,
   ThreatLevel,
+  ElectronBlock,
 } from '@/types';
 
 // Nonmetals group (displayed first)
@@ -83,4 +85,18 @@ export const THREAT_COLORS: Record<NonNullable<ThreatLevel>, string> = {
   limited: '#ded014',
   rising: '#e27807',
   serious: '#d00000',
+};
+
+export const ELECTRON_BLOCKS: BlockDefinition[] = [
+  { id: 's-block', name: 'S-Block', color: '#ce93d8' },
+  { id: 'p-block', name: 'P-Block', color: '#26a69a' },
+  { id: 'd-block', name: 'D-Block', color: '#5c6bc0' },
+  { id: 'f-block', name: 'F-Block', color: '#a1887f' },
+];
+
+export const BLOCK_COLORS: Record<ElectronBlock, string> = {
+  's-block': '#ce93d8',
+  'p-block': '#26a69a',
+  'd-block': '#5c6bc0',
+  'f-block': '#a1887f',
 };

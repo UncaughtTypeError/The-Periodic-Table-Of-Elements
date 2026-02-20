@@ -1,5 +1,6 @@
 import { usePeriodicTableState, useFilterCounts } from './hooks';
 import { CategoryFilter } from './components/CategoryFilter';
+import { BlockFilter } from './components/BlockFilter';
 import { ThreatFilter } from './components/ThreatFilter';
 import { PeriodicTable } from './components/PeriodicTable';
 import { ElementDetail, SeriesDetail } from './components/ElementDetail';
@@ -15,6 +16,7 @@ function App() {
     activeCategories: state.activeCategories,
     activeThreatLevels: state.activeThreatLevels,
     activeLegendFilters: state.activeLegendFilters,
+    activeBlockFilters: state.activeBlockFilters,
   });
 
   return (
@@ -23,6 +25,13 @@ function App() {
         activeCategories={state.activeCategories}
         onCategoryClick={actions.toggleActiveCategory}
         onCategoryHover={actions.setHoveredCategory}
+      />
+
+      <BlockFilter
+        activeBlockFilters={state.activeBlockFilters}
+        blockCounts={filterCounts.blockCounts}
+        onBlockClick={actions.toggleBlockFilter}
+        onBlockHover={actions.setHoveredBlockFilter}
       />
 
       <ThreatFilter
@@ -50,6 +59,8 @@ function App() {
         hoveredThreatLevel={state.hoveredThreatLevel}
         activeLegendFilters={state.activeLegendFilters}
         hoveredLegendFilter={state.hoveredLegendFilter}
+        activeBlockFilters={state.activeBlockFilters}
+        hoveredBlockFilter={state.hoveredBlockFilter}
         hoveredElementNumber={state.hoveredElementNumber}
         hoveredSeriesId={state.hoveredSeriesId}
         selectedElement={state.selectedElement}

@@ -4722,7 +4722,7 @@ export const elements: Element[] = [
       general: {
         appearance: 'silvery white',
         group: 'group n/a',
-        block: 'f-block',
+        block: 'd-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
         electronConfiguration: '6s2 4f14 5d1',
