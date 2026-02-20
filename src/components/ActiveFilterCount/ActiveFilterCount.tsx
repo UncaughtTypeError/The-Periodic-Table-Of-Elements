@@ -6,9 +6,11 @@ interface ActiveFilterCountProps {
 
 export function ActiveFilterCount({ count }: ActiveFilterCountProps) {
   return (
-    <div className={styles.container}>
-      <span className={styles.count}>{count}</span>
-      <span className={styles.label}>of 118 elements</span>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+        <span className={styles.count}>{count}</span>
+        <span className={styles.label}>of 118 elements</span>
+      </div>
     </div>
   );
 }
