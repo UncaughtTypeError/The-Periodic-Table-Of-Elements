@@ -24,7 +24,7 @@ export function ThreatFilter({
   return (
     <div className={styles.container}>
       <div className={styles.title}>Endangered Elements</div>
-      {THREATS.map(threat => (
+      {THREATS.map((threat) => (
         <button
           key={threat.id}
           className={`${styles.button} ${threatClassMap[threat.id]} ${
@@ -45,7 +45,10 @@ export function ThreatFilter({
           <div className={styles.label}>
             <span className={styles.name}>
               {threat.name}
-              <span className={styles.count}> ({threatCounts.get(threat.id) ?? 0})</span>
+              <span className={styles.count}>
+                {' '}
+                ({threatCounts.get(threat.id) ?? 0})
+              </span>
             </span>
             <span className={styles.description}>{threat.description}</span>
           </div>

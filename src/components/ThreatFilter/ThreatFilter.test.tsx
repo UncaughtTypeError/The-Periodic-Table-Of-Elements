@@ -61,18 +61,32 @@ describe('ThreatFilter', () => {
   });
 
   it('applies active class to active threat level', () => {
-    render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious'])} />);
+    render(
+      <ThreatFilter
+        {...defaultProps}
+        activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious'])}
+      />,
+    );
 
     const button = screen.getByText(/Serious Threat/).closest('button');
     expect(button?.className).toContain('active');
   });
 
   it('supports multiple active threat levels', () => {
-    render(<ThreatFilter {...defaultProps} activeThreatLevels={new Set<NonNullable<ThreatLevel>>(['serious', 'rising'])} />);
+    render(
+      <ThreatFilter
+        {...defaultProps}
+        activeThreatLevels={
+          new Set<NonNullable<ThreatLevel>>(['serious', 'rising'])
+        }
+      />,
+    );
 
     const seriousButton = screen.getByText(/Serious Threat/).closest('button');
     const risingButton = screen.getByText(/Rising Threat/).closest('button');
-    const limitedButton = screen.getByText(/Limited Availability/).closest('button');
+    const limitedButton = screen
+      .getByText(/Limited Availability/)
+      .closest('button');
 
     expect(seriousButton?.className).toContain('active');
     expect(risingButton?.className).toContain('active');

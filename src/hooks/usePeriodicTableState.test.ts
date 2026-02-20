@@ -13,7 +13,15 @@ const mockElement: Element = {
   threatLevel: null,
   period: 1,
   group: 1,
-  electronShells: { K: 1, L: null, M: null, N: null, O: null, P: null, Q: null },
+  electronShells: {
+    K: 1,
+    L: null,
+    M: null,
+    N: null,
+    O: null,
+    P: null,
+    Q: null,
+  },
   summary: {
     atomicMass: '1.00794 u',
     boilingPoint: '-252.9 °C',
@@ -104,7 +112,9 @@ describe('usePeriodicTableState', () => {
         result.current.actions.toggleActiveCategory('noble-gases');
       });
 
-      expect(result.current.state.activeCategories.has('noble-gases')).toBe(true);
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(
+        true,
+      );
     });
 
     it('should toggle off when same category is clicked', () => {
@@ -118,7 +128,9 @@ describe('usePeriodicTableState', () => {
         result.current.actions.toggleActiveCategory('noble-gases');
       });
 
-      expect(result.current.state.activeCategories.has('noble-gases')).toBe(false);
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(
+        false,
+      );
     });
 
     it('should support multiple active categories', () => {
@@ -132,7 +144,9 @@ describe('usePeriodicTableState', () => {
         result.current.actions.toggleActiveCategory('halogens');
       });
 
-      expect(result.current.state.activeCategories.has('noble-gases')).toBe(true);
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(
+        true,
+      );
       expect(result.current.state.activeCategories.has('halogens')).toBe(true);
       expect(result.current.state.activeCategories.size).toBe(2);
     });
@@ -152,7 +166,9 @@ describe('usePeriodicTableState', () => {
         result.current.actions.toggleActiveCategory('noble-gases');
       });
 
-      expect(result.current.state.activeCategories.has('noble-gases')).toBe(false);
+      expect(result.current.state.activeCategories.has('noble-gases')).toBe(
+        false,
+      );
       expect(result.current.state.activeCategories.has('halogens')).toBe(true);
       expect(result.current.state.activeCategories.size).toBe(1);
     });
@@ -206,7 +222,9 @@ describe('usePeriodicTableState', () => {
         result.current.actions.toggleActiveThreatLevel('serious');
       });
 
-      expect(result.current.state.activeThreatLevels.has('serious')).toBe(false);
+      expect(result.current.state.activeThreatLevels.has('serious')).toBe(
+        false,
+      );
     });
 
     it('should support multiple active threat levels', () => {

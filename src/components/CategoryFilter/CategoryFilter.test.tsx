@@ -38,7 +38,9 @@ describe('CategoryFilter', () => {
 
   it('calls onCategoryClick when a category is clicked', () => {
     const onCategoryClick = vi.fn();
-    render(<CategoryFilter {...defaultProps} onCategoryClick={onCategoryClick} />);
+    render(
+      <CategoryFilter {...defaultProps} onCategoryClick={onCategoryClick} />,
+    );
 
     fireEvent.click(screen.getByText('Noble Gases'));
     expect(onCategoryClick).toHaveBeenCalledWith('noble-gases');
@@ -46,7 +48,9 @@ describe('CategoryFilter', () => {
 
   it('calls onCategoryHover with category id on mouse enter', () => {
     const onCategoryHover = vi.fn();
-    render(<CategoryFilter {...defaultProps} onCategoryHover={onCategoryHover} />);
+    render(
+      <CategoryFilter {...defaultProps} onCategoryHover={onCategoryHover} />,
+    );
 
     fireEvent.mouseEnter(screen.getByText('Halogens').closest('button')!);
     expect(onCategoryHover).toHaveBeenCalledWith('halogens');
@@ -54,28 +58,45 @@ describe('CategoryFilter', () => {
 
   it('calls onCategoryHover with null on mouse leave', () => {
     const onCategoryHover = vi.fn();
-    render(<CategoryFilter {...defaultProps} onCategoryHover={onCategoryHover} />);
+    render(
+      <CategoryFilter {...defaultProps} onCategoryHover={onCategoryHover} />,
+    );
 
     fireEvent.mouseLeave(screen.getByText('Halogens').closest('button')!);
     expect(onCategoryHover).toHaveBeenCalledWith(null);
   });
 
   it('applies active class to active category', () => {
-    render(<CategoryFilter {...defaultProps} activeCategories={new Set<ElementCategory>(['noble-gases'])} />);
+    render(
+      <CategoryFilter
+        {...defaultProps}
+        activeCategories={new Set<ElementCategory>(['noble-gases'])}
+      />,
+    );
 
     const button = screen.getByText('Noble Gases').closest('button');
     expect(button?.className).toContain('active');
   });
 
   it('does not apply active class to non-active categories', () => {
-    render(<CategoryFilter {...defaultProps} activeCategories={new Set<ElementCategory>(['noble-gases'])} />);
+    render(
+      <CategoryFilter
+        {...defaultProps}
+        activeCategories={new Set<ElementCategory>(['noble-gases'])}
+      />,
+    );
 
     const button = screen.getByText('Halogens').closest('button');
     expect(button?.className).not.toContain('active');
   });
 
   it('supports multiple active categories', () => {
-    render(<CategoryFilter {...defaultProps} activeCategories={new Set<ElementCategory>(['noble-gases', 'halogens'])} />);
+    render(
+      <CategoryFilter
+        {...defaultProps}
+        activeCategories={new Set<ElementCategory>(['noble-gases', 'halogens'])}
+      />,
+    );
 
     const nobleGasesButton = screen.getByText('Noble Gases').closest('button');
     const halogensButton = screen.getByText('Halogens').closest('button');

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
 import { getStandardState, isRadioactive } from '@/data';
-import { RadioactiveIcon, stateIconMap } from '@/components/common/icons';
+import { RadioactiveIcon } from '@/components/common/icons';
+import { stateIconMap } from '@/components/common/stateIconMap';
 import { Tooltip } from '@/components/common/Tooltip';
 import modalStyles from './Modal.module.css';
 import styles from './ElementDetail.module.css';

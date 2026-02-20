@@ -8,7 +8,10 @@ export function matchesLegendValue(el: Element, filter: LegendFilter): boolean {
 }
 
 /** Check if element matches any active legend filter (OR within) */
-export function matchesAnyLegendFilter(el: Element, filters: Set<LegendFilter>): boolean {
+export function matchesAnyLegendFilter(
+  el: Element,
+  filters: Set<LegendFilter>,
+): boolean {
   for (const f of filters) {
     if (matchesLegendValue(el, f)) return true;
   }

@@ -1,4 +1,9 @@
-import type { CategoryDefinition, ThreatDefinition, ElementCategory, ThreatLevel } from '@/types';
+import type {
+  CategoryDefinition,
+  ThreatDefinition,
+  ElementCategory,
+  ThreatLevel,
+} from '@/types';
 
 // Nonmetals group (displayed first)
 export const NONMETAL_CATEGORIES: CategoryDefinition[] = [
@@ -14,10 +19,18 @@ export const METALLOID_CATEGORIES: CategoryDefinition[] = [
 
 // Metals group (displayed last)
 export const METAL_CATEGORIES: CategoryDefinition[] = [
-  { id: 'alkaline-earth-metals', name: 'Alkaline Earth Metals', color: '#eaea18' },
+  {
+    id: 'alkaline-earth-metals',
+    name: 'Alkaline Earth Metals',
+    color: '#eaea18',
+  },
   { id: 'alkali-metals', name: 'Alkali Metals', color: '#f7a91d' },
   { id: 'transition-metals', name: 'Transition Metals', color: '#ff3e7f' },
-  { id: 'post-transition-metals', name: 'Post Transition Metals', color: '#40C4FF' },
+  {
+    id: 'post-transition-metals',
+    name: 'Post Transition Metals',
+    color: '#40C4FF',
+  },
   { id: 'lanthanoids', name: 'Lanthanoids', color: '#fd6d3f' },
   { id: 'actinoids', name: 'Actinoids', color: '#ff1744' },
 ];
@@ -32,14 +45,14 @@ export const CATEGORIES: CategoryDefinition[] = [
 export const CATEGORY_COLORS: Record<ElementCategory, string> = {
   'other-nonmetals': '#76FF03',
   'noble-gases': '#df5ff5',
-  'halogens': '#18FFFF',
-  'metalloids': '#00E676',
+  halogens: '#18FFFF',
+  metalloids: '#00E676',
   'alkaline-earth-metals': '#eaea18',
   'alkali-metals': '#f7a91d',
   'transition-metals': '#ff3e7f',
   'post-transition-metals': '#40C4FF',
-  'lanthanoids': '#fd6d3f',
-  'actinoids': '#ff1744',
+  lanthanoids: '#fd6d3f',
+  actinoids: '#ff1744',
 };
 
 export const THREATS: ThreatDefinition[] = [

@@ -1,18 +1,18 @@
 :root {
   /* Category Colors */
-  --color-other-nonmetals: #76FF03;
+  --color-other-nonmetals: #76ff03;
   --color-noble-gases: #df5ff5;
-  --color-halogens: #18FFFF;
-  --color-metalloids: #00E676;
+  --color-halogens: #18ffff;
+  --color-metalloids: #00e676;
   --color-alkaline-earth-metals: #eaea18;
   --color-alkali-metals: #f7a91d;
   --color-transition-metals: #ff3e7f;
-  --color-post-transition-metals: #40C4FF;
+  --color-post-transition-metals: #40c4ff;
   --color-lanthanoids: #fd6d3f;
   --color-actinoids: #ff1744;
 
   /* Radioactive */
-  --color-radioactive: #7FFF00;
+  --color-radioactive: #7fff00;
 
   /* Threat Colors */
   --color-threat-limited: #ded014;

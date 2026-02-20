@@ -1,5 +1,12 @@
 import { useReducer, useCallback } from 'react';
-import type { Element, ElementCategory, ThreatLevel, LegendFilter, SeriesPlaceholder, SeriesType } from '@/types';
+import type {
+  Element,
+  ElementCategory,
+  ThreatLevel,
+  LegendFilter,
+  SeriesPlaceholder,
+  SeriesType,
+} from '@/types';
 
 interface State {
   activeCategories: Set<ElementCategory>;
@@ -118,7 +125,10 @@ function reducer(state: State, action: Action): State {
 
     case 'SELECT_ELEMENT':
       // If clicking the same element while panel is open, close it (keep element for animation)
-      if (state.selectedElement?.atomicNumber === action.payload.atomicNumber && state.isDetailOpen) {
+      if (
+        state.selectedElement?.atomicNumber === action.payload.atomicNumber &&
+        state.isDetailOpen
+      ) {
         return {
           ...state,
           isDetailOpen: false,
@@ -139,7 +149,10 @@ function reducer(state: State, action: Action): State {
 
     case 'SELECT_SERIES':
       // If clicking the same series while panel is open, close it
-      if (state.selectedSeries?.id === action.payload.id && state.isSeriesDetailOpen) {
+      if (
+        state.selectedSeries?.id === action.payload.id &&
+        state.isSeriesDetailOpen
+      ) {
         return {
           ...state,
           isSeriesDetailOpen: false,
@@ -175,9 +188,12 @@ export function usePeriodicTableState() {
     dispatch({ type: 'SET_HOVERED_CATEGORY', payload: category });
   }, []);
 
-  const toggleActiveThreatLevel = useCallback((threat: NonNullable<ThreatLevel>) => {
-    dispatch({ type: 'TOGGLE_ACTIVE_THREAT', payload: threat });
-  }, []);
+  const toggleActiveThreatLevel = useCallback(
+    (threat: NonNullable<ThreatLevel>) => {
+      dispatch({ type: 'TOGGLE_ACTIVE_THREAT', payload: threat });
+    },
+    [],
+  );
 
   const setHoveredThreatLevel = useCallback((threat: ThreatLevel) => {
     dispatch({ type: 'SET_HOVERED_THREAT', payload: threat });

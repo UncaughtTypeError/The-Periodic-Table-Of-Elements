@@ -7,19 +7,19 @@ describe('Elements Data', () => {
   });
 
   it('elements have unique atomic numbers', () => {
-    const atomicNumbers = elements.map(e => e.atomicNumber);
+    const atomicNumbers = elements.map((e) => e.atomicNumber);
     const uniqueNumbers = new Set(atomicNumbers);
     expect(uniqueNumbers.size).toBe(118);
   });
 
   it('first element is Hydrogen', () => {
-    const hydrogen = elements.find(e => e.atomicNumber === 1);
+    const hydrogen = elements.find((e) => e.atomicNumber === 1);
     expect(hydrogen?.symbol).toBe('H');
     expect(hydrogen?.name).toBe('Hydrogen');
   });
 
   it('last element is Oganesson', () => {
-    const oganesson = elements.find(e => e.atomicNumber === 118);
+    const oganesson = elements.find((e) => e.atomicNumber === 118);
     expect(oganesson?.symbol).toBe('Og');
     expect(oganesson?.name).toBe('Oganesson');
   });
@@ -97,7 +97,9 @@ describe('Elements Data', () => {
   });
 
   it('contains post-transition metals', () => {
-    const postTransition = elements.filter((e) => e.category === 'post-transition-metals');
+    const postTransition = elements.filter(
+      (e) => e.category === 'post-transition-metals',
+    );
     expect(postTransition.length).toBe(11); // Al, Ga, In, Sn, Tl, Pb, Bi, Nh, Fl, Mc, Lv
     expect(postTransition.map((e) => e.symbol)).toContain('Al');
     expect(postTransition.map((e) => e.symbol)).toContain('Pb');

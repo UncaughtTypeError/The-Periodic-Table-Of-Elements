@@ -14,14 +14,14 @@ interface SeriesPlaceholderCellProps {
 const categoryClassMap: Record<ElementCategory, string> = {
   'other-nonmetals': styles.otherNonmetals,
   'noble-gases': styles.nobleGases,
-  'halogens': styles.halogens,
-  'metalloids': styles.metalloids,
+  halogens: styles.halogens,
+  metalloids: styles.metalloids,
   'alkaline-earth-metals': styles.alkalineEarthMetals,
   'alkali-metals': styles.alkaliMetals,
   'transition-metals': styles.transitionMetals,
   'post-transition-metals': styles.postTransitionMetals,
-  'lanthanoids': styles.lanthanoids,
-  'actinoids': styles.actinoids,
+  lanthanoids: styles.lanthanoids,
+  actinoids: styles.actinoids,
 };
 
 export function SeriesPlaceholderCell({
@@ -42,7 +42,9 @@ export function SeriesPlaceholderCell({
     isNoFocus && styles.noFocus,
     isActiveGroup && styles.activeGroup,
     isFocusGroup && styles.focusGroup,
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div

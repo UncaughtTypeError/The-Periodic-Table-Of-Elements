@@ -1,5 +1,10 @@
 import type { LegendFilter } from '@/types';
-import { SolidIcon, LiquidIcon, GasIcon, RadioactiveIcon } from '@/components/common/icons';
+import {
+  SolidIcon,
+  LiquidIcon,
+  GasIcon,
+  RadioactiveIcon,
+} from '@/components/common/icons';
 import styles from './Legend.module.css';
 
 interface LegendProps {
@@ -9,7 +14,11 @@ interface LegendProps {
   onLegendHover: (filter: LegendFilter | null) => void;
 }
 
-const items: { id: LegendFilter; label: string; Icon: React.FC<{ size?: number }> }[] = [
+const items: {
+  id: LegendFilter;
+  label: string;
+  Icon: React.FC<{ size?: number }>;
+}[] = [
   { id: 'solid', label: 'Solid', Icon: SolidIcon },
   { id: 'liquid', label: 'Liquid', Icon: LiquidIcon },
   { id: 'gas', label: 'Gas', Icon: GasIcon },
@@ -32,7 +41,10 @@ export function Legend({
           onMouseLeave={() => onLegendHover(null)}
         >
           <Icon size={14} />
-          <span>{label} <span className={styles.count}>({legendCounts.get(id) ?? 0})</span></span>
+          <span>
+            {label}{' '}
+            <span className={styles.count}>({legendCounts.get(id) ?? 0})</span>
+          </span>
         </button>
       ))}
       <div className={styles.divider} />
@@ -43,7 +55,12 @@ export function Legend({
         onMouseLeave={() => onLegendHover(null)}
       >
         <RadioactiveIcon size={14} />
-        <span>Radioactive <span className={styles.count}>({legendCounts.get('radioactive') ?? 0})</span></span>
+        <span>
+          Radioactive{' '}
+          <span className={styles.count}>
+            ({legendCounts.get('radioactive') ?? 0})
+          </span>
+        </span>
       </button>
     </div>
   );

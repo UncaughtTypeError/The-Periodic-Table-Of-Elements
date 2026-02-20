@@ -147,7 +147,10 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
 };
 
 // Get elements for a specific period (main table row)
-export function getElementsForPeriod(period: number, elements: { atomicNumber: number }[]): (number | null)[] {
+export function getElementsForPeriod(
+  period: number,
+  elements: { atomicNumber: number }[],
+): (number | null)[] {
   const row: (number | null)[] = new Array(18).fill(null);
 
   for (const element of elements) {
@@ -163,15 +166,15 @@ export function getElementsForPeriod(period: number, elements: { atomicNumber: n
 // Get lanthanide elements (atomic numbers 57-71)
 export function getLanthanides(elements: { atomicNumber: number }[]): number[] {
   return elements
-    .filter(e => e.atomicNumber >= 57 && e.atomicNumber <= 71)
-    .map(e => e.atomicNumber)
+    .filter((e) => e.atomicNumber >= 57 && e.atomicNumber <= 71)
+    .map((e) => e.atomicNumber)
     .sort((a, b) => a - b);
 }
 
 // Get actinide elements (atomic numbers 89-103)
 export function getActinides(elements: { atomicNumber: number }[]): number[] {
   return elements
-    .filter(e => e.atomicNumber >= 89 && e.atomicNumber <= 103)
-    .map(e => e.atomicNumber)
+    .filter((e) => e.atomicNumber >= 89 && e.atomicNumber <= 103)
+    .map((e) => e.atomicNumber)
     .sort((a, b) => a - b);
 }

@@ -66,18 +66,30 @@ describe('Legend', () => {
   });
 
   it('applies active class to active legend filter', () => {
-    render(<Legend {...defaultProps} activeLegendFilters={new Set<LegendFilter>(['solid'])} />);
+    render(
+      <Legend
+        {...defaultProps}
+        activeLegendFilters={new Set<LegendFilter>(['solid'])}
+      />,
+    );
 
     const button = screen.getByText(/^Solid/).closest('button');
     expect(button?.className).toContain('active');
   });
 
   it('supports multiple active legend filters', () => {
-    render(<Legend {...defaultProps} activeLegendFilters={new Set<LegendFilter>(['solid', 'radioactive'])} />);
+    render(
+      <Legend
+        {...defaultProps}
+        activeLegendFilters={new Set<LegendFilter>(['solid', 'radioactive'])}
+      />,
+    );
 
     const solidButton = screen.getByText(/^Solid/).closest('button');
     const liquidButton = screen.getByText(/^Liquid/).closest('button');
-    const radioactiveButton = screen.getByText(/^Radioactive/).closest('button');
+    const radioactiveButton = screen
+      .getByText(/^Radioactive/)
+      .closest('button');
 
     expect(solidButton?.className).toContain('active');
     expect(radioactiveButton?.className).toContain('active');

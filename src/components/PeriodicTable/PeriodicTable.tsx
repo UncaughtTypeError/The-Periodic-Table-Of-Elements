@@ -1,10 +1,29 @@
 import { useMemo } from 'react';
-import type { Element, ElementCategory, ThreatLevel, LegendFilter, SeriesPlaceholder, SeriesType } from '@/types';
+import type {
+  Element,
+  ElementCategory,
+  ThreatLevel,
+  LegendFilter,
+  SeriesPlaceholder,
+  SeriesType,
+} from '@/types';
 import { elements as allElements } from '@/data/elements';
-import { matchesLegendValue, matchesAnyLegendFilter } from '@/utils/filterMatching';
+import {
+  matchesLegendValue,
+  matchesAnyLegendFilter,
+} from '@/utils/filterMatching';
 import { seriesPlaceholders } from '@/data/series';
-import { TABLE_POSITIONS, getLanthanides, getActinides } from '@/data/tableLayout';
-import { ElementCell, EmptyCell, LabelCell, SeriesPlaceholderCell } from '@/components/Element';
+import {
+  TABLE_POSITIONS,
+  getLanthanides,
+  getActinides,
+} from '@/data/tableLayout';
+import {
+  ElementCell,
+  EmptyCell,
+  LabelCell,
+  SeriesPlaceholderCell,
+} from '@/components/Element';
 import styles from './PeriodicTable.module.css';
 
 interface PeriodicTableProps {
@@ -47,7 +66,7 @@ export function PeriodicTable({
   // Build element lookup map
   const elementMap = useMemo(() => {
     const map = new Map<number, Element>();
-    allElements.forEach(el => map.set(el.atomicNumber, el));
+    allElements.forEach((el) => map.set(el.atomicNumber, el));
     return map;
   }, []);
 
@@ -61,20 +80,32 @@ export function PeriodicTable({
     const hasHoveredLegend = hoveredLegendFilter !== null;
 
     // No filters active - everything normal
-    if (!hasActiveCategories && !hasActiveThreats && !hasActiveLegend && !hasHoveredCategory && !hasHoveredThreat && !hasHoveredLegend) {
-      return { activeGroupSet: new Set<number>(), noFocusSet: new Set<number>() };
+    if (
+      !hasActiveCategories &&
+      !hasActiveThreats &&
+      !hasActiveLegend &&
+      !hasHoveredCategory &&
+      !hasHoveredThreat &&
+      !hasHoveredLegend
+    ) {
+      return {
+        activeGroupSet: new Set<number>(),
+        noFocusSet: new Set<number>(),
+      };
     }
 
     const activeGroup = new Set<number>();
     const noFocus = new Set<number>();
 
-    allElements.forEach(el => {
+    allElements.forEach((el) => {
       // Check if element matches active category filters
-      const matchesActiveCategory = hasActiveCategories ? activeCategories.has(el.category) : true;
+      const matchesActiveCategory = hasActiveCategories
+        ? activeCategories.has(el.category)
+        : true;
 
       // Check if element matches active threat filters
       const matchesActiveThreat = hasActiveThreats
-        ? (el.threatLevel !== null && activeThreatLevels.has(el.threatLevel))
+        ? el.threatLevel !== null && activeThreatLevels.has(el.threatLevel)
         : true;
 
       // Check if element matches active legend filters (OR within)
@@ -83,11 +114,12 @@ export function PeriodicTable({
         : true;
 
       // Check if element matches hovered category (when other categories are active)
-      const matchesHoveredCategory = hasHoveredCategory && el.category === hoveredCategory;
+      const matchesHoveredCategory =
+        hasHoveredCategory && el.category === hoveredCategory;
 
       // Check if element matches hovered threat
       const matchesHoveredThreat = hasHoveredThreat
-        ? (el.threatLevel !== null && el.threatLevel === hoveredThreatLevel)
+        ? el.threatLevel !== null && el.threatLevel === hoveredThreatLevel
         : false;
 
       // Check if element matches hovered legend filter
@@ -98,7 +130,8 @@ export function PeriodicTable({
       // Determine if element should be in activeGroup (highlighted with background)
       // This happens when element matches ALL active filters (category AND threat AND legend)
       if (hasActiveCategories || hasActiveThreats || hasActiveLegend) {
-        const matchesAllActiveFilters = matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
+        const matchesAllActiveFilters =
+          matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
         if (matchesAllActiveFilters) {
           activeGroup.add(el.atomicNumber);
         }
@@ -109,7 +142,8 @@ export function PeriodicTable({
 
       if (hasActiveCategories || hasActiveThreats || hasActiveLegend) {
         // Start by checking if element matches all active filters
-        const matchesAllActiveFilters = matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
+        const matchesAllActiveFilters =
+          matchesActiveCategory && matchesActiveThreat && matchesActiveLegend;
 
         if (!matchesAllActiveFilters) {
           // Element doesn't match all active filters, so it should be dimmed...
@@ -125,8 +159,12 @@ export function PeriodicTable({
           } else if (hasHoveredLegend && matchesHoveredLegend) {
             // Don't dim - hovering shows this legend filter even when other filters are active
             // But only if it also matches other active filters
-            const matchesOtherActive = matchesActiveCategory && matchesActiveThreat;
-            if (!hasActiveCategories && !hasActiveThreats || matchesOtherActive) {
+            const matchesOtherActive =
+              matchesActiveCategory && matchesActiveThreat;
+            if (
+              (!hasActiveCategories && !hasActiveThreats) ||
+              matchesOtherActive
+            ) {
               shouldBeDimmed = false;
             } else {
               shouldBeDimmed = true;
@@ -153,27 +191,43 @@ export function PeriodicTable({
     });
 
     return { activeGroupSet: activeGroup, noFocusSet: noFocus };
-  }, [activeCategories, hoveredCategory, activeThreatLevels, hoveredThreatLevel, activeLegendFilters, hoveredLegendFilter]);
+  }, [
+    activeCategories,
+    hoveredCategory,
+    activeThreatLevels,
+    hoveredThreatLevel,
+    activeLegendFilters,
+    hoveredLegendFilter,
+  ]);
 
   // Get series placeholders
-  const lanthanoidPlaceholder = useMemo(() =>
-    seriesPlaceholders.find(s => s.id === 'lanthanoids')!,
-  []);
+  const lanthanoidPlaceholder = useMemo(
+    () => seriesPlaceholders.find((s) => s.id === 'lanthanoids')!,
+    [],
+  );
 
-  const actinoidPlaceholder = useMemo(() =>
-    seriesPlaceholders.find(s => s.id === 'actinoids')!,
-  []);
+  const actinoidPlaceholder = useMemo(
+    () => seriesPlaceholders.find((s) => s.id === 'actinoids')!,
+    [],
+  );
 
   // Build period rows with placeholders
   const periods = useMemo(() => {
     const rows: (Element | SeriesPlaceholder | null)[][] = [];
 
     for (let period = 1; period <= 7; period++) {
-      const row: (Element | SeriesPlaceholder | null)[] = new Array(18).fill(null);
+      const row: (Element | SeriesPlaceholder | null)[] = new Array(18).fill(
+        null,
+      );
 
-      allElements.forEach(el => {
+      allElements.forEach((el) => {
         const pos = TABLE_POSITIONS[el.atomicNumber];
-        if (pos && pos.period === period && !pos.isLanthanide && !pos.isActinide) {
+        if (
+          pos &&
+          pos.period === period &&
+          !pos.isLanthanide &&
+          !pos.isActinide
+        ) {
           row[pos.group - 1] = el;
         }
       });
@@ -194,16 +248,20 @@ export function PeriodicTable({
   }, [lanthanoidPlaceholder, actinoidPlaceholder]);
 
   // Get lanthanides and actinides
-  const lanthanides = useMemo(() =>
-    getLanthanides(allElements).map(n => elementMap.get(n)!),
-  [elementMap]);
+  const lanthanides = useMemo(
+    () => getLanthanides(allElements).map((n) => elementMap.get(n)!),
+    [elementMap],
+  );
 
-  const actinides = useMemo(() =>
-    getActinides(allElements).map(n => elementMap.get(n)!),
-  [elementMap]);
+  const actinides = useMemo(
+    () => getActinides(allElements).map((n) => elementMap.get(n)!),
+    [elementMap],
+  );
 
   // Helper to check if an item is a SeriesPlaceholder
-  const isSeriesPlaceholder = (item: Element | SeriesPlaceholder): item is SeriesPlaceholder => {
+  const isSeriesPlaceholder = (
+    item: Element | SeriesPlaceholder,
+  ): item is SeriesPlaceholder => {
     return 'elementNumbers' in item;
   };
 
@@ -237,7 +295,14 @@ export function PeriodicTable({
     const hasHoveredLegend = hoveredLegendFilter !== null;
 
     // If no filters, not dimmed
-    if (!hasActiveCategories && !hasActiveThreats && !hasActiveLegend && !hasHoveredCategory && !hasHoveredThreat && !hasHoveredLegend) {
+    if (
+      !hasActiveCategories &&
+      !hasActiveThreats &&
+      !hasActiveLegend &&
+      !hasHoveredCategory &&
+      !hasHoveredThreat &&
+      !hasHoveredLegend
+    ) {
       return false;
     }
 
@@ -247,8 +312,11 @@ export function PeriodicTable({
     }
 
     // Check if series category matches filters
-    const matchesActiveCategory = hasActiveCategories ? activeCategories.has(series.category) : true;
-    const matchesHoveredCategory = hasHoveredCategory && series.category === hoveredCategory;
+    const matchesActiveCategory = hasActiveCategories
+      ? activeCategories.has(series.category)
+      : true;
+    const matchesHoveredCategory =
+      hasHoveredCategory && series.category === hoveredCategory;
 
     // If hovering a category that matches this series, don't dim
     if (matchesHoveredCategory) {
@@ -287,13 +355,18 @@ export function PeriodicTable({
   const groupLabelPositions = useMemo(() => {
     const positions = new Map<string, number>();
     // Period 1 (index 0): groups 2, 13-17 have first element in period 2
-    [1, 12, 13, 14, 15, 16].forEach(col => positions.set(`0-${col}`, col + 1));
+    [1, 12, 13, 14, 15, 16].forEach((col) =>
+      positions.set(`0-${col}`, col + 1),
+    );
     // Period 3 (index 2): groups 3-12 have first element in period 4
     for (let col = 2; col <= 11; col++) positions.set(`2-${col}`, col + 1);
     return positions;
   }, []);
 
-  const renderCell = (item: Element | SeriesPlaceholder | null, index: number) => {
+  const renderCell = (
+    item: Element | SeriesPlaceholder | null,
+    index: number,
+  ) => {
     if (!item) {
       return <EmptyCell key={`empty-${index}`} />;
     }
@@ -327,7 +400,9 @@ export function PeriodicTable({
         element={item}
         isNoFocus={shouldBeNoFocus}
         isActiveGroup={activeGroupSet.has(item.atomicNumber)}
-        isFocusGroup={isDetailOpen && selectedElement?.atomicNumber === item.atomicNumber}
+        isFocusGroup={
+          isDetailOpen && selectedElement?.atomicNumber === item.atomicNumber
+        }
         onClick={() => onElementClick(item)}
         onMouseEnter={() => onElementHover(item.atomicNumber)}
         onMouseLeave={() => onElementHover(null)}
@@ -341,7 +416,12 @@ export function PeriodicTable({
         {/* Periods axis label (vertical) */}
         <div className={styles.periodsAxis}>
           <svg width="8" height="30" viewBox="0 0 8 30" aria-hidden="true">
-            <path d="M4 0 L4 26 M1 23 L4 28 L7 23" fill="none" stroke="currentColor" strokeWidth="1.5" />
+            <path
+              d="M4 0 L4 26 M1 23 L4 28 L7 23"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
           </svg>
           <span>Periods</span>
         </div>
@@ -351,7 +431,12 @@ export function PeriodicTable({
           <div className={styles.groupsAxis}>
             <span>Groups</span>
             <svg width="30" height="8" viewBox="0 0 30 8" aria-hidden="true">
-              <path d="M0 4 L26 4 M23 1 L28 4 L23 7" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <path
+                d="M0 4 L26 4 M23 1 L28 4 L23 7"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
             </svg>
           </div>
 
@@ -362,9 +447,15 @@ export function PeriodicTable({
               {Array.from({ length: 18 }, (_, i) => {
                 const group = i + 1;
                 if (group === 1 || group === 18) {
-                  return <div key={`gh-${group}`} className={styles.groupLabel}>{group}</div>;
+                  return (
+                    <div key={`gh-${group}`} className={styles.groupLabel}>
+                      {group}
+                    </div>
+                  );
                 }
-                return <div key={`gh-${group}`} className={styles.groupLabelEmpty} />;
+                return (
+                  <div key={`gh-${group}`} className={styles.groupLabelEmpty} />
+                );
               })}
             </div>
 
@@ -374,9 +465,18 @@ export function PeriodicTable({
                 <div className={styles.periodLabel}>{periodIndex + 1}</div>
                 {row.map((element, groupIndex) => {
                   if (!element) {
-                    const groupLabel = groupLabelPositions.get(`${periodIndex}-${groupIndex}`);
+                    const groupLabel = groupLabelPositions.get(
+                      `${periodIndex}-${groupIndex}`,
+                    );
                     if (groupLabel !== undefined) {
-                      return <div key={`gl-${groupLabel}`} className={styles.groupLabel}>{groupLabel}</div>;
+                      return (
+                        <div
+                          key={`gl-${groupLabel}`}
+                          className={styles.groupLabel}
+                        >
+                          {groupLabel}
+                        </div>
+                      );
                     }
                   }
                   return renderCell(element, groupIndex);
@@ -391,7 +491,9 @@ export function PeriodicTable({
               <div className={styles.periodLabelSpacer} />
               <EmptyCell />
               <LabelCell label="Ln Series" />
-              {lanthanides.map(element => renderCell(element, element.atomicNumber))}
+              {lanthanides.map((element) =>
+                renderCell(element, element.atomicNumber),
+              )}
               <EmptyCell />
             </div>
 
@@ -400,7 +502,9 @@ export function PeriodicTable({
               <div className={styles.periodLabelSpacer} />
               <EmptyCell />
               <LabelCell label="An Series" />
-              {actinides.map(element => renderCell(element, element.atomicNumber))}
+              {actinides.map((element) =>
+                renderCell(element, element.atomicNumber),
+              )}
               <EmptyCell />
             </div>
           </div>

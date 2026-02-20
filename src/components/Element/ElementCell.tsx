@@ -1,6 +1,7 @@
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
 import { getStandardState, isRadioactive } from '@/data';
-import { RadioactiveIcon, stateIconMap } from '@/components/common/icons';
+import { RadioactiveIcon } from '@/components/common/icons';
+import { stateIconMap } from '@/components/common/stateIconMap';
 import { Tooltip } from '@/components/common/Tooltip';
 import styles from './ElementCell.module.css';
 
@@ -18,20 +19,20 @@ interface ElementCellProps {
 const categoryClassMap: Record<ElementCategory, string> = {
   'other-nonmetals': styles.otherNonmetals,
   'noble-gases': styles.nobleGases,
-  'halogens': styles.halogens,
-  'metalloids': styles.metalloids,
+  halogens: styles.halogens,
+  metalloids: styles.metalloids,
   'alkaline-earth-metals': styles.alkalineEarthMetals,
   'alkali-metals': styles.alkaliMetals,
   'transition-metals': styles.transitionMetals,
   'post-transition-metals': styles.postTransitionMetals,
-  'lanthanoids': styles.lanthanoids,
-  'actinoids': styles.actinoids,
+  lanthanoids: styles.lanthanoids,
+  actinoids: styles.actinoids,
 };
 
 const threatClassMap: Record<NonNullable<ThreatLevel>, string> = {
-  'limited': styles.threatLimited,
-  'rising': styles.threatRising,
-  'serious': styles.threatSerious,
+  limited: styles.threatLimited,
+  rising: styles.threatRising,
+  serious: styles.threatSerious,
 };
 
 const threatLabels: Record<NonNullable<ThreatLevel>, string> = {
@@ -42,12 +43,14 @@ const threatLabels: Record<NonNullable<ThreatLevel>, string> = {
 
 function getThreatDots(threatLevel: NonNullable<ThreatLevel>): number {
   switch (threatLevel) {
-    case 'limited': return 1;
-    case 'rising': return 2;
-    case 'serious': return 3;
+    case 'limited':
+      return 1;
+    case 'rising':
+      return 2;
+    case 'serious':
+      return 3;
   }
 }
-
 
 export function ElementCell({
   element,
@@ -59,12 +62,22 @@ export function ElementCell({
   onMouseEnter,
   onMouseLeave,
 }: ElementCellProps) {
-  const { symbol, name, atomicNumber, atomicMass, isSynthetic, category, threatLevel, electronShells } = element;
+  const {
+    symbol,
+    name,
+    atomicNumber,
+    atomicMass,
+    isSynthetic,
+    category,
+    threatLevel,
+    electronShells,
+  } = element;
 
   const standardState = getStandardState(symbol);
   const radioactive = isRadioactive(symbol);
   const StateIcon = stateIconMap[standardState];
-  const stateLabel = standardState.charAt(0).toUpperCase() + standardState.slice(1);
+  const stateLabel =
+    standardState.charAt(0).toUpperCase() + standardState.slice(1);
 
   const classNames = [
     styles.cell,
@@ -74,7 +87,9 @@ export function ElementCell({
     isActiveGroup && styles.activeGroup,
     isFocusGroup && styles.focusGroup,
     threatLevel && threatClassMap[threatLevel],
-  ].filter(Boolean).join(' ');
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <div
@@ -105,7 +120,9 @@ export function ElementCell({
       </Tooltip>
       <div className={styles.atomicNumberRow}>
         <Tooltip content="Atomic number" position="top">
-          <span className={styles.atomicNumber} aria-label="Atomic number">{atomicNumber}</span>
+          <span className={styles.atomicNumber} aria-label="Atomic number">
+            {atomicNumber}
+          </span>
         </Tooltip>
         <div className={styles.indicators}>
           <Tooltip content={stateLabel} position="top">
@@ -125,11 +142,16 @@ export function ElementCell({
       <div className={styles.symbol}>{symbol}</div>
       <div className={styles.name}>{name}</div>
       <Tooltip content="Atomic mass" position="bottom">
-        <div className={styles.mass} aria-label="Atomic mass">{isSynthetic ? `[${atomicMass}]` : atomicMass}</div>
+        <div className={styles.mass} aria-label="Atomic mass">
+          {isSynthetic ? `[${atomicMass}]` : atomicMass}
+        </div>
       </Tooltip>
       {threatLevel && (
         <Tooltip content={threatLabels[threatLevel]} position="left">
-          <div className={styles.threatIndicator} aria-label={threatLabels[threatLevel]}>
+          <div
+            className={styles.threatIndicator}
+            aria-label={threatLabels[threatLevel]}
+          >
             {Array.from({ length: getThreatDots(threatLevel) }).map((_, i) => (
               <div key={i} className={styles.threatDot} />
             ))}

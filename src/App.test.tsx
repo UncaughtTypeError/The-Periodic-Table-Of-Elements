@@ -23,7 +23,9 @@ describe('App Integration', () => {
 
   it('renders footer', () => {
     render(<App />);
-    expect(screen.getByText(/Periodic Table of Chemical Elements/)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Periodic Table of Chemical Elements/),
+    ).toBeInTheDocument();
   });
 
   it('opens element detail when element is clicked', async () => {
