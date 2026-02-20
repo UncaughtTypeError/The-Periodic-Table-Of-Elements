@@ -18,7 +18,7 @@
   padding: 5px 0;
   box-sizing: border-box;
   position: relative;
-  border: 2px solid var(--color-text-muted);
+  border: 1px solid var(--color-text-muted);
   border-top-right-radius: 4px;
   border-top-left-radius: 4px;
   border-bottom: 0;
@@ -41,6 +41,10 @@
   font-size: 14px;
   color: var(--color-text-muted);
   letter-spacing: 1px;
+  position: absolute;
+  transform: translate(-50%, -25%);
+  left: 50%;
+  top: -50%;
 }
 
 .container {
