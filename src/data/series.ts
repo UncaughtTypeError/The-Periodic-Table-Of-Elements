@@ -5,7 +5,7 @@ export const seriesPlaceholders: SeriesPlaceholder[] = [
     id: 'lanthanoids',
     symbol: 'Ln',
     name: 'Lanthanoids',
-    atomicNumberRange: '57 - 71',
+    atomicNumberRange: '57 - 70',
     category: 'lanthanoids',
     period: 6,
     group: 3,
@@ -16,15 +16,13 @@ export const seriesPlaceholders: SeriesPlaceholder[] = [
       'Lanthanum is the more often omitted of the two, because its placement as a group 3 element is somewhat more common in texts and for semantic reasons: since "lanthanide" means "like lanthanum", it has been argued that lanthanum cannot logically be a lanthanide, even though IUPAC acknowledges its inclusion based on common usage.',
       "In presentations of the periodic table, the lanthanides and the actinides are customarily shown as two additional rows below the main body of the table, with placeholders or else a selected single element of each series (either lanthanum and actinium, or lutetium and lawrencium) shown in a single cell of the main table, between barium and hafnium, and radium and rutherfordium, respectively. This convention is entirely a matter of aesthetics and formatting practicality; a rarely used wide-formatted periodic table inserts the lanthanide and actinide series in their proper places, as parts of the table's sixth and seventh rows (periods).",
     ],
-    elementNumbers: [
-      57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
-    ],
+    elementNumbers: [57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70],
   },
   {
     id: 'actinoids',
     symbol: 'An',
     name: 'Actinoids',
-    atomicNumberRange: '89 - 103',
+    atomicNumberRange: '89 - 102',
     category: 'actinoids',
     period: 7,
     group: 3,
@@ -37,9 +35,7 @@ export const seriesPlaceholders: SeriesPlaceholder[] = [
       'The other actinides are purely synthetic elements. Nuclear weapons tests have released at least six actinides heavier than plutonium into the environment; analysis of debris from a 1952 hydrogen bomb explosion showed the presence of americium, curium, berkelium, californium, einsteinium and fermium.',
       "In presentations of the periodic table, the lanthanides and the actinides are customarily shown as two additional rows below the main body of the table, with placeholders or else a selected single element of each series (either lanthanum or lutetium, and either actinium or lawrencium, respectively) shown in a single cell of the main table, between barium and hafnium, and radium and rutherfordium, respectively. This convention is entirely a matter of aesthetics and formatting practicality; a rarely used wide-formatted periodic table inserts the lanthanide and actinide series in their proper places, as parts of the table's sixth and seventh rows (periods).",
     ],
-    elementNumbers: [
-      89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103,
-    ],
+    elementNumbers: [89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102],
   },
 ];
 

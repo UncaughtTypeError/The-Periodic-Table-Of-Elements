@@ -74,19 +74,19 @@ export function SeriesDetail({ series, isOpen, onClose }: SeriesDetailProps) {
     // Fill in standard element positions (simplified)
     allElements.forEach((el) => {
       const periodIndex = el.period - 1;
-      // Map groups: 1-2 stay, 3-18 go to 17-32
+      // Map groups: 1-2 stay, 3-18 go to 16-31
       let groupIndex = el.group - 1;
       if (el.group >= 3) {
-        groupIndex = el.group + 14;
+        groupIndex = el.group + 13;
       }
 
-      // Handle lanthanides (period 6, positions 3-16)
-      if (el.atomicNumber >= 57 && el.atomicNumber <= 71) {
+      // Handle lanthanides (period 6, positions 2-15)
+      if (el.atomicNumber >= 57 && el.atomicNumber <= 70) {
         groupIndex = 2 + (el.atomicNumber - 57);
         periods[5][groupIndex] = series.id === 'lanthanoids' ? 'highlight' : el;
       }
-      // Handle actinides (period 7, positions 3-16)
-      else if (el.atomicNumber >= 89 && el.atomicNumber <= 103) {
+      // Handle actinides (period 7, positions 2-15)
+      else if (el.atomicNumber >= 89 && el.atomicNumber <= 102) {
         groupIndex = 2 + (el.atomicNumber - 89);
         periods[6][groupIndex] = series.id === 'actinoids' ? 'highlight' : el;
       } else if (

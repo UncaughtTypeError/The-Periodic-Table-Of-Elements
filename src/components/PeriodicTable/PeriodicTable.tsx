@@ -254,12 +254,12 @@ export function PeriodicTable({
     [],
   );
 
-  // Build period rows with placeholders
+  // Build period rows with placeholders (19 columns)
   const periods = useMemo(() => {
     const rows: (Element | SeriesPlaceholder | null)[][] = [];
 
     for (let period = 1; period <= 7; period++) {
-      const row: (Element | SeriesPlaceholder | null)[] = new Array(18).fill(
+      const row: (Element | SeriesPlaceholder | null)[] = new Array(19).fill(
         null,
       );
 
@@ -271,15 +271,15 @@ export function PeriodicTable({
           !pos.isLanthanide &&
           !pos.isActinide
         ) {
-          row[pos.group - 1] = el;
+          const col = pos.group <= 2 ? pos.group - 1 : pos.group;
+          row[col] = el;
         }
       });
 
-      // Insert Ln placeholder in period 6, group 3 (between Ba and Hf)
+      // Insert Ln/An placeholders in column index 2 (before Lu/Lr at col 3)
       if (period === 6) {
         row[2] = lanthanoidPlaceholder;
       }
-      // Insert An placeholder in period 7, group 3 (between Ra and Rf)
       if (period === 7) {
         row[2] = actinoidPlaceholder;
       }
@@ -439,16 +439,16 @@ export function PeriodicTable({
     return false;
   };
 
-  // Group label positions: maps "periodIndex-groupIndex" to group number
+  // Group label positions: maps "periodIndex-colIndex" to group number
   // Each group label sits in the empty cell directly above the first element in that column
+  // 19-col layout: groups 1-2 at indices 0-1, Lu/Lr at index 2 (no label), groups 3-18 at indices 3-18
   const groupLabelPositions = useMemo(() => {
     const positions = new Map<string, number>();
-    // Period 1 (index 0): groups 2, 13-17 have first element in period 2
-    [1, 12, 13, 14, 15, 16].forEach((col) =>
-      positions.set(`0-${col}`, col + 1),
-    );
-    // Period 3 (index 2): groups 3-12 have first element in period 4
-    for (let col = 2; col <= 11; col++) positions.set(`2-${col}`, col + 1);
+    // Period 1 (index 0): group 2 at col 1, groups 13-17 at cols 13-17
+    positions.set('0-1', 2);
+    [13, 14, 15, 16, 17].forEach((col) => positions.set(`0-${col}`, col));
+    // Period 3 (index 2): groups 3-12 at cols 3-12
+    for (let col = 3; col <= 12; col++) positions.set(`2-${col}`, col);
     return positions;
   }, []);
 
@@ -533,17 +533,17 @@ export function PeriodicTable({
             {/* Group header row (for groups 1 and 18 which have no empty cell above) */}
             <div className={styles.headerRow}>
               <div className={styles.periodLabelSpacer} />
-              {Array.from({ length: 18 }, (_, i) => {
-                const group = i + 1;
-                if (group === 1 || group === 18) {
+              {Array.from({ length: 19 }, (_, i) => {
+                if (i === 0 || i === 18) {
+                  const group = i === 0 ? 1 : 18;
                   return (
-                    <div key={`gh-${group}`} className={styles.groupLabel}>
+                    <div key={`gh-${i}`} className={styles.groupLabel}>
                       {group}
                     </div>
                   );
                 }
                 return (
-                  <div key={`gh-${group}`} className={styles.groupLabelEmpty} />
+                  <div key={`gh-${i}`} className={styles.groupLabelEmpty} />
                 );
               })}
             </div>
@@ -584,6 +584,8 @@ export function PeriodicTable({
                 renderCell(element, element.atomicNumber),
               )}
               <EmptyCell />
+              <EmptyCell />
+              <EmptyCell />
             </div>
 
             {/* Actinides */}
@@ -594,6 +596,8 @@ export function PeriodicTable({
               {actinides.map((element) =>
                 renderCell(element, element.atomicNumber),
               )}
+              <EmptyCell />
+              <EmptyCell />
               <EmptyCell />
             </div>
           </div>

@@ -108,12 +108,12 @@ describe('Elements Data', () => {
 
   it('contains lanthanides', () => {
     const lanthanides = elements.filter((e) => e.category === 'lanthanoids');
-    expect(lanthanides.length).toBe(15);
+    expect(lanthanides.length).toBe(14);
   });
 
   it('contains actinides', () => {
     const actinides = elements.filter((e) => e.category === 'actinoids');
-    expect(actinides.length).toBe(15);
+    expect(actinides.length).toBe(14);
   });
 
   it('some elements have threat levels', () => {

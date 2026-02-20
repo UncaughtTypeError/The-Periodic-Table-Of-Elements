@@ -1,5 +1,5 @@
 // Defines the standard periodic table layout
-// Each period has 18 columns (groups)
+// Each period has 19 columns (groups 1-2, Lu/Lr column, groups 3-18)
 // Lanthanides and Actinides are displayed separately below the main table
 
 export interface TablePosition {
@@ -78,7 +78,7 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
   // Period 6
   55: { period: 6, group: 1 },
   56: { period: 6, group: 2 },
-  // Lanthanides (57-71) shown separately
+  // Lanthanides (57-70) shown separately
   57: { period: 6, group: 3, isLanthanide: true },
   58: { period: 6, group: 4, isLanthanide: true },
   59: { period: 6, group: 5, isLanthanide: true },
@@ -93,7 +93,7 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
   68: { period: 6, group: 14, isLanthanide: true },
   69: { period: 6, group: 15, isLanthanide: true },
   70: { period: 6, group: 16, isLanthanide: true },
-  71: { period: 6, group: 17, isLanthanide: true },
+  71: { period: 6, group: 3 },
   72: { period: 6, group: 4 },
   73: { period: 6, group: 5 },
   74: { period: 6, group: 6 },
@@ -113,7 +113,7 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
   // Period 7
   87: { period: 7, group: 1 },
   88: { period: 7, group: 2 },
-  // Actinides (89-103) shown separately
+  // Actinides (89-102) shown separately
   89: { period: 7, group: 3, isActinide: true },
   90: { period: 7, group: 4, isActinide: true },
   91: { period: 7, group: 5, isActinide: true },
@@ -128,7 +128,7 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
   100: { period: 7, group: 14, isActinide: true },
   101: { period: 7, group: 15, isActinide: true },
   102: { period: 7, group: 16, isActinide: true },
-  103: { period: 7, group: 17, isActinide: true },
+  103: { period: 7, group: 3 },
   104: { period: 7, group: 4 },
   105: { period: 7, group: 5 },
   106: { period: 7, group: 6 },
@@ -147,34 +147,36 @@ export const TABLE_POSITIONS: Record<number, TablePosition> = {
 };
 
 // Get elements for a specific period (main table row)
+// 19 columns: groups 1-2 at indices 0-1, Lu/Lr at index 2, groups 3-18 at indices 3-18
 export function getElementsForPeriod(
   period: number,
   elements: { atomicNumber: number }[],
 ): (number | null)[] {
-  const row: (number | null)[] = new Array(18).fill(null);
+  const row: (number | null)[] = new Array(19).fill(null);
 
   for (const element of elements) {
     const pos = TABLE_POSITIONS[element.atomicNumber];
     if (pos && pos.period === period && !pos.isLanthanide && !pos.isActinide) {
-      row[pos.group - 1] = element.atomicNumber;
+      const col = pos.group <= 2 ? pos.group - 1 : pos.group;
+      row[col] = element.atomicNumber;
     }
   }
 
   return row;
 }
 
-// Get lanthanide elements (atomic numbers 57-71)
+// Get lanthanide elements (atomic numbers 57-70)
 export function getLanthanides(elements: { atomicNumber: number }[]): number[] {
   return elements
-    .filter((e) => e.atomicNumber >= 57 && e.atomicNumber <= 71)
+    .filter((e) => e.atomicNumber >= 57 && e.atomicNumber <= 70)
     .map((e) => e.atomicNumber)
     .sort((a, b) => a - b);
 }
 
-// Get actinide elements (atomic numbers 89-103)
+// Get actinide elements (atomic numbers 89-102)
 export function getActinides(elements: { atomicNumber: number }[]): number[] {
   return elements
-    .filter((e) => e.atomicNumber >= 89 && e.atomicNumber <= 103)
+    .filter((e) => e.atomicNumber >= 89 && e.atomicNumber <= 102)
     .map((e) => e.atomicNumber)
     .sort((a, b) => a - b);
 }
