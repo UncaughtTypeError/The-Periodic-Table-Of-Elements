@@ -97,6 +97,9 @@ export function useFilterCounts({
       // Legend counts: elements matching each legend value AND all other active filters
       if (matchesCategory && matchesThreat && matchesBlock) {
         const legendValues: LegendFilter[] = [
+          'primordial',
+          'from-decay',
+          'synthetic',
           'solid',
           'liquid',
           'gas',

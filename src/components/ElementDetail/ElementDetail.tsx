@@ -1,8 +1,12 @@
 import { useEffect } from 'react';
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
-import { getStandardState, isRadioactive } from '@/data';
+import { getStandardState, isRadioactive, getNaturalOccurrence } from '@/data';
 import { RadioactiveIcon } from '@/components/common/icons';
-import { stateIconMap } from '@/components/common/stateIconMap';
+import {
+  stateIconMap,
+  occurrenceIconMap,
+  occurrenceLabelMap,
+} from '@/components/common/stateIconMap';
 import { Tooltip } from '@/components/common/Tooltip';
 import modalStyles from './Modal.module.css';
 import styles from './ElementDetail.module.css';
@@ -205,6 +209,18 @@ export function ElementDetail({
                 </Tooltip>
                 <div className={styles.modalIndicators}>
                   {(() => {
+                    const occ = getNaturalOccurrence(symbol);
+                    const OccIcon = occurrenceIconMap[occ];
+                    const occLabel = occurrenceLabelMap[occ];
+                    return (
+                      <Tooltip content={occLabel} position="top">
+                        <span>
+                          <OccIcon size={20} />
+                        </span>
+                      </Tooltip>
+                    );
+                  })()}
+                  {(() => {
                     const state = getStandardState(symbol);
                     const Icon = stateIconMap[state];
                     const label =
@@ -279,6 +295,14 @@ export function ElementDetail({
                   getStandardState(symbol).slice(1)}
                 {(() => {
                   const Icon = stateIconMap[getStandardState(symbol)];
+                  return <Icon size={14} />;
+                })()}
+              </li>
+              <li className={styles.standardStateItem}>
+                <strong>Natural occurrence:</strong>{' '}
+                {occurrenceLabelMap[getNaturalOccurrence(symbol)]}
+                {(() => {
+                  const Icon = occurrenceIconMap[getNaturalOccurrence(symbol)];
                   return <Icon size={14} />;
                 })()}
               </li>

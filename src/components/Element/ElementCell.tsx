@@ -1,7 +1,11 @@
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
-import { getStandardState, isRadioactive } from '@/data';
+import { getStandardState, isRadioactive, getNaturalOccurrence } from '@/data';
 import { RadioactiveIcon } from '@/components/common/icons';
-import { stateIconMap } from '@/components/common/stateIconMap';
+import {
+  stateIconMap,
+  occurrenceIconMap,
+  occurrenceLabelMap,
+} from '@/components/common/stateIconMap';
 import { Tooltip } from '@/components/common/Tooltip';
 import styles from './ElementCell.module.css';
 
@@ -78,6 +82,9 @@ export function ElementCell({
   const StateIcon = stateIconMap[standardState];
   const stateLabel =
     standardState.charAt(0).toUpperCase() + standardState.slice(1);
+  const occurrence = getNaturalOccurrence(symbol);
+  const OccurrenceIcon = occurrenceIconMap[occurrence];
+  const occurrenceLabel = occurrenceLabelMap[occurrence];
 
   const classNames = [
     styles.cell,
@@ -125,6 +132,11 @@ export function ElementCell({
           </span>
         </Tooltip>
         <div className={styles.indicators}>
+          <Tooltip content={occurrenceLabel} position="top">
+            <span>
+              <OccurrenceIcon size={10} />
+            </span>
+          </Tooltip>
           <Tooltip content={stateLabel} position="top">
             <span>
               <StateIcon size={10} />

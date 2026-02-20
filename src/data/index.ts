@@ -12,4 +12,8 @@ export {
   getActinides,
 } from './tableLayout';
 export { seriesPlaceholders, getSeriesByType } from './series';
-export { getStandardState, isRadioactive } from './elementProperties';
+export {
+  getStandardState,
+  isRadioactive,
+  getNaturalOccurrence,
+} from './elementProperties';

@@ -1,9 +1,16 @@
 import type { Element, LegendFilter, ElectronBlock } from '@/types';
-import { getStandardState, isRadioactive } from '@/data';
+import { getStandardState, isRadioactive, getNaturalOccurrence } from '@/data';
 
 /** Check if an element matches a single legend filter value */
 export function matchesLegendValue(el: Element, filter: LegendFilter): boolean {
   if (filter === 'radioactive') return isRadioactive(el.symbol);
+  if (
+    filter === 'primordial' ||
+    filter === 'from-decay' ||
+    filter === 'synthetic'
+  ) {
+    return getNaturalOccurrence(el.symbol) === filter;
+  }
   return getStandardState(el.symbol) === filter;
 }
 

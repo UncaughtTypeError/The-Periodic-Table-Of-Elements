@@ -58,6 +58,62 @@ export const GasIcon = ({ size = 16 }: IconProps) => (
   </svg>
 );
 
+export const PrimordialIcon = ({ size = 16 }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    role="img"
+    aria-label="Primordial"
+  >
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+    <path d="M2 12h20" />
+  </svg>
+);
+
+export const FromDecayIcon = ({ size = 16 }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    role="img"
+    aria-label="From Decay"
+  >
+    <path d="M19 15A8 8 0 1 0 15 19" />
+    <circle cx="19" cy="19" r="2" />
+  </svg>
+);
+
+export const SyntheticIcon = ({ size = 16 }: IconProps) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    role="img"
+    aria-label="Synthetic"
+  >
+    <path d="M9 3h6" />
+    <path d="M10 3v7.4L6 18a2 2 0 0 0 1.7 3h8.6a2 2 0 0 0 1.7-3l-4-7.6V3" />
+    <path d="M7 17h10" />
+  </svg>
+);
+
 export const RadioactiveIcon = ({ size = 16 }: IconProps) => (
   <svg
     width={size}

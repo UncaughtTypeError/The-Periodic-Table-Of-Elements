@@ -14,7 +14,9 @@ export type ThreatLevel = 'limited' | 'rising' | 'serious' | null;
 
 export type StandardState = 'solid' | 'liquid' | 'gas';
 
-export type LegendFilter = StandardState | 'radioactive';
+export type NaturalOccurrence = 'primordial' | 'from-decay' | 'synthetic';
+
+export type LegendFilter = StandardState | 'radioactive' | NaturalOccurrence;
 
 export type ElectronBlock = 's-block' | 'p-block' | 'd-block' | 'f-block';
 

@@ -15,22 +15,41 @@ describe('Legend', () => {
     vi.clearAllMocks();
   });
 
-  it('renders all 4 legend items', () => {
+  it('renders all 7 legend items', () => {
     render(<Legend {...defaultProps} />);
 
+    expect(screen.getByText(/^Primordial/)).toBeInTheDocument();
+    expect(screen.getByText(/^From Decay/)).toBeInTheDocument();
+    expect(screen.getByText(/^Synthetic/)).toBeInTheDocument();
     expect(screen.getByText(/^Solid/)).toBeInTheDocument();
     expect(screen.getByText(/^Liquid/)).toBeInTheDocument();
     expect(screen.getByText(/^Gas/)).toBeInTheDocument();
     expect(screen.getByText(/^Radioactive/)).toBeInTheDocument();
   });
 
-  it('renders divider between state icons and radioactive', () => {
+  it('renders 7 buttons and 2 dividers', () => {
     const { container } = render(<Legend {...defaultProps} />);
     const buttons = container.querySelectorAll('button');
-    const divider = container.querySelector('[class*="divider"]');
+    const dividers = container.querySelectorAll('[class*="divider"]');
 
-    expect(buttons).toHaveLength(4);
-    expect(divider).toBeInTheDocument();
+    expect(buttons).toHaveLength(7);
+    expect(dividers).toHaveLength(2);
+  });
+
+  it('calls onLegendClick with primordial when Primordial is clicked', () => {
+    const onLegendClick = vi.fn();
+    render(<Legend {...defaultProps} onLegendClick={onLegendClick} />);
+
+    fireEvent.click(screen.getByText(/^Primordial/).closest('button')!);
+    expect(onLegendClick).toHaveBeenCalledWith('primordial');
+  });
+
+  it('calls onLegendClick with from-decay when From Decay is clicked', () => {
+    const onLegendClick = vi.fn();
+    render(<Legend {...defaultProps} onLegendClick={onLegendClick} />);
+
+    fireEvent.click(screen.getByText(/^From Decay/).closest('button')!);
+    expect(onLegendClick).toHaveBeenCalledWith('from-decay');
   });
 
   it('calls onLegendClick with solid when Solid is clicked', () => {
@@ -65,6 +84,14 @@ describe('Legend', () => {
     expect(onLegendHover).toHaveBeenCalledWith(null);
   });
 
+  it('calls onLegendHover with occurrence id on mouse enter', () => {
+    const onLegendHover = vi.fn();
+    render(<Legend {...defaultProps} onLegendHover={onLegendHover} />);
+
+    fireEvent.mouseEnter(screen.getByText(/^Synthetic/).closest('button')!);
+    expect(onLegendHover).toHaveBeenCalledWith('synthetic');
+  });
+
   it('applies active class to active legend filter', () => {
     render(
       <Legend
@@ -74,6 +101,18 @@ describe('Legend', () => {
     );
 
     const button = screen.getByText(/^Solid/).closest('button');
+    expect(button?.className).toContain('active');
+  });
+
+  it('applies active class to active occurrence filter', () => {
+    render(
+      <Legend
+        {...defaultProps}
+        activeLegendFilters={new Set<LegendFilter>(['primordial'])}
+      />,
+    );
+
+    const button = screen.getByText(/^Primordial/).closest('button');
     expect(button?.className).toContain('active');
   });
 
@@ -94,5 +133,22 @@ describe('Legend', () => {
     expect(solidButton?.className).toContain('active');
     expect(radioactiveButton?.className).toContain('active');
     expect(liquidButton?.className).not.toContain('active');
+  });
+
+  it('supports mixed occurrence and state active filters', () => {
+    render(
+      <Legend
+        {...defaultProps}
+        activeLegendFilters={new Set<LegendFilter>(['from-decay', 'gas'])}
+      />,
+    );
+
+    const fromDecayButton = screen.getByText(/^From Decay/).closest('button');
+    const gasButton = screen.getByText(/^Gas/).closest('button');
+    const primordialButton = screen.getByText(/^Primordial/).closest('button');
+
+    expect(fromDecayButton?.className).toContain('active');
+    expect(gasButton?.className).toContain('active');
+    expect(primordialButton?.className).not.toContain('active');
   });
 });
