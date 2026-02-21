@@ -141,7 +141,7 @@
 
   .periodsAxis,
   .groupsAxis {
-    font-size: 10px;
+    display: none;
   }
 
   .groupLabel,
@@ -163,11 +163,6 @@
 
   .container {
     padding: 10px;
-  }
-
-  .periodsAxis,
-  .groupsAxis {
-    display: none;
   }
 
   .groupLabel,

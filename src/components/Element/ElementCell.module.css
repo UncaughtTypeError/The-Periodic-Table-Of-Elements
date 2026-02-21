@@ -464,7 +464,7 @@
     display: none;
   }
   .label {
-    display: none;
+    color: transparent;
   }
 }
 
