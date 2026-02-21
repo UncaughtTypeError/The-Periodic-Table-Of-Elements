@@ -23,7 +23,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '1.00794 u ± 0.00001 u',
       boilingPoint: '-252.9 °C',
-      electronConfiguration: '1s1',
+      electronConfiguration: '1s<sup>1</sup>',
       electronegativity: '2.2',
       atomicRadius: null,
       ionRadius: null,
@@ -50,7 +50,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 1',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '1s1',
+        electronConfiguration: '1s<sup>1</sup>',
         perShell: '1',
       },
       physical: {
@@ -63,8 +63,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Henry Cavendish (1766)',
         namedBy: 'Antoine Lavoisier (1783)',
-        naming: null,
-        firstIsolation: null,
+        naming: 'name means "water-former" in Greek',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Antoine Lavoisier (1783)',
       },
     },
   },
@@ -90,7 +93,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '4.002602',
       boilingPoint: '-268.9 °C',
-      electronConfiguration: '1s2',
+      electronConfiguration: '1s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -118,7 +121,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 1',
         elementCategory: 'noble gas',
-        electronConfiguration: '1s2',
+        electronConfiguration: '1s<sup>2</sup>',
         perShell: '2',
       },
       physical: {
@@ -129,9 +132,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Pierre Janssen, Norman Lockyer (1868)',
+        discovery: 'Norman Lockyer (1868)',
         namedBy: null,
         naming: 'after Helios, Greek god of the Sun',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation:
           'William Ramsay, Per Teodor Cleve, Abraham Langlet (1895)',
       },
@@ -186,7 +192,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: null,
         elementCategory: 'alkali metal',
-        electronConfiguration: '2s1',
+        electronConfiguration: '2s<sup>1</sup>',
         perShell: '2, 1',
       },
       physical: {
@@ -199,7 +205,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Johan August Arfwedson (1817)',
         namedBy: null,
-        naming: null,
+        naming: 'from the Greek word λιθoς, stone',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'William Thomas Brande (1821)',
       },
     },
@@ -226,7 +235,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '9.012182 u ± 0.000003 u',
       boilingPoint: '2469 °C',
-      electronConfiguration: '2s2',
+      electronConfiguration: '2s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -254,7 +263,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 2',
         elementCategory: 'alkaline earth metal',
-        electronConfiguration: '2s2',
+        electronConfiguration: '2s<sup>2</sup>',
         perShell: '2, 2',
       },
       physical: {
@@ -265,9 +274,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Louis Nicolas Vauquelin (1797)',
+        discovery: 'Louis Nicolas Vauquelin (1798)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after mineral Beryl, from Greek βήρυλλος, which referred to various blue-green stones',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Friedrich Wöhler & Antoine Bussy (1828)',
       },
     },
@@ -294,7 +307,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '10.811 u ± 0.007 u',
       boilingPoint: '3927 °C',
-      electronConfiguration: '2s22p1',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>1</sup>',
       electronegativity: '2.04',
       atomicRadius: null,
       ionRadius: null,
@@ -322,7 +335,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 2',
         elementCategory: 'metalloid',
-        electronConfiguration: '2s2 2p1',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>1</sup>',
         perShell: '2, 3',
       },
       physical: {
@@ -336,7 +349,11 @@ export const elements: Element[] = [
         discovery:
           'Joseph Louis Gay-Lussac and Louis Jacques Thénard (30 June 1808)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after borax, from which it was isolated; Ultimately from Arabic بَوْرَق (bawraq)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Humphry Davy (9 July 1808)',
       },
     },
@@ -363,7 +380,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '12.0107 u ± 0.0008 u',
       boilingPoint: null,
-      electronConfiguration: '2s22p2',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>2</sup>',
       electronegativity: '2.55',
       atomicRadius: null,
       ionRadius: null,
@@ -391,7 +408,7 @@ export const elements: Element[] = [
         period: 'period 2',
         elementCategory:
           'polyatomic nonmetal, sometimes considered a metalloid',
-        electronConfiguration: '2s2 2p2',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>2</sup>',
         perShell: '2, 4',
       },
       physical: {
@@ -404,7 +421,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Egyptians and Sumerians (3750 BCE)',
         namedBy: null,
-        naming: null,
+        naming: 'from the Latin carbo for coal and charcoal',
+        recognisedBy: 'Antoine Lavoisier (1789)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -431,7 +451,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '14.0067 u ± 0.0001 u',
       boilingPoint: '-195.8 °C',
-      electronConfiguration: '1s22s22p3',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>3</sup>',
       electronegativity: '3.04',
       atomicRadius: null,
       ionRadius: null,
@@ -458,7 +478,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 2',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '2s2 2p3',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>3</sup>',
         perShell: '2, 5',
       },
       physical: {
@@ -471,7 +491,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Daniel Rutherford (1772)',
         namedBy: 'Jean-Antoine Chaptal (1790)',
-        naming: null,
+        naming: 'from French nitre (“saltpetre”) + -gène ("forming")',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -498,7 +521,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '15.9994 u ± 0.0004 u',
       boilingPoint: '-183 °C',
-      electronConfiguration: '2s22p4',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>4</sup>',
       electronegativity: '3.44',
       atomicRadius: null,
       ionRadius: null,
@@ -524,7 +547,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 2',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '2s2 2p4',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>4</sup>',
         perShell: '2, 6',
       },
       physical: {
@@ -535,9 +558,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Carl Wilhelm Scheele (1772)',
+        discovery: 'Michael Sendivogius, Carl Wilhelm Scheele (1604, 1771)',
         namedBy: 'Antoine Lavoisier (1777)',
-        naming: null,
+        naming:
+          '	from the Greek ὀξύς (acid, literally "sharp", from the taste of acids) and -γενής (producer)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -564,7 +591,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '18.998403 u ± 5 × 10^-7 u',
       boilingPoint: '−188.11 °C',
-      electronConfiguration: '2s22p5',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>5</sup>',
       electronegativity: '3.98',
       atomicRadius: null,
       ionRadius: null,
@@ -591,7 +618,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 2',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '2s2 2p5',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>5</sup>',
         perShell: '2, 7',
       },
       physical: {
@@ -603,9 +630,12 @@ export const elements: Element[] = [
       },
       history: {
         discovery: 'André-Marie Ampère (1810)',
-        namedBy: 'Humphry Davy',
+        namedBy: 'Humphry Davy, André-Marie Ampère',
         naming:
           'after the mineral fluorite, itself named after Latin fluo (to flow, in smelting)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Henri Moissan (June 26, 1886)',
       },
     },
@@ -632,7 +662,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '20.1797 u ± 0.0006 u',
       boilingPoint: '-246.1 °C',
-      electronConfiguration: '2s22p6',
+      electronConfiguration: '2s<sup>2</sup> 2p<sup>6</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -659,7 +689,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 2',
         elementCategory: 'noble gas',
-        electronConfiguration: '2s2 2p6',
+        electronConfiguration: '2s<sup>2</sup> 2p<sup>6</sup>',
         perShell: '2, 8',
       },
       physical: {
@@ -672,7 +702,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Ramsay & Morris Travers (1898)',
         namedBy: null,
-        naming: null,
+        naming: 'from the Greek word νέον, meaning "new"',
+        recognisedBy: null,
+        predictedBy: 'William Ramsay (1897)',
+        symbol: null,
         firstIsolation: 'William Ramsay & Morris Travers (1898)',
       },
     },
@@ -699,7 +732,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '22.989769 u ± 2 × 10^-8 u',
       boilingPoint: '882.940 °C',
-      electronConfiguration: '3s1',
+      electronConfiguration: '3s<sup>1</sup>',
       electronegativity: '0.93',
       atomicRadius: null,
       ionRadius: null,
@@ -725,7 +758,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 3',
         elementCategory: 'alkali metal',
-        electronConfiguration: '3s1',
+        electronConfiguration: '3s<sup>1</sup>',
         perShell: '2, 8, 1',
       },
       physical: {
@@ -738,7 +771,12 @@ export const elements: Element[] = [
       history: {
         discovery: 'Humphry Davy (1807)',
         namedBy: null,
-        naming: null,
+        naming:
+          'possibly from Arabic suda, "headache", for soda\'s use as an anticephalalgic',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol:
+          '"Na": from New Latin natrium, coined from German Natron, "natron"',
         firstIsolation: 'Humphry Davy (1807)',
       },
     },
@@ -765,7 +803,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '24.305 u ± 0.0006 u',
       boilingPoint: '1091 °C',
-      electronConfiguration: '3s2',
+      electronConfiguration: '3s<sup>2</sup>',
       electronegativity: '1.31',
       atomicRadius: null,
       ionRadius: null,
@@ -791,7 +829,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 3',
         elementCategory: 'alkaline earth metal',
-        electronConfiguration: '3s2',
+        electronConfiguration: '3s<sup>2</sup>',
         perShell: '2, 8, 2',
       },
       physical: {
@@ -805,6 +843,9 @@ export const elements: Element[] = [
         discovery: 'Joseph Black (1755)',
         namedBy: null,
         naming: 'after Magnesia, Greece',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Humphry Davy (1808)',
       },
     },
@@ -831,7 +872,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '26.981539 u ± 8 × 10^-7 u',
       boilingPoint: '2470 °C',
-      electronConfiguration: '3s23p1',
+      electronConfiguration: '3s<sup>2</sup> 3p<sup>1</sup>',
       electronegativity: '1.61',
       atomicRadius: null,
       ionRadius: null,
@@ -859,7 +900,7 @@ export const elements: Element[] = [
         period: 'period 3',
         elementCategory:
           'post-transition metal, sometimes considered a metalloid',
-        electronConfiguration: '3s2 3p1',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>1</sup>',
         perShell: '2, 8, 3',
       },
       physical: {
@@ -870,10 +911,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Hans Christian Ørsted (1825)',
-        namedBy: 'Humphry Davy (1807)',
-        naming: null,
-        firstIsolation: 'Hans Christian Ørsted (1825)',
+        discovery: 'Hans Christian Ørsted (1824)',
+        namedBy: 'Humphry Davy (1812)',
+        naming: 'from alumine, obsolete name for alumina',
+        recognisedBy: null,
+        predictedBy: 'Hans Christian Ørsted (1824)',
+        symbol: null,
+        firstIsolation: null,
       },
     },
   },
@@ -899,7 +943,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '28.0855 u ± 0.0003 u',
       boilingPoint: '3265 °C',
-      electronConfiguration: '3s23p2',
+      electronConfiguration: '3s<sup>2</sup> 3p<sup>2</sup>',
       electronegativity: '1.9',
       atomicRadius: null,
       ionRadius: null,
@@ -925,7 +969,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 3',
         elementCategory: 'metalloid',
-        electronConfiguration: '3s2 3p2',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>2</sup>',
         perShell: '2, 8, 4',
       },
       physical: {
@@ -936,10 +980,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Jöns Jacob Berzelius (1823)',
         namedBy: 'Thomas Thomson (1817)',
         naming: "after Latin 'silex' or 'silicis', meaning flint",
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Jöns Jacob Berzelius (1823)',
       },
     },
   },
@@ -965,7 +1012,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '30.973762 u ± 0.000002 u',
       boilingPoint: '280.5 °C',
-      electronConfiguration: '1s22s22p63s23p3',
+      electronConfiguration:
+        '1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>3</sup>',
       electronegativity: '2.19',
       atomicRadius: null,
       ionRadius: null,
@@ -992,7 +1040,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 3',
         elementCategory: 'polyatomic nonmetal',
-        electronConfiguration: '3s2 3p3',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>3</sup>',
         perShell: '2, 8, 5',
       },
       physical: {
@@ -1005,7 +1053,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Hennig Brand (1669)',
         namedBy: null,
-        naming: null,
+        naming: 'from the greek Φωσφόρος, meaning "light-bearer"',
+        recognisedBy: 'Antoine Lavoisier (1777)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -1032,7 +1083,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '32.065 u ± 0.005 u',
       boilingPoint: '444.6 °C',
-      electronConfiguration: '3s23p4',
+      electronConfiguration: '3s<sup>2</sup> 3p<sup>4</sup>',
       electronegativity: '2.58',
       atomicRadius: null,
       ionRadius: null,
@@ -1058,7 +1109,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 3',
         elementCategory: 'polyatomic nonmetal',
-        electronConfiguration: '3s2 3p4',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>4</sup>',
         perShell: '2, 8, 6',
       },
       physical: {
@@ -1071,7 +1122,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Chinese (before 2000 BCE)',
         namedBy: null,
-        naming: null,
+        naming: 'from the Latin sulpur',
+        recognisedBy: 'Antoine Lavoisier (1777)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -1098,7 +1152,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '35.453 u ± 0.002 u',
       boilingPoint: '-34.04 °C',
-      electronConfiguration: '3s23p5',
+      electronConfiguration: '3s<sup>2</sup> 3p<sup>5</sup>',
       electronegativity: '3.16',
       atomicRadius: null,
       ionRadius: null,
@@ -1124,7 +1178,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 3',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '3s2 3p5',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>5</sup>',
         perShell: '2, 8, 7',
       },
       physical: {
@@ -1136,8 +1190,12 @@ export const elements: Element[] = [
       },
       history: {
         discovery: 'Carl Wilhelm Scheele (1774)',
-        namedBy: 'Humphry Davy (1810)',
-        naming: null,
+        namedBy: null,
+        naming:
+          'after the Ancient Greek χλωρός ("pale green") because of its colour',
+        recognisedBy: 'Humphry Davy (1808)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Carl Wilhelm Scheele (1774)',
       },
     },
@@ -1164,7 +1222,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '39.948 u ± 0.001 u',
       boilingPoint: '-185.8 °C',
-      electronConfiguration: '3s23p6',
+      electronConfiguration: '3s<sup>2</sup> 3p<sup>6</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -1192,7 +1250,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 3',
         elementCategory: 'noble gas',
-        electronConfiguration: '3s2 3p6',
+        electronConfiguration: '3s<sup>2</sup> 3p<sup>6</sup>',
         perShell: '2, 8, 8',
       },
       physical: {
@@ -1205,7 +1263,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Lord Rayleigh and William Ramsay (1894)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from the Greek ἀργόν, meaning "lazy" or "inactive", in reference to its inertness',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Lord Rayleigh and William Ramsay (1894)',
       },
     },
@@ -1232,7 +1294,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '39.0983 u',
       boilingPoint: '758.8 °C',
-      electronConfiguration: '4s1',
+      electronConfiguration: '4s<sup>1</sup>',
       electronegativity: '0.82',
       atomicRadius: null,
       ionRadius: null,
@@ -1258,7 +1320,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 4',
         elementCategory: 'alkali metal',
-        electronConfiguration: '4s1',
+        electronConfiguration: '4s<sup>1</sup>',
         perShell: '2, 8, 8, 1',
       },
       physical: {
@@ -1271,7 +1333,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Humphry Davy (1807)',
         namedBy: null,
-        naming: null,
+        naming: 'after potash, from which it was first isolated',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"K": from New Latin kalium',
         firstIsolation: 'Humphry Davy (1807)',
       },
     },
@@ -1298,7 +1363,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '40.078 u ± 0.004 u',
       boilingPoint: '1484 °C',
-      electronConfiguration: '4s2',
+      electronConfiguration: '4s<sup>2</sup>',
       electronegativity: '1.00',
       atomicRadius: null,
       ionRadius: null,
@@ -1324,7 +1389,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 4',
         elementCategory: 'alkaline earth metal',
-        electronConfiguration: '4s2',
+        electronConfiguration: '4s<sup>2</sup>',
         perShell: '2, 8, 8, 2',
       },
       physical: {
@@ -1337,7 +1402,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Humphry Davy (1808)',
         namedBy: null,
-        naming: null,
+        naming: 'from the Latin word for lime, calx',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Humphry Davy (1808)',
       },
     },
@@ -1364,7 +1432,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '44.955912 u ± 0.000006 u',
       boilingPoint: '2836 °C',
-      electronConfiguration: '3d14s2',
+      electronConfiguration: '3d<sup>1</sup> 4s<sup>2</sup>',
       electronegativity: '1.36',
       atomicRadius: null,
       ionRadius: null,
@@ -1390,7 +1458,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d1 4s2',
+        electronConfiguration: '3d<sup>1</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 9, 2',
       },
       physical: {
@@ -1401,10 +1469,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Lars Fredrik Nilson (1879)',
         namedBy: null,
         naming: 'after Scandinavia',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1871)',
+        symbol: null,
+        firstIsolation: 'W. Fischer, K. Brünger, H. Grieneisen (1937)',
       },
     },
   },
@@ -1430,7 +1501,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '47.867 u ± 0.001 u',
       boilingPoint: '3287 °C',
-      electronConfiguration: '3d24s2',
+      electronConfiguration: '3d<sup>2</sup> 4s<sup>2</sup>',
       electronegativity: '1.54',
       atomicRadius: null,
       ionRadius: null,
@@ -1456,7 +1527,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d2 4s2',
+        electronConfiguration: '3d<sup>2</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 10, 2',
       },
       physical: {
@@ -1469,7 +1540,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Gregor (1791)',
         namedBy: 'Martin Heinrich Klaproth (1795)',
-        naming: null,
+        naming: 'after the Titans of Greek mythology',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Jöns Jakob Berzelius (1825)',
       },
     },
@@ -1496,7 +1570,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '50.9415 u ± 0.0001 u',
       boilingPoint: '3407 °C',
-      electronConfiguration: '3d34s2',
+      electronConfiguration: '3d<sup>3</sup> 4s<sup>2</sup>',
       electronegativity: '1.63',
       atomicRadius: null,
       ionRadius: null,
@@ -1522,7 +1596,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d3 4s2',
+        electronConfiguration: '3d<sup>3</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 11, 2',
       },
       physical: {
@@ -1535,8 +1609,12 @@ export const elements: Element[] = [
       history: {
         discovery: 'Andrés Manuel del Río (1801)',
         namedBy: 'Nils Gabriel Sefström (1830)',
-        naming: null,
-        firstIsolation: 'Nils Gabriel Sefström (1830)',
+        naming:
+          "after Vanadís, the Norse goddess of beauty, because of the wide range of its compounds' colors",
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '	Henry Enfield Roscoe (1867)',
       },
     },
   },
@@ -1562,7 +1640,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '51.9961 u ± 0.0006 u',
       boilingPoint: '2671 °C',
-      electronConfiguration: '3d54s1',
+      electronConfiguration: '3d<sup>5</sup> 4s<sup>1</sup>',
       electronegativity: '1.66',
       atomicRadius: null,
       ionRadius: null,
@@ -1588,7 +1666,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d5 4s1',
+        electronConfiguration: '3d<sup>5</sup> 4s<sup>1</sup>',
         perShell: '2, 8, 13, 1',
       },
       physical: {
@@ -1599,10 +1677,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Louis Nicolas Vauquelin (1797)',
+        discovery: 'Louis Nicolas Vauquelin (1794)',
         namedBy: null,
-        naming: null,
-        firstIsolation: 'Louis Nicolas Vauquelin (1798)',
+        naming:
+          '	from the Greek χρῶμα, "color", because many chromium compounds are intensely colored',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Louis Nicolas Vauquelin (1797)',
       },
     },
   },
@@ -1628,7 +1710,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '54.938045 u ± 0.000005 u',
       boilingPoint: '2061 °C',
-      electronConfiguration: '3d54s2',
+      electronConfiguration: '3d<sup>5</sup> 4s<sup>2</sup>',
       electronegativity: '1.55',
       atomicRadius: null,
       ionRadius: null,
@@ -1655,7 +1737,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d5 4s2',
+        electronConfiguration: '3d<sup>5</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 13, 2',
       },
       physical: {
@@ -1666,10 +1748,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Torbern Olof Bergman (1770)',
+        discovery: 'Carl Wilhelm Scheele (1774)',
         namedBy: null,
-        naming: null,
-        firstIsolation: 'Lars Fredrik Nilson (1879)',
+        naming: 'after Magnesia, Greece',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '	Johann Gottlieb Gahn (1774)',
       },
     },
   },
@@ -1695,7 +1780,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '55.845 u ± 0.002 u',
       boilingPoint: '2,862 °C',
-      electronConfiguration: '3d64s2',
+      electronConfiguration: '3d<sup>6</sup> 4s<sup>2</sup>',
       electronegativity: '1.83',
       atomicRadius: null,
       ionRadius: null,
@@ -1721,7 +1806,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d6 4s2',
+        electronConfiguration: '3d<sup>6</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 14, 2',
       },
       physical: {
@@ -1734,7 +1819,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'before 5000 BC',
         namedBy: null,
-        naming: null,
+        naming:
+          'probably from a PIE root meaning "blood", for the color of its oxides',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Fe": from Latin ferrum',
         firstIsolation: null,
       },
     },
@@ -1761,7 +1850,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '58.933195 u ± 0.000005 u',
       boilingPoint: '2927 °C',
-      electronConfiguration: '3d74s2',
+      electronConfiguration: '3d<sup>7</sup> 4s<sup>2</sup>',
       electronegativity: '1.88',
       atomicRadius: null,
       ionRadius: null,
@@ -1788,7 +1877,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d7 4s2',
+        electronConfiguration: '3d<sup>7</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 15, 2',
       },
       physical: {
@@ -1799,10 +1888,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Georg Brandt (1732)',
+        discovery: 'Georg Brandt (1735)',
         namedBy: null,
-        naming: null,
-        firstIsolation: null,
+        naming: 'from the kobelt ore, possibly named after Kobolds',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Georg Brandt (1735)',
       },
     },
   },
@@ -1828,7 +1920,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '58.6934 u ± 0.0002 u',
       boilingPoint: '2730 °C',
-      electronConfiguration: '3d84s2',
+      electronConfiguration: '3d<sup>8</sup> 4s<sup>2</sup>',
       electronegativity: '1.91',
       atomicRadius: null,
       ionRadius: null,
@@ -1855,7 +1947,8 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d8 4s2 or 3d9 4s1',
+        electronConfiguration:
+          '3d<sup>8</sup> 4s<sup>2</sup> or 3d<sup>9</sup> 4s<sup>1</sup>',
         perShell: '2, 8, 16, 2 or 2, 8, 17, 1',
       },
       physical: {
@@ -1868,7 +1961,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Axel Fredrik Cronstedt (1751)',
         namedBy: null,
-        naming: null,
+        naming: 'after Nickel, a mischievous mine spirit in German mythology',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Axel Fredrik Cronstedt (1751)',
       },
     },
@@ -1895,7 +1991,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '63.546 u ± 0.003 u',
       boilingPoint: '2562 °C',
-      electronConfiguration: '3d104s1',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>1</sup>',
       electronegativity: '1.90',
       atomicRadius: null,
       ionRadius: null,
@@ -1922,7 +2018,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d10 4s1',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>1</sup>',
         perShell: '2, 8, 18, 1',
       },
       physical: {
@@ -1936,6 +2032,9 @@ export const elements: Element[] = [
         discovery: 'Middle East (9000 BCE)',
         namedBy: null,
         naming: 'after Cyprus, principal mining place in Roman era (Cyprium)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Cu": from Latin cuprum',
         firstIsolation: null,
       },
     },
@@ -1962,7 +2061,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '65.38 u ± 0.002 u',
       boilingPoint: '907 °C',
-      electronConfiguration: '3d104s2',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup>',
       electronegativity: '1.65',
       atomicRadius: null,
       ionRadius: null,
@@ -1989,7 +2088,7 @@ export const elements: Element[] = [
         period: 'period 4',
         elementCategory:
           'transition metal, alternatively considered a post-transition metal',
-        electronConfiguration: '3d10 4s2',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 18, 2',
       },
       physical: {
@@ -2002,7 +2101,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Indian metallurgists (before 1000 BCE)',
         namedBy: null,
-        naming: null,
+        naming:
+          'probably from the German zinke, "tooth-like", since its crystals are needle-like',
+        recognisedBy: 'Rasaratna Samuccaya (1300)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Andreas Sigismund Marggraf (1746)',
       },
     },
@@ -2029,7 +2132,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '69.723 u ± 0.001 u',
       boilingPoint: '2,400 °C',
-      electronConfiguration: '3d104s24p1',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>1</sup>',
       electronegativity: '1.81',
       atomicRadius: null,
       ionRadius: null,
@@ -2056,7 +2159,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 4',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '3d1 4s2',
+        electronConfiguration: '3d<sup>1</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 18, 3',
       },
       physical: {
@@ -2067,10 +2170,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Lecoq de Boisbaudran (1875)',
         namedBy: null,
         naming: 'after Gallia (Latin for: France), homeland of the discoverer',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1871)',
+        symbol: null,
+        firstIsolation: 'Lecoq de Boisbaudran (1875)',
       },
     },
   },
@@ -2096,7 +2202,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '72.64 u ± 0.01 u',
       boilingPoint: '2833 °C',
-      electronConfiguration: '3d104s24p2',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>2</sup>',
       electronegativity: '2.01',
       atomicRadius: null,
       ionRadius: null,
@@ -2122,7 +2228,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 4',
         elementCategory: 'metalloid',
-        electronConfiguration: '3d10 4s2 4p2',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>2</sup>',
         perShell: '2, 8, 18, 4',
       },
       physical: {
@@ -2136,6 +2242,9 @@ export const elements: Element[] = [
         discovery: 'Clemens Winkler (1886)',
         namedBy: null,
         naming: 'after Germany, homeland of the discoverer',
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1869)',
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -2162,7 +2271,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '74.9216 u ± 0.00002 u',
       boilingPoint: '603 °C',
-      electronConfiguration: '3d104s24p3',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>3</sup>',
       electronegativity: '2.18',
       atomicRadius: null,
       ionRadius: null,
@@ -2189,7 +2298,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 4',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d10 4s2 4p3',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>3</sup>',
         perShell: '2, 8, 18, 5',
       },
       physical: {
@@ -2200,9 +2309,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Early Bronze Age (2500 BC)',
+        discovery: 'Arabic alchemists (before AD 815)',
         namedBy: null,
-        naming: null,
+        naming: 'from Arabic al-zarnīḵ الزرنيخ "the orpiment"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Albertus Magnus (1250)',
       },
     },
@@ -2229,7 +2341,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '78.96 u ± 0.03 u',
       boilingPoint: '685 °C',
-      electronConfiguration: '3d104s24p4',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>4</sup>',
       electronegativity: '2.55',
       atomicRadius: null,
       ionRadius: null,
@@ -2256,7 +2368,7 @@ export const elements: Element[] = [
         period: 'period 4',
         elementCategory:
           'polyatomic nonmetal, sometimes considered a metalloid',
-        electronConfiguration: '3d10 4s2 4p4',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>4</sup>',
         perShell: '2, 8, 18, 6',
       },
       physical: {
@@ -2267,10 +2379,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Jöns Jakob Berzelius and Johann Gottlieb Gahn (1817)',
         namedBy: null,
         naming: 'after Selene, Greek goddess of the moon',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Jöns Jakob Berzelius and Johann Gottlieb Gahn (1817)',
       },
     },
   },
@@ -2296,7 +2411,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '79.904 u ± 0.001 u',
       boilingPoint: '58.8 °C',
-      electronConfiguration: '3d104s24p5',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>5</sup>',
       electronegativity: '2.96',
       atomicRadius: null,
       ionRadius: null,
@@ -2322,7 +2437,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 4',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '3d10 4s2 4p5',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>5</sup>',
         perShell: '2, 8, 18, 7',
       },
       physical: {
@@ -2335,7 +2450,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Antoine Jérôme Balard and Carl Jacob Löwig (1825)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from Ancient Greek βρῶμος, "stench", for its sharp and pungent smell',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Antoine Jérôme Balard and Carl Jacob Löwig (1825)',
       },
     },
@@ -2362,7 +2481,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '83.798 u',
       boilingPoint: '−153.415 °C °C',
-      electronConfiguration: '3d104s24p6',
+      electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>6</sup>',
       electronegativity: '3.00',
       atomicRadius: null,
       ionRadius: null,
@@ -2389,7 +2508,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 4',
         elementCategory: 'noble gas',
-        electronConfiguration: '3d10 4s2 4p6',
+        electronConfiguration: '3d<sup>10</sup> 4s<sup>2</sup> 4p<sup>6</sup>',
         perShell: '2, 8, 18, 8',
       },
       physical: {
@@ -2402,7 +2521,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Ramsay and Morris Travers (1898)',
         namedBy: null,
-        naming: null,
+        naming: 'from Greek κρυπτός, "hidden"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'William Ramsay and Morris Travers (1898)',
       },
     },
@@ -2429,7 +2551,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '85.4678 u ± 0.0003 u',
       boilingPoint: '687.8 °C',
-      electronConfiguration: '5s1',
+      electronConfiguration: '5s<sup>1</sup>',
       electronegativity: '0.82',
       atomicRadius: null,
       ionRadius: null,
@@ -2456,7 +2578,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 5',
         elementCategory: 'alkali metal',
-        electronConfiguration: '5s1',
+        electronConfiguration: '5s<sup>1</sup>',
         perShell: '2, 8, 18, 8, 1',
       },
       physical: {
@@ -2467,9 +2589,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Gustav Kirchhoff and Robert Bunsen (1861)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from Latin rubidus, "deep red", for the color of its emission spectrum',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'George de Hevesy',
       },
     },
@@ -2496,7 +2622,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '87.62 u ± 0.01 u',
       boilingPoint: '1377 °C',
-      electronConfiguration: '5s2',
+      electronConfiguration: '5s<sup>2</sup>',
       electronegativity: '0.95',
       atomicRadius: null,
       ionRadius: null,
@@ -2522,7 +2648,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 5',
         elementCategory: 'alkaline earth metal',
-        electronConfiguration: '5s2',
+        electronConfiguration: '5s<sup>2</sup>',
         perShell: '2, 8, 18, 8, 2',
       },
       physical: {
@@ -2537,6 +2663,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after the mineral strontianite, itself named after Strontian, Scotland',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Humphry Davy (1808)',
       },
     },
@@ -2563,7 +2692,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '88.90585 u ± 0.00002 u',
       boilingPoint: '2930 °C',
-      electronConfiguration: '4d15s2',
+      electronConfiguration: '4d<sup>1</sup> 5s<sup>2</sup>',
       electronegativity: '1.22',
       atomicRadius: null,
       ionRadius: null,
@@ -2590,7 +2719,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '3d1 4s2',
+        electronConfiguration: '3d<sup>1</sup> 4s<sup>2</sup>',
         perShell: '2, 8, 9, 2',
       },
       physical: {
@@ -2604,7 +2733,10 @@ export const elements: Element[] = [
         discovery: 'Johan Gadolin (1794)',
         namedBy: null,
         naming: 'after Ytterby, Sweden and its mineral ytterbite (gadolinite)',
-        firstIsolation: 'Carl Gustav Mosander (1843)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Friedrich Wöhler (1838)',
       },
     },
   },
@@ -2630,7 +2762,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '91.224 u ± 0.002 u',
       boilingPoint: '4377 °C',
-      electronConfiguration: '4d25s2',
+      electronConfiguration: '4d<sup>2</sup> 5s<sup>2</sup>',
       electronegativity: '1.33',
       atomicRadius: null,
       ionRadius: null,
@@ -2656,7 +2788,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d2 5s2',
+        electronConfiguration: '4d<sup>2</sup> 5s<sup>2</sup>',
         perShell: '2, 8, 18, 10, 2',
       },
       physical: {
@@ -2670,6 +2802,9 @@ export const elements: Element[] = [
         discovery: 'Martin Heinrich Klaproth (1789)',
         namedBy: null,
         naming: 'after zircon, zargun زرگون meaning "gold-colored"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Jöns Jakob Berzelius (1824)',
       },
     },
@@ -2696,7 +2831,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '92.90638 u ± 0.00002 u',
       boilingPoint: '4744 °C',
-      electronConfiguration: '4d45s1',
+      electronConfiguration: '4d<sup>4</sup> 5s<sup>1</sup>',
       electronegativity: '1.6',
       atomicRadius: null,
       ionRadius: null,
@@ -2722,7 +2857,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d4 5s1',
+        electronConfiguration: '4d<sup>4</sup> 5s<sup>1</sup>',
         perShell: '2, 8, 18, 12, 1',
       },
       physical: {
@@ -2737,6 +2872,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after Niobe in Greek mythology, daughter of Tantalus (tantalum)',
+        recognisedBy: 'Heinrich Rose (1844)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Christian Wilhelm Blomstrand (1864)',
       },
     },
@@ -2763,7 +2901,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '95.94 u ± 0.02 u',
       boilingPoint: '4639 °C',
-      electronConfiguration: '4d55s1',
+      electronConfiguration: '4d<sup>5</sup> 5s<sup>1</sup>',
       electronegativity: '2.16',
       atomicRadius: null,
       ionRadius: null,
@@ -2790,7 +2928,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d5 5s1',
+        electronConfiguration: '4d<sup>5</sup> 5s<sup>1</sup>',
         perShell: '2, 8, 18, 13, 1',
       },
       physical: {
@@ -2803,7 +2941,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Carl Wilhelm Scheele (1778)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from Greek Μόλυβδος, "lead", since its ores were confused with lead ores',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Peter Jacob Hjelm (1781)',
       },
     },
@@ -2830,7 +2972,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '98 u',
       boilingPoint: '4265 °C',
-      electronConfiguration: '4d55s2',
+      electronConfiguration: '4d<sup>5</sup> 5s<sup>2</sup>',
       electronegativity: '1.9',
       atomicRadius: null,
       ionRadius: null,
@@ -2856,7 +2998,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d5 5s2',
+        electronConfiguration: '4d<sup>5</sup> 5s<sup>2</sup>',
         perShell: '2, 8, 18, 13, 2',
       },
       physical: {
@@ -2869,7 +3011,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Emilio Segrè and Carlo Perrier (1937)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after Greek τεχνητός, "artificial", for being the first artificially produced element',
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1871)',
+        symbol: null,
         firstIsolation: 'Emilio Segrè and Carlo Perrier (1937)',
       },
     },
@@ -2896,7 +3042,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '101.07 u ± 0.02 u',
       boilingPoint: '4150 °C',
-      electronConfiguration: '4d75s1',
+      electronConfiguration: '4d<sup>7</sup> 5s<sup>1</sup>',
       electronegativity: '2.2',
       atomicRadius: null,
       ionRadius: null,
@@ -2922,7 +3068,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d7 5s1',
+        electronConfiguration: '4d<sup>7</sup> 5s<sup>1</sup>',
         perShell: '2, 8, 18, 15, 1',
       },
       physical: {
@@ -2933,10 +3079,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Karl Ernst Claus (1844)',
         namedBy: null,
-        naming: "after Ruthenia (Latin for: medieval Kyivska Rus' region)",
-        firstIsolation: null,
+        naming: 'from Latin Ruthenia for Russia',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Karl Ernst Claus (1844)',
       },
     },
   },
@@ -2962,7 +3111,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '102.9055 u ± 0.00002 u',
       boilingPoint: '3695 °C',
-      electronConfiguration: '4d85s1',
+      electronConfiguration: '4d<sup>8</sup> 5s<sup>1</sup>',
       electronegativity: '2.28',
       atomicRadius: null,
       ionRadius: null,
@@ -2989,7 +3138,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d8 5s1',
+        electronConfiguration: '4d<sup>8</sup> 5s<sup>1</sup>',
         perShell: '2, 8, 18, 16, 1',
       },
       physical: {
@@ -3002,7 +3151,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Hyde Wollaston (1804)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from Greek ῥόδον, "rose", for the color of one of its chlorine compounds',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'William Hyde Wollaston (1804)',
       },
     },
@@ -3029,7 +3182,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '106.42 u ± 0.01 u',
       boilingPoint: '2963 °C',
-      electronConfiguration: '4d10',
+      electronConfiguration: '4d<sup>10</sup>',
       electronegativity: '2.20',
       atomicRadius: null,
       ionRadius: null,
@@ -3055,7 +3208,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d10',
+        electronConfiguration: '4d<sup>10</sup>',
         perShell: '2, 8, 18, 18',
       },
       physical: {
@@ -3066,10 +3219,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'William Hyde Wollaston (1802)',
         namedBy: null,
         naming: 'after asteroid Pallas, itself named after Pallas Athena',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'William Hyde Wollaston (1802)',
       },
     },
   },
@@ -3095,7 +3251,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '107.8682 u',
       boilingPoint: '2,162 °C',
-      electronConfiguration: '4d105s1',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>1</sup>',
       electronegativity: '1.93',
       atomicRadius: null,
       ionRadius: null,
@@ -3121,7 +3277,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d10 5s1',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>1</sup>',
         perShell: '2, 8, 18, 18, 1',
       },
       physical: {
@@ -3134,7 +3290,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'before 5000 BC',
         namedBy: null,
-        naming: null,
+        naming: 'a non-Indo-European wanderwort',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Ag": from Latin argentum',
         firstIsolation: null,
       },
     },
@@ -3161,7 +3320,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '112.411 u ± 0.008 u',
       boilingPoint: '767 °C',
-      electronConfiguration: '4d105s2',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup>',
       electronegativity: '1.69',
       atomicRadius: null,
       ionRadius: null,
@@ -3188,7 +3347,7 @@ export const elements: Element[] = [
         period: 'period 5',
         elementCategory:
           'transition metal, alternatively considered a post-transition metal',
-        electronConfiguration: '4d10 5s2',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup>',
         perShell: '2, 8, 18, 18, 2',
       },
       physical: {
@@ -3199,10 +3358,16 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery:
+          'Karl Samuel Leberecht Hermann and Friedrich Stromeyer (1817)',
         namedBy: 'Friedrich Stromeyer (1817)',
-        naming: null,
-        firstIsolation: null,
+        naming:
+          'after calamine, in which it was found, itself named after Cadmea',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation:
+          'Karl Samuel Leberecht Hermann and Friedrich Stromeyer (1817)',
       },
     },
   },
@@ -3228,7 +3393,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '114.818 u ± 0.003 u',
       boilingPoint: '2,072 °C',
-      electronConfiguration: '4d105s25p1',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>1</sup>',
       electronegativity: '1.78',
       atomicRadius: null,
       ionRadius: null,
@@ -3254,7 +3419,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4d10 5s2 5p1',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>1</sup>',
         perShell: '2, 8, 18, 18, 3',
       },
       physical: {
@@ -3267,7 +3432,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Ferdinand Reich and Hieronymous Theodor Richter (1863)',
         namedBy: null,
-        naming: null,
+        naming: 'for the indigo blue line in its spectrum',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Hieronymous Theodor Richter (1864)',
       },
     },
@@ -3294,7 +3462,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '118.71 u',
       boilingPoint: '2,603 °C',
-      electronConfiguration: '4d105s25p2',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>2</sup>',
       electronegativity: '1.96',
       atomicRadius: null,
       ionRadius: null,
@@ -3320,7 +3488,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4d10 5s2 5p2',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>2</sup>',
         perShell: '2, 8, 18, 18, 4',
       },
       physical: {
@@ -3331,9 +3499,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'around 3500 BC',
+        discovery: 'protohistoric, around 35th century BC',
         namedBy: null,
-        naming: null,
+        naming: 'a Proto-Germanic word',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Sn": from Latin stannum',
         firstIsolation: null,
       },
     },
@@ -3360,7 +3531,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '121.76 u ± 0.001 u',
       boilingPoint: '1,635 °C',
-      electronConfiguration: 'd105s25p3',
+      electronConfiguration: 'd<sup>10</sup> 5s<sup>2</sup> 5p<sup>3</sup>',
       electronegativity: '2.05',
       atomicRadius: null,
       ionRadius: null,
@@ -3387,7 +3558,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'metalloid',
-        electronConfiguration: '4d10 5s2 5p3',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>3</sup>',
         perShell: '2, 8, 18, 18, 5',
       },
       physical: {
@@ -3398,9 +3569,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: '3000 BC',
+        discovery: 'Arabic alchemists (before AD 815)',
         namedBy: null,
-        naming: null,
+        naming:
+          'Uncertain. Possibly from Greek anti ("not") + monos ("alone"), for not occurring alone in nature',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Sb": from Latin stibium "stibnite"',
         firstIsolation: 'Vannoccio Biringuccio (1540)',
       },
     },
@@ -3427,7 +3602,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '127.6 u ± 0.03 u',
       boilingPoint: '987.8 °C',
-      electronConfiguration: '4d105s25p4',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>4</sup>',
       electronegativity: '2.1',
       atomicRadius: null,
       ionRadius: null,
@@ -3455,7 +3630,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'metalloid',
-        electronConfiguration: '4d10 5s2 5p4',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>4</sup>',
         perShell: '2, 8, 18, 18, 6',
       },
       physical: {
@@ -3469,6 +3644,9 @@ export const elements: Element[] = [
         discovery: 'Franz-Joseph Müller von Reichenstein (1782)',
         namedBy: null,
         naming: 'after Roman Tellus, deity of the Earth',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Martin Heinrich Klaproth',
       },
     },
@@ -3495,7 +3673,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '126.90447 u',
       boilingPoint: '184.3 °C',
-      electronConfiguration: '4d105s25p5',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>5</sup>',
       electronegativity: '2.66',
       atomicRadius: null,
       ionRadius: null,
@@ -3522,7 +3700,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'diatomic nonmetal',
-        electronConfiguration: '4d10 5s2 5p5',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>5</sup>',
         perShell: '2, 8, 18, 18, 7',
       },
       physical: {
@@ -3535,7 +3713,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Bernard Courtois (1811)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from the Ancient Greek ιώδης, "violet", for the color of its vapor',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Bernard Courtois (1811)',
       },
     },
@@ -3562,7 +3744,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '131.293 u ± 0.006 u',
       boilingPoint: '-108.1 °C',
-      electronConfiguration: '4d105s25p6',
+      electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>6</sup>',
       electronegativity: '2.6',
       atomicRadius: null,
       ionRadius: null,
@@ -3590,7 +3772,7 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 5',
         elementCategory: 'transition metal',
-        electronConfiguration: '4d10 5s2 5p6',
+        electronConfiguration: '4d<sup>10</sup> 5s<sup>2</sup> 5p<sup>6</sup>',
         perShell: '2, 8, 18, 18, 8',
       },
       physical: {
@@ -3603,7 +3785,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Ramsay and Morris Travers (1898)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from the Greek ξένος, meaning "foreign(er)", "strange(r)", or "guest"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'William Ramsay and Morris Travers (1898)',
       },
     },
@@ -3630,7 +3816,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '132.90545 u ± 2 × 10^-7 u',
       boilingPoint: '670.8 °C',
-      electronConfiguration: '6s1',
+      electronConfiguration: '6s<sup>1</sup>',
       electronegativity: '0.79',
       atomicRadius: null,
       ionRadius: null,
@@ -3656,7 +3842,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 6',
         elementCategory: 'alkali metal',
-        electronConfiguration: '6s1',
+        electronConfiguration: '6s<sup>1</sup>',
         perShell: '2, 8, 18, 18, 8, 1',
       },
       physical: {
@@ -3667,9 +3853,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Gustav Kirchhoff and Robert Bunsen (1860)',
         namedBy: null,
         naming: 'from Latin caesius, sky blue, for its spectral colours',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Carl Setterberg (1882)',
       },
     },
@@ -3696,7 +3885,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '137.327 u ± 0.007 u',
       boilingPoint: '1,845 °C',
-      electronConfiguration: '6s2',
+      electronConfiguration: '6s<sup>2</sup>',
       electronegativity: '0.89',
       atomicRadius: null,
       ionRadius: null,
@@ -3723,7 +3912,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 6',
         elementCategory: 'alkaline earth metals',
-        electronConfiguration: '6s2',
+        electronConfiguration: '6s<sup>2</sup>',
         perShell: '2, 8, 18, 18, 8, 2',
       },
       physical: {
@@ -3736,7 +3925,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Carl Wilhelm Scheele (1772)',
         namedBy: null,
-        naming: null,
+        naming: 'from Greek βαρὺς (barys), meaning "heavy"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Humphry Davy (1808)',
       },
     },
@@ -3763,7 +3955,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '138.90547 u ± 0.00007 u',
       boilingPoint: '3,464 °C',
-      electronConfiguration: '5d16s2',
+      electronConfiguration: '5d<sup>1</sup> 6s<sup>2</sup>',
       electronegativity: '1.10',
       atomicRadius: null,
       ionRadius: null,
@@ -3789,7 +3981,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide, sometimes considered a transition metal',
-        electronConfiguration: '5d1 6s2',
+        electronConfiguration: '5d<sup>1</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 18, 9, 2',
       },
       physical: {
@@ -3800,9 +3992,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Carl Gustaf Mosander (1839)',
+        discovery: 'Carl Gustaf Mosander (1838)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from the Greek λανθάνειν, "to lie hidden", for "hiding" in cerite',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -3829,7 +4025,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '140.116 u ± 0.001 u',
       boilingPoint: '3,443 °C',
-      electronConfiguration: '4f15d16s2',
+      electronConfiguration: '4f<sup>1</sup> 5d<sup>1</sup> 6s<sup>2</sup>',
       electronegativity: '1.12',
       atomicRadius: null,
       ionRadius: null,
@@ -3856,7 +4052,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f1 5d1 6s2',
+        electronConfiguration: '4f<sup>1</sup> 5d<sup>1</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 19, 9, 2',
       },
       physical: {
@@ -3868,11 +4064,14 @@ export const elements: Element[] = [
       },
       history: {
         discovery:
-          'Martin Heinrich Klaproth, Jöns Jakob Berzelius & Wilhelm Hisinger (1803)',
+          'Martin Heinrich Klaproth, Wilhelm Hisinger, Jöns Jakob Berzelius (1803)',
         namedBy: null,
         naming:
           'after dwarf planet Ceres, itself named after Roman deity of agriculture Ceres',
-        firstIsolation: 'Carl Gustaf Mosander (1838)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'William Francis Hillebrand (1875)',
       },
     },
   },
@@ -3898,7 +4097,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '140.90765 u ± 0.00002 u',
       boilingPoint: '3,512 °C',
-      electronConfiguration: '4f36s2',
+      electronConfiguration: '4f<sup>3</sup> 6s<sup>2</sup>',
       electronegativity: '1.13',
       atomicRadius: null,
       ionRadius: null,
@@ -3924,7 +4123,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f3 6s2',
+        electronConfiguration: '4f<sup>3</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 21, 8, 2',
       },
       physical: {
@@ -3937,7 +4136,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Carl Auer von Welsbach (1885)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after Greek πρασιος, "leek green" (for the color of its salts) and δίδυμος, "twin" (of lanthanum)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -3964,7 +4167,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '144.242 u ± 0.003 u',
       boilingPoint: '3,074 °C',
-      electronConfiguration: '4f46s2',
+      electronConfiguration: '4f<sup>4</sup> 6s<sup>2</sup>',
       electronegativity: '1.14',
       atomicRadius: null,
       ionRadius: null,
@@ -3990,7 +4193,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f4 6s2',
+        electronConfiguration: '4f<sup>4</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 22, 8, 2',
       },
       physical: {
@@ -4001,10 +4204,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Carl Auer von Welsbach (1885)',
-        namedBy: null,
-        naming: null,
-        firstIsolation: null,
+        discovery: 'Carl Gustaf Mosander (1841)',
+        namedBy: 'Carl Auer von Welsbach (1885)',
+        naming: 'after Greek νέος, "new", and δίδυμος, "twin" (of lanthanum)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Carl Auer von Welsbach (1885)',
       },
     },
   },
@@ -4030,7 +4236,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '145 u',
       boilingPoint: '3,000 °C',
-      electronConfiguration: '4f56s2',
+      electronConfiguration: '4f<sup>5</sup> 6s<sup>2</sup>',
       electronegativity: '1.13',
       atomicRadius: null,
       ionRadius: null,
@@ -4056,7 +4262,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f5 6s2',
+        electronConfiguration: '4f<sup>5</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 23, 8, 2',
       },
       physical: {
@@ -4067,11 +4273,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Chien Shiung Wu, Emilio Segrè, Hans Bethe (1942)',
+        discovery:
+          'Jacob A. Marinsky, Lawrence E. Glendenin, Charles D. Coryell (1945)',
         namedBy: 'Grace Mary Coryell (1945)',
-        naming: null,
-        firstIsolation:
-          'Charles D. Coryell, Jacob A. Marinsky, Lawrence E. Glendenin, Harold G. Richter (1945)',
+        naming: 'derived from Prometheus, the Titan in Greek mythology',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'F. Weigel (1963)',
       },
     },
   },
@@ -4097,7 +4306,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '150.36 u ± 0.02 u',
       boilingPoint: '1,900 °C',
-      electronConfiguration: '4f66s2',
+      electronConfiguration: '4f<sup>6</sup> 6s<sup>2</sup>',
       electronegativity: '1.17',
       atomicRadius: null,
       ionRadius: null,
@@ -4123,7 +4332,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f6 6s2',
+        electronConfiguration: '4f<sup>6</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 24, 8, 2',
       },
       physical: {
@@ -4134,11 +4343,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Lecoq de Boisbaudran (1879)',
         namedBy: null,
         naming:
-          'after the mineral samarskite (itself named after Vasili Samarsky-Bykhovets)',
-        firstIsolation: null,
+          'after the mineral samarskite (itself named after Vassili Samarsky-Bykhovets)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Wilhelm Muthmann (1903)',
       },
     },
   },
@@ -4164,7 +4376,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '151.964 u ± 0.001 u',
       boilingPoint: '1,529 °C',
-      electronConfiguration: '4f76s2',
+      electronConfiguration: '4f<sup>7</sup> 6s<sup>2</sup>',
       electronegativity: '1.2',
       atomicRadius: null,
       ionRadius: null,
@@ -4191,7 +4403,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f7 6s2',
+        electronConfiguration: '4f<sup>7</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 25, 8, 2',
       },
       physical: {
@@ -4202,10 +4414,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Eugène-Anatole Demarçay (1896)',
         namedBy: null,
         naming: 'after Europe',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '1937',
       },
     },
   },
@@ -4231,7 +4446,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '157.25 u ± 0.03 u',
       boilingPoint: '3,000 °C',
-      electronConfiguration: '4f75d16s2',
+      electronConfiguration: '4f<sup>7</sup> 5d<sup>1</sup> 6s<sup>2</sup>',
       electronegativity: '1.20',
       atomicRadius: null,
       ionRadius: null,
@@ -4257,7 +4472,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f7 5d1 6s2',
+        electronConfiguration: '4f<sup>7</sup> 5d<sup>1</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 25, 9, 2',
       },
       physical: {
@@ -4272,7 +4487,10 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after the mineral Gadolinite (itself named after Johan Gadolin)',
-        firstIsolation: 'Lecoq de Boisbaudran (1886)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Félix Trombe (1935)',
       },
     },
   },
@@ -4298,7 +4516,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '158.92535 u ± 0.00002 u',
       boilingPoint: '3,227 °C',
-      electronConfiguration: '4f96s2',
+      electronConfiguration: '4f<sup>9</sup> 6s<sup>2</sup>',
       electronegativity: '1.2',
       atomicRadius: null,
       ionRadius: null,
@@ -4325,7 +4543,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f9 6s2',
+        electronConfiguration: '4f<sup>9</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 27, 8, 2',
       },
       physical: {
@@ -4336,10 +4554,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Carl Gustaf Mosander (1843)',
         namedBy: null,
         naming: 'after Ytterby (Sweden), where it was mined',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Carl Gustaf Mosander (1843)',
       },
     },
   },
@@ -4365,7 +4586,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '162.5 u ± 0.001 u',
       boilingPoint: '2,562 °C',
-      electronConfiguration: '4f106s2',
+      electronConfiguration: '4f<sup>10</sup> 6s<sup>2</sup>',
       electronegativity: '1.22',
       atomicRadius: null,
       ionRadius: null,
@@ -4392,7 +4613,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f10 6s2',
+        electronConfiguration: '4f<sup>10</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 28, 8, 2',
       },
       physical: {
@@ -4405,8 +4626,12 @@ export const elements: Element[] = [
       history: {
         discovery: 'Lecoq de Boisbaudran (1886)',
         namedBy: null,
-        naming: null,
-        firstIsolation: null,
+        naming:
+          'after Greek δυσπρόσιτος, "hard to get", for requiring 30 attempts to isolate',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '	Georges Urbain (1905)',
       },
     },
   },
@@ -4432,7 +4657,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '164.93032 u ± 0.00002 u',
       boilingPoint: '2,600 °C',
-      electronConfiguration: '4f116s2',
+      electronConfiguration: '4f<sup>11</sup> 6s<sup>2</sup>',
       electronegativity: '1.23',
       atomicRadius: null,
       ionRadius: null,
@@ -4459,7 +4684,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f11 6s2',
+        electronConfiguration: '4f<sup>11</sup> 6s<sup>2</sup>',
         perShell: ', 8, 18, 29, 8, 2',
       },
       physical: {
@@ -4471,10 +4696,14 @@ export const elements: Element[] = [
       },
       history: {
         discovery:
-          'Marc Delafontaine, Jacques-Louis Soret, Per Teodor Cleve (1878)',
+          'Per Theodor Cleve, Jacques-Louis Soret and Marc Delafontaine (1878)',
         namedBy: null,
-        naming: null,
-        firstIsolation: null,
+        naming:
+          'from Holmia, the Latin name for the city of Stockholm, home town of its discoverer',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Heinrich Bommer (1939)',
       },
     },
   },
@@ -4500,7 +4729,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '167.259 u ± 0.003 u',
       boilingPoint: '2,868 °C',
-      electronConfiguration: '4f126s2',
+      electronConfiguration: '4f<sup>12</sup> 6s<sup>2</sup>',
       electronegativity: '1.24',
       atomicRadius: null,
       ionRadius: null,
@@ -4526,7 +4755,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f12 6s2',
+        electronConfiguration: '4f<sup>12</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 30, 8, 2',
       },
       physical: {
@@ -4540,7 +4769,10 @@ export const elements: Element[] = [
         discovery: 'Carl Gustaf Mosander (1843)',
         namedBy: null,
         naming: 'after Ytterby (Sweden), where it was mined',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Wilhelm Klemm and Heinrich Bommer (1934)',
       },
     },
   },
@@ -4566,7 +4798,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '168.93421 u ± 0.00002 u',
       boilingPoint: '1,950 °C',
-      electronConfiguration: '4f136s2',
+      electronConfiguration: '4f<sup>13</sup> 6s<sup>2</sup>',
       electronegativity: '1.25',
       atomicRadius: null,
       ionRadius: null,
@@ -4593,7 +4825,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide, sometimes considered a transition metal',
-        electronConfiguration: '4f13 6s2',
+        electronConfiguration: '4f<sup>13</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 31, 8, 2',
       },
       physical: {
@@ -4604,10 +4836,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Per Teodor Cleve (1879)',
         namedBy: null,
         naming: 'after Thule, a mythical region in Scandinavia',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Wilhelm Klemm and Heinrich Bommer (1936)',
       },
     },
   },
@@ -4633,7 +4868,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '173.04 u ± 0.03 u',
       boilingPoint: '1,196 °C',
-      electronConfiguration: '4f146s2',
+      electronConfiguration: '4f<sup>14</sup> 6s<sup>2</sup>',
       electronegativity: '1.1',
       atomicRadius: null,
       ionRadius: null,
@@ -4659,7 +4894,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 6',
         elementCategory: 'lanthanide',
-        electronConfiguration: '4f14 6s2',
+        electronConfiguration: '4f<sup>14</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 8, 2',
       },
       physical: {
@@ -4673,7 +4908,10 @@ export const elements: Element[] = [
         discovery: 'Jean Charles Galissard de Marignac (1878)',
         namedBy: null,
         naming: 'after Ytterby (Sweden), where it was mined',
-        firstIsolation: 'Carl Auer von Welsbach (1906)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Wilhelm Klemm and Heinrich Bommer (1936)',
       },
     },
   },
@@ -4699,7 +4937,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '174.967 u ± 0.001 u',
       boilingPoint: '3,402 °C',
-      electronConfiguration: '4f145d16s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>1</sup> 6s<sup>2</sup>',
       electronegativity: '1.27',
       atomicRadius: null,
       ionRadius: null,
@@ -4725,7 +4963,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '6s2 4f14 5d1',
+        electronConfiguration: '6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>1</sup>',
         perShell: '2, 8, 18, 32, 9, 2',
       },
       physical: {
@@ -4739,7 +4977,10 @@ export const elements: Element[] = [
         discovery: 'Carl Auer von Welsbach and Georges Urbain (1906)',
         namedBy: 'Georges Urbain (1906)',
         naming: 'after Lutetia, Latin for: Paris, in the Roman era',
-        firstIsolation: 'Carl Auer von Welsbach (1906)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '1953',
       },
     },
   },
@@ -4765,7 +5006,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '178.49 u ± 0.02 u',
       boilingPoint: '2,233 °C',
-      electronConfiguration: '4f145d26s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>2</sup> 6s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -4792,7 +5033,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d2 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>2</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 10, 2',
       },
       physical: {
@@ -4803,10 +5044,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Dirk Coster and George de Hevesy (1922)',
         namedBy: null,
         naming: 'after Hafnia. Latin for: Copenhagen, where it was discovered',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1869)',
+        symbol: null,
+        firstIsolation: 'Dirk Coster and George de Hevesy (1922)',
       },
     },
   },
@@ -4832,7 +5076,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '180.94788 u ± 0.00002 u',
       boilingPoint: '5,457 °C',
-      electronConfiguration: '4f145d36s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>3</sup> 6s<sup>2</sup>',
       electronegativity: '1.5',
       atomicRadius: null,
       ionRadius: null,
@@ -4858,7 +5102,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d3 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>3</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 11, 2',
       },
       physical: {
@@ -4871,7 +5115,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'Anders Gustaf Ekeberg (1802)',
         namedBy: null,
-        naming: null,
+        naming: 'after Tantalus, Greek mythological figure',
+        recognisedBy: 'Heinrich Rose (1844)',
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -4898,7 +5145,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '183.84 u ± 0.01 u',
       boilingPoint: '5,930 °C',
-      electronConfiguration: '4f145d46s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>4</sup> 6s<sup>2</sup>',
       electronegativity: '2.36',
       atomicRadius: null,
       ionRadius: null,
@@ -4924,7 +5171,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d4 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>4</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 12, 2',
       },
       physical: {
@@ -4935,9 +5182,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Carl Wilhelm Scheele (1781)',
+        discovery: 'Juan José Elhuyar and Fausto Elhuyar (1783)',
         namedBy: 'Torbern Bergman (1781)',
-        naming: null,
+        naming:
+          'the old Swedish name for the mineral scheelite, from which it was isolated; means "heavy stone"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol:
+          '"W": from Wolfram, originally from Middle High German wolf-rahm "wolf\'s foam" describing the mineral wolframite',
         firstIsolation: 'Juan José Elhuyar and Fausto Elhuyar (1783)',
       },
     },
@@ -4964,7 +5216,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '186.207 u ± 0.001 u',
       boilingPoint: '5,630 °C',
-      electronConfiguration: '4f145d56s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>5</sup> 6s<sup>2</sup>',
       electronegativity: '1.9',
       atomicRadius: null,
       ionRadius: null,
@@ -4991,7 +5243,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d5 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>5</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 13, 2',
       },
       physical: {
@@ -5005,6 +5257,9 @@ export const elements: Element[] = [
         discovery: 'Masataka Ogawa (1908)',
         namedBy: 'Walter Noddack, Ida Noddack, Otto Berg (1925)',
         naming: 'after the river Rhine (German: Rhein)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Masataka Ogawa (1919)',
       },
     },
@@ -5031,7 +5286,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '190.23 u ± 0.03 u',
       boilingPoint: '5,012 °C',
-      electronConfiguration: '4f145d66s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>6</sup> 6s<sup>2</sup>',
       electronegativity: '2.2',
       atomicRadius: null,
       ionRadius: null,
@@ -5058,7 +5313,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d6 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>6</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 14, 2',
       },
       physical: {
@@ -5071,7 +5326,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Smithson Tennant (1803)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after Greek osme, "a smell", for the smell of the volatile osmium tetroxide',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Smithson Tennant (1803)',
       },
     },
@@ -5098,7 +5357,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '192.217 u ± 0.003 u',
       boilingPoint: '4,130 °C',
-      electronConfiguration: '4f145d76s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>7</sup> 6s<sup>2</sup>',
       electronegativity: '2.20',
       atomicRadius: null,
       ionRadius: null,
@@ -5124,7 +5383,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d7 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>7</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 15, 2',
       },
       physical: {
@@ -5137,7 +5396,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Smithson Tennant (1803)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after Ἶρις, the Greek goddess of the rainbow, for the strong colors of its salts',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Smithson Tennant (1803)',
       },
     },
@@ -5164,7 +5427,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '195.084 u',
       boilingPoint: '3,825 °C',
-      electronConfiguration: '4f145d96s1',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>9</sup> 6s<sup>1</sup>',
       electronegativity: '2.28',
       atomicRadius: null,
       ionRadius: null,
@@ -5191,7 +5454,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d9 6s1',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>9</sup> 6s<sup>1</sup>',
         perShell: '2, 8, 18, 32, 17, 1',
       },
       physical: {
@@ -5202,10 +5465,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Antonio de Ulloa (1748)',
+        discovery: 'Antonio de Ulloa (1735)',
         namedBy: null,
-        naming: null,
-        firstIsolation: 'Antonio de Ulloa (1748)',
+        naming:
+          'from Spanish platina, diminutive of plata, "silver", for their similar appearance',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: null,
       },
     },
   },
@@ -5231,7 +5498,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '196.96657 u ± 0.000004 u',
       boilingPoint: '2,970 °C',
-      electronConfiguration: '4f145d106s1',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>1</sup>',
       electronegativity: '2.54',
       atomicRadius: null,
       ionRadius: null,
@@ -5257,7 +5524,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 6',
         elementCategory: 'transition metal',
-        electronConfiguration: '4f14 5d10 6s1',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>1</sup>',
         perShell: '2, 8, 18, 32, 18, 1',
       },
       physical: {
@@ -5270,7 +5537,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'In the Middle East (before 6000 BCE)',
         namedBy: null,
-        naming: 'from Latin aurum, meaning gold',
+        naming: 'from a Proto-Indo-European root meaning "yellow"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Au": from Latin aurum',
         firstIsolation: null,
       },
     },
@@ -5297,7 +5567,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '200.59 u ± 0.02 u',
       boilingPoint: '356.7 °C',
-      electronConfiguration: '4f145d106s2',
+      electronConfiguration: '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup>',
       electronegativity: '2.00',
       atomicRadius: null,
       ionRadius: null,
@@ -5325,7 +5595,7 @@ export const elements: Element[] = [
         period: 'period 6',
         elementCategory:
           'transition metal, alternatively considered a post-transition metal',
-        electronConfiguration: '4f14 5d10 6s2',
+        electronConfiguration: '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 18, 2',
       },
       physical: {
@@ -5336,9 +5606,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Ancient Chinese and Indians (before 2000 BCE)',
+        discovery: 'Ancient Egyptians (before 1500 BCE)',
         namedBy: null,
-        naming: null,
+        naming:
+          'from the planet Mercury, with which it was associated in medieval alchemy',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol:
+          '"Hg": from its Latin name hydrargyrum, itself from Greek hydrárgyros, "water-silver"',
         firstIsolation: null,
       },
     },
@@ -5365,7 +5640,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '204.3833 u ± 0.0002 u',
       boilingPoint: '1,473 °C',
-      electronConfiguration: '4f145d106s26p1',
+      electronConfiguration:
+        '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>1</sup>',
       electronegativity: '1.62',
       atomicRadius: null,
       ionRadius: null,
@@ -5391,7 +5667,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 6',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4f14 5d10 6s2 6p1',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>1</sup>',
         perShell: '2, 8, 18, 32, 18, 3',
       },
       physical: {
@@ -5404,7 +5681,10 @@ export const elements: Element[] = [
       history: {
         discovery: 'William Crookes (1861)',
         namedBy: null,
-        naming: null,
+        naming: 'after Greek thallos, green shoot or twig',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Claude-Auguste Lamy (1862)',
       },
     },
@@ -5431,7 +5711,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '207.2 u ± 0.1 u',
       boilingPoint: '1,749 °C',
-      electronConfiguration: '4f145d106s26p2',
+      electronConfiguration:
+        '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>2</sup>',
       electronegativity: '1.87',
       atomicRadius: null,
       ionRadius: null,
@@ -5457,7 +5738,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 6',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4f14 5d10 6s2 6p2',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>2</sup>',
         perShell: '2, 8, 18, 32, 18, 4',
       },
       physical: {
@@ -5468,9 +5750,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Middle Easterns (7000 BCE)',
+        discovery: 'Middle East (7000 BCE)',
         namedBy: null,
-        naming: null,
+        naming:
+          'possibly from a PIE root meaning “to flow”, for its low melting point',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: '"Pb": from Latin plumbum',
         firstIsolation: null,
       },
     },
@@ -5497,7 +5783,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '208.98040 u',
       boilingPoint: '1,564 °C',
-      electronConfiguration: '4f145d106s26p3',
+      electronConfiguration:
+        '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>3</sup>',
       electronegativity: '2.02',
       atomicRadius: null,
       ionRadius: null,
@@ -5523,7 +5810,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 6',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4f14 5d10 6s2 6p3',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>3</sup>',
         perShell: '2, 8, 18, 32, 18, 5',
       },
       physical: {
@@ -5534,9 +5822,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Claude François Geoffroy (1753)',
+        discovery: 'Arabic alchemists (before AD 1000)',
         namedBy: null,
-        naming: null,
+        naming:
+          'possibly from German Wismuth, itself perhaps from weiße Masse, "white mass"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -5563,7 +5855,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '209 u',
       boilingPoint: '962 °C',
-      electronConfiguration: '6s24f145d106p4',
+      electronConfiguration:
+        '6s<sup>2</sup> 4f<sup>14</sup> 5d<sup>10</sup> 6p<sup>4</sup>',
       electronegativity: '2.0',
       atomicRadius: null,
       ionRadius: null,
@@ -5589,7 +5882,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 6',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '4f14 5d10 6s2 6p4',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>4</sup>',
         perShell: '2, 8, 18, 32, 18, 6',
       },
       physical: {
@@ -5603,7 +5897,10 @@ export const elements: Element[] = [
         discovery: 'Pierre and Marie Curie (1898)',
         namedBy: null,
         naming: 'after Polonia, Latin for Poland, homeland of Marie Curie',
-        firstIsolation: 'Willy Marckwald (1902)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'William H. Beamer and Charles R. Maxwell (1946)',
       },
     },
   },
@@ -5629,7 +5926,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '210 u',
       boilingPoint: '336.8 °C',
-      electronConfiguration: '4f145d106s26p5',
+      electronConfiguration:
+        '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>5</sup>',
       electronegativity: '2.2',
       atomicRadius: null,
       ionRadius: null,
@@ -5656,7 +5954,8 @@ export const elements: Element[] = [
         period: 'period 6',
         elementCategory:
           'metalloid, sometimes classified as a nonmetal, or a metal',
-        electronConfiguration: '4f14 5d10 6s2 6p5',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>5</sup>',
         perShell: '2, 8, 18, 32, 18, 7',
       },
       physical: {
@@ -5670,7 +5969,10 @@ export const elements: Element[] = [
         discovery:
           'Dale R. Corson, Kenneth Ross MacKenzie, Emilio Segrè (1940)',
         namedBy: null,
-        naming: 'after Greek astatos (αστατος), meaning "unstable"',
+        naming: 'Ancient Greek ástatos (ἄστατος) "unstable"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -5697,7 +5999,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '222 u',
       boilingPoint: '-61.7 °C',
-      electronConfiguration: '4f145d106s26p6',
+      electronConfiguration:
+        '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>6</sup>',
       electronegativity: '2.2',
       atomicRadius: null,
       ionRadius: null,
@@ -5725,7 +6028,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 6',
         elementCategory: 'noble gas',
-        electronConfiguration: '4f14 5d10 6s2 6p6',
+        electronConfiguration:
+          '4f<sup>14</sup> 5d<sup>10</sup> 6s<sup>2</sup> 6p<sup>6</sup>',
         perShell: '2, 8, 18, 32, 18, 8',
       },
       physical: {
@@ -5738,7 +6042,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Ernest Rutherford and Robert B. Owens (1899)',
         namedBy: null,
-        naming: null,
+        naming:
+          'shortened from "radium emanation", since it is released as radium decays',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'William Ramsay and Robert Whytlaw-Gray (1910)',
       },
     },
@@ -5765,7 +6073,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '223 u',
       boilingPoint: '680 °C',
-      electronConfiguration: '7s1',
+      electronConfiguration: '7s<sup>1</sup>',
       electronegativity: '0.79',
       atomicRadius: null,
       ionRadius: null,
@@ -5792,7 +6100,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 7',
         elementCategory: 'alkali metal',
-        electronConfiguration: '7s1',
+        electronConfiguration: '7s<sup>1</sup>',
         perShell: '2, 8, 18, 32, 18, 8, 1',
       },
       physical: {
@@ -5803,10 +6111,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Marguerite Perey (1939)',
         namedBy: null,
         naming: 'after France, homeland of the discoverer',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: 'Marguerite Perey (1939)',
       },
     },
   },
@@ -5832,7 +6143,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '226 u',
       boilingPoint: '1,737 °C',
-      electronConfiguration: '7s2',
+      electronConfiguration: '7s<sup>2</sup>',
       electronegativity: '0.9',
       atomicRadius: null,
       ionRadius: null,
@@ -5858,7 +6169,7 @@ export const elements: Element[] = [
         block: 's-block',
         period: 'period 7',
         elementCategory: 'alkaline earth metal',
-        electronConfiguration: '7s2',
+        electronConfiguration: '7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 18, 8, 2',
       },
       physical: {
@@ -5871,7 +6182,11 @@ export const elements: Element[] = [
       history: {
         discovery: 'Pierre and Marie Curie (1898)',
         namedBy: null,
-        naming: null,
+        naming:
+          'after Latin radius (ray), for emitting in the form of rays as it decays',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Marie Curie (1910)',
       },
     },
@@ -5898,7 +6213,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '227 u',
       boilingPoint: '3,200 ± 300 °C',
-      electronConfiguration: '6d17s2',
+      electronConfiguration: '6d<sup>1</sup> 7s<sup>2</sup>',
       electronegativity: '1.1',
       atomicRadius: null,
       ionRadius: null,
@@ -5925,7 +6240,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide, sometimes considered a transition metal',
-        electronConfiguration: '6d1 7s2',
+        electronConfiguration: '6d<sup>1</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 18, 9, 2',
       },
       physical: {
@@ -5936,10 +6251,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Friedrich Oskar Giesel (1902)',
         namedBy: 'André-Louis Debierne (1899)',
-        naming: null,
-        firstIsolation: null,
+        naming: 'from the Ancient Greek ακτίς, "beam" or "ray"',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation:
+          '	Joseph G. Stites, Murrell L. Salutsky, Bob D. Stone (1955)',
       },
     },
   },
@@ -5965,7 +6284,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '227 u',
       boilingPoint: '4,027 °C',
-      electronConfiguration: '5f26d17s2',
+      electronConfiguration: '5f<sup>2</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
       electronegativity: '1.5',
       atomicRadius: null,
       ionRadius: null,
@@ -5982,8 +6301,8 @@ export const elements: Element[] = [
     },
     detail: {
       description: [
-        "protactinium or protoactinium (former name) is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states. The average concentrations of protactinium in the Earth's crust is typically on the order of a few parts per trillion, but may reach up to a few parts per million in some uraninite ore deposits. Because of its scarcity, high radioactivity and high toxicity, there are currently no uses for protactinium outside of scientific research, and for this purpose, protactinium is mostly extracted from spent nuclear fuel.",
-        'protactinium was first identified in 1913 by Kasimir Fajans and Oswald Helmuth Göhring and named brevium because of the short half-life of the specific isotope studied, namely protactinium-234. A more stable isotope (231Pa) of protactinium was discovered in 1917/18 by Otto Hahn and Lise Meitner, and they chose the name proto-actinium, but then the IUPAC named it finally protactinium in 1949 and confirmed Hahn and Meitner as discoverers.',
+        "Protactinium or protoactinium (former name) is a chemical element with symbol Pa and atomic number 91. It is a dense, silvery-gray metal which readily reacts with oxygen, water vapor and inorganic acids. It forms various chemical compounds where protactinium is usually present in the oxidation state +5, but can also assume +4 and even +2 or +3 states. The average concentrations of protactinium in the Earth's crust is typically on the order of a few parts per trillion, but may reach up to a few parts per million in some uraninite ore deposits. Because of its scarcity, high radioactivity and high toxicity, there are currently no uses for protactinium outside of scientific research, and for this purpose, protactinium is mostly extracted from spent nuclear fuel.",
+        'Protactinium was first identified in 1913 by Kasimir Fajans and Oswald Helmuth Göhring and named brevium because of the short half-life of the specific isotope studied, namely protactinium-234. A more stable isotope (231Pa) of protactinium was discovered in 1917/18 by Otto Hahn and Lise Meitner, and they chose the name proto-actinium, but then the IUPAC named it finally protactinium in 1949 and confirmed Hahn and Meitner as discoverers.',
       ],
       general: {
         appearance: 'bright, silvery metallic luster',
@@ -5991,7 +6310,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f2 6d1 7s2',
+        electronConfiguration: '5f<sup>2</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 20, 9, 2',
       },
       physical: {
@@ -6002,10 +6321,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: null,
+        discovery: 'Kasimir Fajans and Oswald Helmuth Göhring (1913)',
         namedBy: 'Otto Hahn and Lise Meitner (1917–8)',
-        naming: null,
-        firstIsolation: null,
+        naming:
+          'means "(nuclear) precursor of actinium," since some of its isotopes decay into actinium',
+        recognisedBy: null,
+        predictedBy: 'Dmitri Mendeleev (1871)',
+        symbol: null,
+        firstIsolation: 'Aristid von Grosse (1934)',
       },
     },
   },
@@ -6031,7 +6354,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '232.03806 u ± 0.00002 u',
       boilingPoint: '4,787 °C',
-      electronConfiguration: '6d27s2',
+      electronConfiguration: '6d<sup>2</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6057,7 +6380,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '6d2 7s2',
+        electronConfiguration: '6d<sup>2</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 18, 10, 2',
       },
       physical: {
@@ -6071,6 +6394,9 @@ export const elements: Element[] = [
         discovery: 'Jöns Jakob Berzelius (1829)',
         namedBy: null,
         naming: 'after Thor, the Norse god of thunder',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6097,7 +6423,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '238.02891 u ± 0.00003 u',
       boilingPoint: '4,131 °C',
-      electronConfiguration: '5f36d17s2',
+      electronConfiguration: '5f<sup>3</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
       electronegativity: '1.38',
       atomicRadius: null,
       ionRadius: null,
@@ -6124,7 +6450,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f3 6d1 7s2',
+        electronConfiguration: '5f<sup>3</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 21, 9, 2',
       },
       physical: {
@@ -6139,6 +6465,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after planet Uranus, itself named after Greek god of the sky Uranus',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: 'Eugène-Melchior Péligot (1841)',
       },
     },
@@ -6165,7 +6494,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '237 u',
       boilingPoint: '4,174 °C',
-      electronConfiguration: '5f46d17s2',
+      electronConfiguration: '5f<sup>4</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
       electronegativity: '1.36',
       atomicRadius: null,
       ionRadius: null,
@@ -6191,7 +6520,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f4 6d1 7s2',
+        electronConfiguration: '5f<sup>4</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 22, 9, 2',
       },
       physical: {
@@ -6206,6 +6535,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after planet Neptune, itself named after Roman god of the sea Neptune',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6232,7 +6564,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '244 u',
       boilingPoint: '3,228 °C',
-      electronConfiguration: '5f67s2',
+      electronConfiguration: '5f<sup>6</sup> 7s<sup>2</sup>',
       electronegativity: '1.28',
       atomicRadius: null,
       ionRadius: null,
@@ -6259,7 +6591,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f6 7s2',
+        electronConfiguration: '5f<sup>6</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 24, 8, 2',
       },
       physical: {
@@ -6275,6 +6607,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after dwarf planet Pluto, itself named after classical god of the underworld Pluto',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6301,7 +6636,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '243 u',
       boilingPoint: '2,607 °C',
-      electronConfiguration: '5f77s2',
+      electronConfiguration: '5f<sup>7</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6328,7 +6663,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f7 7s2',
+        electronConfiguration: '5f<sup>7</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 25, 8, 2',
       },
       physical: {
@@ -6343,6 +6678,9 @@ export const elements: Element[] = [
           'Glenn T. Seaborg, Ralph A. James, Leon O. Morgan, Albert Ghiorso (1944)',
         namedBy: null,
         naming: 'after the Americas',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6369,7 +6707,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '247 u',
       boilingPoint: '3,110 °C',
-      electronConfiguration: '5f76d17s2',
+      electronConfiguration: '5f<sup>7</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6395,7 +6733,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f7 6d1 7s2',
+        electronConfiguration: '5f<sup>7</sup> 6d<sup>1</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 25, 9, 2',
       },
       physical: {
@@ -6409,6 +6747,9 @@ export const elements: Element[] = [
         discovery: 'Glenn T. Seaborg, Ralph A. James, Albert Ghiorso (1944)',
         namedBy: null,
         naming: 'after Marie Skłodowska-Curie and Pierre Curie',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6435,7 +6776,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '247 u',
       boilingPoint: '2,627 °C',
-      electronConfiguration: '5f97s2',
+      electronConfiguration: '5f<sup>9</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6462,7 +6803,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f9 7s2',
+        electronConfiguration: '5f<sup>9</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 27, 8, 2',
       },
       physical: {
@@ -6476,6 +6817,9 @@ export const elements: Element[] = [
         discovery: 'Lawrence Berkeley National Laboratory (1949)',
         namedBy: null,
         naming: 'after Berkeley, California, where it was discovered',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6502,7 +6846,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '251 u',
       boilingPoint: '1,470 °C',
-      electronConfiguration: '5f107s2',
+      electronConfiguration: '5f<sup>10</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6528,7 +6872,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f10 7s2',
+        electronConfiguration: '5f<sup>10</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 28, 8, 2',
       },
       physical: {
@@ -6539,10 +6883,14 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Lawrence Berkeley National Laboratory (1950)',
+        discovery:
+          'S. G. Thompson, K. Street, Jr., A. Ghiorso and G. T. Seaborg (Lawrence Berkeley National Laboratory) (1950)',
         namedBy: null,
         naming: 'after California, where it was discovered',
-        firstIsolation: null,
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
+        firstIsolation: '	R. G. Haire and R. D. Baybarz (1974)',
       },
     },
   },
@@ -6568,7 +6916,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '252 u',
       boilingPoint: '996 °C',
-      electronConfiguration: '5f117s2',
+      electronConfiguration: '5f<sup>11</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6594,7 +6942,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f11 7s2',
+        electronConfiguration: '5f<sup>11</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 29, 8, 2',
       },
       physical: {
@@ -6608,6 +6956,9 @@ export const elements: Element[] = [
         discovery: 'Lawrence Berkeley National Laboratory (1952)',
         namedBy: null,
         naming: 'after Albert Einstein',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6634,7 +6985,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '257 u',
       boilingPoint: null,
-      electronConfiguration: '5f127s2',
+      electronConfiguration: '5f<sup>12</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6660,7 +7011,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f12 7s2',
+        electronConfiguration: '5f<sup>12</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 30, 8, 2',
       },
       physical: {
@@ -6671,9 +7022,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Lawrence Berkeley National Laboratory (1952)',
+        discovery: 'Lawrence Berkeley National Laboratory (1953)',
         namedBy: null,
         naming: 'after Enrico Fermi',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6700,7 +7054,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '258 u',
       boilingPoint: null,
-      electronConfiguration: '5f137s2',
+      electronConfiguration: '5f<sup>13</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6726,7 +7080,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f13 7s2',
+        electronConfiguration: '5f<sup>13</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 31, 8, 2',
       },
       physical: {
@@ -6740,6 +7094,9 @@ export const elements: Element[] = [
         discovery: 'Lawrence Berkeley National Laboratory (1955)',
         namedBy: null,
         naming: 'after Dmitri Mendeleev',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6766,7 +7123,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '259 u',
       boilingPoint: null,
-      electronConfiguration: '5f147s2',
+      electronConfiguration: '5f<sup>14</sup> 7s<sup>2</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6792,7 +7149,7 @@ export const elements: Element[] = [
         block: 'f-block',
         period: 'period 7',
         elementCategory: 'actinide',
-        electronConfiguration: '5f14 7s2',
+        electronConfiguration: '5f<sup>14</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 8, 2',
       },
       physical: {
@@ -6803,9 +7160,12 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Lawrence Berkeley National Laboratory (1950)',
+        discovery: 'Joint Institute for Nuclear Research (1965)',
         namedBy: null,
-        naming: 'after California, where it was discovered',
+        naming: 'after Alfred Nobel',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6832,7 +7192,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '262 u',
       boilingPoint: '-252.9 °C',
-      electronConfiguration: '5f147s27p1',
+      electronConfiguration: '5f<sup>14</sup> 7s<sup>2</sup> 7p<sup>1</sup>',
       electronegativity: '1.3',
       atomicRadius: null,
       ionRadius: null,
@@ -6860,7 +7220,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 7s2 7p1',
+        electronConfiguration: '5f<sup>14</sup> 7s<sup>2</sup> 7p<sup>1</sup>',
         perShell: '2, 8, 18, 32, 32, 8, 3',
       },
       physical: {
@@ -6875,6 +7235,9 @@ export const elements: Element[] = [
           'Lawrence Berkeley National Laboratory and Joint Institute for Nuclear Research (1961–1971)',
         namedBy: null,
         naming: 'after Ernest Lawrence',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6901,7 +7264,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '261 u',
       boilingPoint: '5500 °C',
-      electronConfiguration: '5f146d27s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>2</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -6928,7 +7291,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 6d2 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>2</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 10, 2',
       },
       physical: {
@@ -6939,9 +7302,13 @@ export const elements: Element[] = [
         density: null,
       },
       history: {
-        discovery: 'Joint Institute for Nuclear Research (1964)',
+        discovery:
+          'Joint Institute for Nuclear Research and Lawrence Berkeley National Laboratory (1969)',
         namedBy: null,
         naming: 'after Ernest Rutherford',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -6968,7 +7335,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '262 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d37s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>3</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -6995,7 +7362,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 6d3 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>3</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 11, 2',
       },
       physical: {
@@ -7007,10 +7374,13 @@ export const elements: Element[] = [
       },
       history: {
         discovery:
-          'independently by the University of California and the Joint Institute for Nuclear Research (1970)',
+          'independently by the Lawrence Berkeley Laboratory and the Joint Institute for Nuclear Research (1970)',
         namedBy: null,
         naming:
           'after Dubna, Moscow Oblast, Russia, site of the Joint Institute for Nuclear Research',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7037,7 +7407,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '266 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d27s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>2</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7063,7 +7433,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 6d4 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>4</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 12, 2',
       },
       physical: {
@@ -7077,6 +7447,9 @@ export const elements: Element[] = [
         discovery: 'Lawrence Berkeley National Laboratory (1974)',
         namedBy: null,
         naming: 'after Glenn T. Seaborg',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7103,7 +7476,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '264 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d57s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>5</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7129,7 +7502,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 6d5 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>5</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 13, 2',
       },
       physical: {
@@ -7143,6 +7516,9 @@ export const elements: Element[] = [
         discovery: 'Gesellschaft für Schwerionenforschung (1981)',
         namedBy: null,
         naming: 'after Niels Bohr',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7169,7 +7545,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '277 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d67s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>6</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7195,7 +7571,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'transition metal',
-        electronConfiguration: '5f14 6d6 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>6</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 14, 2',
       },
       physical: {
@@ -7210,6 +7586,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after Hassia, Latin for Hesse, Germany, where it was discovered',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7236,7 +7615,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '268 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d77s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>7</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7262,7 +7641,7 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a transition metal',
-        electronConfiguration: '5f14 6d7 7s2',
+        electronConfiguration: '5f<sup>14</sup> 6d<sup>7</sup> 7s<sup>2</sup>',
         perShell: '2, 8, 18, 32, 32, 15, 2',
       },
       physical: {
@@ -7276,6 +7655,9 @@ export const elements: Element[] = [
         discovery: 'Gesellschaft für Schwerionenforschung (1982)',
         namedBy: null,
         naming: 'after Lise Meitner',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7302,7 +7684,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '281 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d87s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>8</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7328,7 +7710,8 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a transition metal',
-        electronConfiguration: '5f14 6d8 7s2 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>8</sup> 7s<sup>2</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 16, 2 (predicted)',
       },
       physical: {
@@ -7342,6 +7725,9 @@ export const elements: Element[] = [
         discovery: 'Gesellschaft für Schwerionenforschung (1994)',
         namedBy: null,
         naming: 'after Darmstadt, Germany, where it was discovered',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7368,7 +7754,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '280 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d97s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>9</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7394,7 +7780,8 @@ export const elements: Element[] = [
         block: 'd-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a transition metal',
-        electronConfiguration: '5f14 6d9 7s2 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>9</sup> 7s<sup>2</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 17, 2 (predicted)',
       },
       physical: {
@@ -7408,6 +7795,9 @@ export const elements: Element[] = [
         discovery: 'Gesellschaft für Schwerionenforschung (1994)',
         namedBy: null,
         naming: 'after Wilhelm Röntgen',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7434,7 +7824,7 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '285 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d107s2',
+      electronConfiguration: '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7461,7 +7851,8 @@ export const elements: Element[] = [
         period: 'period 7',
         elementCategory:
           'transition metal, alternatively considered a post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 2 (predicted)',
       },
       physical: {
@@ -7475,6 +7866,9 @@ export const elements: Element[] = [
         discovery: 'Gesellschaft für Schwerionenforschung (1996)',
         namedBy: null,
         naming: 'after Nicolaus Copernicus',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7501,7 +7895,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '284 u',
       boilingPoint: '1,130 °C',
-      electronConfiguration: '5f146d107s27p1',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>1</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7528,7 +7923,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 7p1 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>1</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 3 (predicted)',
       },
       physical: {
@@ -7543,6 +7939,9 @@ export const elements: Element[] = [
           'RIKEN (2004, first undisputed)Joint Institute for Nuclear Research and Lawrence Livermore National Laboratory (2003, first announced)',
         namedBy: null,
         naming: 'after Japan (Nihon in Japanese)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7569,7 +7968,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '289 u',
       boilingPoint: '147 °C',
-      electronConfiguration: '5f146d107s27p1',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>1</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7596,7 +7996,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 7p2 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>2</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 4 (predicted)',
       },
       physical: {
@@ -7612,6 +8013,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after Flerov Laboratory of Nuclear Reactions (itself named after Georgy Flyorov)',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7638,7 +8042,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '288 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d107s27p3',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>3</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7665,7 +8070,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 7p3 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>3</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 5 (predicted)',
       },
       physical: {
@@ -7680,6 +8086,9 @@ export const elements: Element[] = [
           'Joint Institute for Nuclear Research and Lawrence Livermore National Laboratory (2003)',
         namedBy: null,
         naming: 'after Moscow region',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7706,7 +8115,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '293 u',
       boilingPoint: '762–862 °C',
-      electronConfiguration: '5f146d107s27p4',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>4</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7733,7 +8143,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 7p4 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>4</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 6 (predicted)',
       },
       physical: {
@@ -7749,6 +8160,9 @@ export const elements: Element[] = [
         namedBy: null,
         naming:
           'after Lawrence Livermore National Laboratory, itself named partly after Livermore, California',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7775,7 +8189,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '294 u',
       boilingPoint: null,
-      electronConfiguration: '5f146d107s27p5',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>5</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7802,7 +8217,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'unknown, but probably a post-transition metal',
-        electronConfiguration: '5f14 6d10 7s2 7p5 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>5</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 7 (predicted)',
       },
       physical: {
@@ -7817,6 +8233,9 @@ export const elements: Element[] = [
           'Joint Institute for Nuclear Research & Lawrence Livermore National Laboratory and Oak Ridge National Laboratory (2010)',
         namedBy: null,
         naming: 'after Tennessee region',
+        recognisedBy: null,
+        predictedBy: null,
+        symbol: null,
         firstIsolation: null,
       },
     },
@@ -7843,7 +8262,8 @@ export const elements: Element[] = [
     summary: {
       atomicMass: '294 u',
       boilingPoint: '80±30 °C',
-      electronConfiguration: '5f146d107s27p6',
+      electronConfiguration:
+        '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>6</sup>',
       electronegativity: null,
       atomicRadius: null,
       ionRadius: null,
@@ -7870,7 +8290,8 @@ export const elements: Element[] = [
         block: 'p-block',
         period: 'period 7',
         elementCategory: 'unknown, but predicted to be a noble gas',
-        electronConfiguration: '5f14 6d10 7s2 7p6 (predicted)',
+        electronConfiguration:
+          '5f<sup>14</sup> 6d<sup>10</sup> 7s<sup>2</sup> 7p<sup>6</sup> (predicted)',
         perShell: '2, 8, 18, 32, 32, 18, 8 (predicted)',
       },
       physical: {
@@ -7885,6 +8306,9 @@ export const elements: Element[] = [
           'Joint Institute for Nuclear Research and Lawrence Livermore National Laboratory (2002)',
         namedBy: null,
         naming: 'after Yuri Oganessian',
+        recognisedBy: null,
+        predictedBy: 'Hans Peter Jørgen Julius Thomsen (1895)',
+        symbol: null,
         firstIsolation: null,
       },
     },

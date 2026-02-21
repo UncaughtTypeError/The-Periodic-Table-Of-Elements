@@ -77,6 +77,9 @@ export interface ElementHistory {
   discovery: string | null;
   namedBy: string | null;
   naming: string | null;
+  recognisedBy: string | null;
+  predictedBy: string | null;
+  symbol: string | null;
   firstIsolation: string | null;
 }
 

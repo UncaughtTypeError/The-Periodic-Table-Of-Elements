@@ -8,6 +8,7 @@ import {
   occurrenceLabelMap,
 } from '@/components/common/stateIconMap';
 import { Tooltip } from '@/components/common/Tooltip';
+import { renderFormattedText } from '@/utils/renderFormattedText';
 import modalStyles from './Modal.module.css';
 import styles from './ElementDetail.module.css';
 
@@ -280,7 +281,7 @@ export function ElementDetail({
               {summary.electronConfiguration && (
                 <li>
                   <strong>Electron configuration:</strong>{' '}
-                  {summary.electronConfiguration}
+                  {renderFormattedText(summary.electronConfiguration)}
                 </li>
               )}
               {summary.electronegativity && (
@@ -385,7 +386,9 @@ export function ElementDetail({
                   {detail.general.electronConfiguration && (
                     <li>
                       <strong>Electron configuration:</strong>{' '}
-                      {detail.general.electronConfiguration}
+                      {renderFormattedText(
+                        detail.general.electronConfiguration,
+                      )}
                     </li>
                   )}
                   {detail.general.perShell && (
@@ -439,6 +442,9 @@ export function ElementDetail({
             {(detail.history.discovery ||
               detail.history.namedBy ||
               detail.history.naming ||
+              detail.history.recognisedBy ||
+              detail.history.predictedBy ||
+              detail.history.symbol ||
               detail.history.firstIsolation ||
               summary.discovered ||
               summary.discoverer) && (
@@ -464,6 +470,23 @@ export function ElementDetail({
                   {detail.history.naming && (
                     <li>
                       <strong>Naming:</strong> {detail.history.naming}
+                    </li>
+                  )}
+                  {detail.history.recognisedBy && (
+                    <li>
+                      <strong>Recognised by:</strong>{' '}
+                      {detail.history.recognisedBy}
+                    </li>
+                  )}
+                  {detail.history.predictedBy && (
+                    <li>
+                      <strong>Predicted by:</strong>{' '}
+                      {detail.history.predictedBy}
+                    </li>
+                  )}
+                  {detail.history.symbol && (
+                    <li>
+                      <strong>Symbol origin:</strong> {detail.history.symbol}
                     </li>
                   )}
                   {detail.history.firstIsolation && (
