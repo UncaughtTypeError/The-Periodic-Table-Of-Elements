@@ -1,19 +1,27 @@
 # <img src="public/favicon.svg" width="32" height="32" alt="Logo" /> The Periodic Table of Elements
 
-An interactive periodic table application built with React and TypeScript. Browse all 118 elements, filter by category or threat level, and view detailed information for each element.
+An interactive periodic table application built with React and TypeScript. Browse all 118 elements with detailed properties, pronunciation guides, filtering by category, electron block, threat level, and more.
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9c636c1d-8a67-42ae-b424-7bf16d9592e0/deploy-status)](https://app.netlify.com/projects/periodic-table-of-chemical-elements/deploys)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Features
 
-- **Interactive Element Grid**: Click any element to view detailed information including physical properties, history, and discovery
-- **Lanthanoid & Actinoid Series**: Dedicated detail panels for the lanthanoid and actinoid series with mini periodic table visualization
+- **Interactive Element Grid**: Click any element to view detailed information including physical properties, electron configuration, history, and discovery
+- **Pronunciation Guides**: IPA transcription and simplified respelling for every element, with text-to-speech playback via the Web Speech API
+- **Formatted Electron Configurations**: Superscript notation for subshell electron counts (e.g. 3d&#x2076; 4s&#xB2;)
 - **Category Filtering**: Filter elements by 10 categories (alkali metals, noble gases, transition metals, etc.)
+- **Electron Block Filtering**: Filter by s-block, p-block, d-block, or f-block
+- **State of Matter Indicators**: Visual icons showing solid, liquid, or gas standard state for each element
+- **Natural Occurrence Indicators**: Icons distinguishing primordial, from-decay, and synthetic elements
+- **Radioactivity Indicators**: Clear visual markers for radioactive elements
 - **Threat Level Indicators**: Visual indicators for elements with limited availability, rising threats, or serious supply concerns
+- **Lanthanoid & Actinoid Series**: Dedicated detail panels with mini periodic table visualization highlighting the series in context
+- **Endangered Element Badges**: Warning badges with severity dots for elements facing supply threats
 - **Synthetic Element Display**: Synthetic elements display atomic mass in [brackets] to indicate no stable isotopes
-- **Responsive Design**: Works on desktop, tablet, and mobile devices
-- **Accessible**: Keyboard navigation and ARIA attributes for screen readers
+- **Legend with Interactive Filters**: Clickable legend items that double as filters for state of matter and radioactivity
+- **Responsive Design**: Works on desktop, tablet, and mobile devices with adaptive cell sizing
+- **Accessible**: Keyboard navigation, ARIA attributes, tooltips, and screen reader support
 
 ## Tech Stack
 
@@ -62,33 +70,13 @@ npm test
 Run tests with coverage:
 
 ```bash
-npm run coverage
+npm run test:coverage
 ```
 
-## Project Structure
+### Linting
 
-```
-src/
-├── components/
-│   ├── Element/           # ElementCell component
-│   ├── ElementDetail/     # Detail panels (ElementDetail, SeriesDetail, Modal styles)
-│   ├── PeriodicTable/     # Main table grid
-│   ├── CategoryFilter/    # Category filter buttons
-│   ├── ThreatFilter/      # Threat level filter
-│   ├── Footer/            # Page footer
-│   └── common/            # Shared components
-├── data/
-│   ├── elements.ts        # All 118 elements data
-│   ├── categories.ts      # Category definitions
-│   ├── series.ts          # Lanthanoid/Actinoid series data
-│   └── tableLayout.ts     # Grid positioning
-├── hooks/
-│   └── usePeriodicTableState.ts  # State management
-├── types/
-│   └── element.types.ts   # TypeScript interfaces
-└── styles/
-    ├── variables.css      # CSS custom properties
-    └── global.css         # Global styles
+```bash
+npm run lint
 ```
 
 ## Element Categories
@@ -105,6 +93,27 @@ src/
 | Alkali Metals          | 6     | Li, Na, K, Rb, Cs, Fr      |
 | Alkaline Earth Metals  | 6     | Be, Mg, Ca, Sr, Ba, Ra     |
 | Halogens               | 5     | F, Cl, Br, I, At           |
+
+## Contributing
+
+Contributions are welcome! If you spot an error in element data, pronunciation, or have a feature suggestion:
+
+1. **Open an issue** on [GitHub Issues](https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements/issues) describing the correction or suggestion
+2. **Fork the repo** and submit a pull request for code changes
+3. For data corrections (pronunciation, element properties, history), please include a reference source
+
+### Running Checks Before Submitting
+
+```bash
+npm run lint
+npm run test:run
+npm run build
+```
+
+## Contact
+
+- **GitHub Issues**: [Report bugs or request features](https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements/issues)
+- **Repository**: [github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements](https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements)
 
 ## License
 
