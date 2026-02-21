@@ -119,6 +119,11 @@ export interface ThreatDefinition {
   iconCount: number;
 }
 
+export interface ElementPronunciation {
+  ipa: string;
+  respelling: string;
+}
+
 export type SeriesType = 'lanthanoids' | 'actinoids';
 
 export interface SeriesPlaceholder {

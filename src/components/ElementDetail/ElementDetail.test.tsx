@@ -343,4 +343,27 @@ describe('ElementDetail', () => {
     fireEvent.mouseEnter(icons[0].closest('span')!);
     expect(screen.getByRole('tooltip')).toHaveTextContent('Radioactive');
   });
+
+  it('renders pronunciation row with IPA and respelling', () => {
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(screen.getByText('Pronunciation:')).toBeInTheDocument();
+    expect(screen.getByText(/HY-druh-jun/)).toBeInTheDocument();
+  });
+
+  it('renders speaker button with aria label when speechSynthesis is available', () => {
+    Object.defineProperty(window, 'speechSynthesis', {
+      value: { speak: vi.fn(), cancel: vi.fn() },
+      writable: true,
+      configurable: true,
+    });
+
+    render(
+      <ElementDetail element={mockHydrogen} isOpen={true} onClose={vi.fn()} />,
+    );
+    expect(
+      screen.getByRole('button', { name: /pronounce hydrogen/i }),
+    ).toBeInTheDocument();
+  });
 });

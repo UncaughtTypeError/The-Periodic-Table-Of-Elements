@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
 import type { Element, ElementCategory, ThreatLevel } from '@/types';
-import { getStandardState, isRadioactive, getNaturalOccurrence } from '@/data';
-import { RadioactiveIcon } from '@/components/common/icons';
+import {
+  getStandardState,
+  isRadioactive,
+  getNaturalOccurrence,
+  getPronunciation,
+} from '@/data';
+import { useSpeechSynthesis } from '@/hooks';
+import { RadioactiveIcon, SpeakerIcon } from '@/components/common/icons';
 import {
   stateIconMap,
   occurrenceIconMap,
@@ -139,6 +145,8 @@ export function ElementDetail({
     };
   }, [isOpen]);
 
+  const { speak, isSpeaking, isSupported } = useSpeechSynthesis();
+
   if (!element) {
     return null;
   }
@@ -155,6 +163,8 @@ export function ElementDetail({
     summary,
     detail,
   } = element;
+
+  const pronunciation = getPronunciation(symbol);
 
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
@@ -258,6 +268,30 @@ export function ElementDetail({
             </div>
 
             <ul className={styles.propertyList}>
+              {pronunciation && (
+                <li className={styles.pronunciationRow}>
+                  <strong>Pronunciation:</strong>{' '}
+                  <span className={styles.ipa}>{pronunciation.ipa}</span>
+                  {isSupported && (
+                    <Tooltip
+                      content={isSpeaking ? 'Speaking...' : 'Listen'}
+                      position="top"
+                    >
+                      <button
+                        className={styles.speakerButton}
+                        onClick={() => speak(name)}
+                        aria-label={`Pronounce ${name}`}
+                        disabled={isSpeaking}
+                      >
+                        <SpeakerIcon size={16} />
+                      </button>
+                    </Tooltip>
+                  )}
+                  <span className={styles.respelling}>
+                    ({pronunciation.respelling})
+                  </span>
+                </li>
+              )}
               <li>
                 <strong>Symbol:</strong> <sub>{atomicNumber}</sub>
                 {symbol}

@@ -47,6 +47,50 @@
   opacity: 0.6;
 }
 
+/* Pronunciation row */
+.pronunciationRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.ipa {
+  font-style: italic;
+  color: #555;
+}
+
+.respelling {
+  color: #666;
+  font-size: 13px;
+}
+
+.speakerButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2px 4px;
+  color: #555;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+  flex-shrink: 0;
+}
+
+.speakerButton:hover:not(:disabled) {
+  background-color: #e8e8e8;
+  color: #333;
+}
+
+.speakerButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Property list */
 .propertyList {
   border-top: 1px solid #e2e2e2;

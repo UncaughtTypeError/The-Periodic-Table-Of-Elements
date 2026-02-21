@@ -17,3 +17,4 @@ export {
   isRadioactive,
   getNaturalOccurrence,
 } from './elementProperties';
+export { getPronunciation } from './pronunciations';
