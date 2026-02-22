@@ -51,6 +51,15 @@ export function Footer() {
           Legacy Version
           <ExternalLinkIcon />
         </a>
+        <span className={styles.divider}>|</span>
+        <a
+          href="https://github.com/UncaughtTypeError/The-Periodic-Table-Of-Elements/issues"
+          target="_blank"
+          rel="noopener"
+        >
+          Corrections & Suggestions
+          <ExternalLinkIcon />
+        </a>
       </div>
     </footer>
   );

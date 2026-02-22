@@ -33,7 +33,7 @@
 }
 
 .divider {
-  color: var(--color-border);
+  color: var(--color-text-muted);
 }
 
 @media (max-width: 768px) {
